@@ -116,4 +116,3 @@ https://www.figma.com/design/fMNLgmhX0WqSTmgvktCdX7/%E7%94%BB%E9%9D%A2%E9%81%B7%
 
 ## ■ ER図
 [![Image from Gyazo](https://i.gyazo.com/2a48c6d179dfa091483ccb302032884a.png)](https://gyazo.com/2a48c6d179dfa091483ccb302032884a)
-# Miniita
