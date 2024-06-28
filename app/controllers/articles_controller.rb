@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
-  skip_before_action :require_login
+  skip_before_action :require_login, only: [:index]
   
   def index
-    @articles = Article.all
+    @articles = Article.includes(:user).all
   end
 
   def new
