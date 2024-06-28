@@ -1,4 +1,6 @@
 class UsersessionsController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create]
+
   def new
     @user = login(params[:email], params[:password])
   end

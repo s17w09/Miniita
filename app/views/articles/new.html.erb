@@ -1,0 +1,16 @@
+<div class="bg-white mb-10">
+  <div class= "w-5/6 mx-auto max-w-screen-xl w-">
+    <div class="text-xl  flex justify-center h-screen w-full"> 
+      <div class="w-full h-full flex flex-col ">
+        <%= form_with model: @article do |form| %>
+          <%= form.label :title, "タイトル", class: "bg-white text-gray-600 " %>
+          <%= form.text_field :title, placeholder: 'タイトル', class: 'bg-white text-gray-600 textarea textarea-bordered mb-4 w-full'%>
+          <br>
+          <%= form.label :body, "本文", class: "bg-white text-gray-600" %>
+          <%= form.text_area :body, placeholder: '本文', class: "bg-white text-gray-600 textarea textarea-bordered w-full mb-4 h-full" %>
+          <%= form.submit "投稿する", class: "mt-10 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
