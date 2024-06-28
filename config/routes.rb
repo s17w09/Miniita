@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   root 'staticpages#top'
   resources :users, only: [:new, :create]
-  resources :articles, only: [:index, :new, :create]
+  resources :articles, only: [:index, :new, :create, :show]
   
   get 'login' => 'usersessions#new', :as => :login
   post 'login' => "usersessions#create"
