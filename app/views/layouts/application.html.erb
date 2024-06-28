@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <!------ヘッダーの出し分け------------->
+    <% if current_user %>
+      <%= render "shared/after_login_header" %>
+    <% else %>
+      <%= render "shared/before_login_header" %>
+    <% end %>
+    <!--------------------------------->
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,15 @@
+<header class="bg-black">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <div class="flex lg:flex-1">
+      <%= link_to root_path do %>
+        <%= image_tag "logo.jpeg", class: "card-img-top", width: "100", height:"100" %>
+      <% end %>
+    </div>
+    <div class="lg:flex lg:gap-x-12 font-biz">
+      
+    </div>
+    <div class="lg:flex lg:flex-1 lg:justify-end font-biz">
+      <%= link_to 'ログイン', :login, class: 'text-sm font-semibold leading-6 text-slate-200' %>
+    </div>
+  </nav>
+</header>
