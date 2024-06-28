@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  skip_before_action :require_login, only: [:index]
+  skip_before_action :require_login, only: [:index, :show]
   
   def index
     @articles = Article.includes(:user).all
@@ -17,6 +17,10 @@ class ArticlesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @article = Article.find(params[:id])
   end
 
   private
