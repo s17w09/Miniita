@@ -4,7 +4,7 @@
     <% if @articles.present? %>
       <% @articles.each do |article| %>
       <div class="p-4 border rounded-lg">
-        <h2 class="text-xl mt-2 text-gray-600"><%= link_to article.title, article_path(article) %></h2> 
+        <h2 class="text-xl mt-2 text-gray-600"><%= link_to article.title %></h2> 
         <h3 class="text-sm text-gray-600">作成日：<%= l article.created_at, format: :long%></h3>
         <h3 class="text-sm text-gray-600"><%= article.user.name %></h3>
       </div>
