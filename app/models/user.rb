@@ -2,6 +2,7 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   has_many :articles, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 10 }
   validates :email, uniqueness: true, presence: true
