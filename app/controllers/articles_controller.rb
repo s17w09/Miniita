@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
-  
+  before_action :set_article, only: [:edit, :update, :destroy]
   def index
     @articles = Article.includes(:user).all
   end
@@ -23,12 +23,9 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  def edit
-    @article = current_user.articles.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @article = current_user.articles.find(params[:id])
     if @article.update(article_params)
       redirect_to article_path(@article)
     end
@@ -36,7 +33,6 @@ class ArticlesController < ApplicationController
 
 
   def destroy
-    @article = current_user.articles.find(params[:id])
     @article.destroy!
     redirect_to articles_path
   end
@@ -45,5 +41,9 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :body)
+  end
+
+  def set_article
+    @article = current_user.articles.find(params[:id])
   end
 end
