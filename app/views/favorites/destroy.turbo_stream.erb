@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "unfavorite-#{@article.id}" do %>
+  <%= render 'articles/favorite', article: @article %>
+<% end %>

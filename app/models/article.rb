@@ -12,4 +12,8 @@ class Article < ApplicationRecord
   def favorited?(user, type)
     favorites.where(user_id: user.id, favorite_type: type).exists?
   end
+
+  def favorite?
+    favorites.exists?
+  end
 end
