@@ -12,10 +12,36 @@
   </div>
 
   <div class= "flex justify-center gap-7 text-xl">
+<div class= "flex justify-center gap-7 text-xl">
+  <% if @article.favorited?(current_user, :like_first) %>
+    <%= render 'articles/first_unfavorite', article: @article %>
+    <% else %>
+    <%= render 'articles/first_favorite', article: @article %>
+   <% end %>
 
-    <%= render 'articles/unfavorite', article: @article %>
+   <% if @article.favorited?(current_user, :like_second) %>
+   <%= render 'articles/second_unfavorite', article: @article %>
+    <% else %>
+    <%= render 'articles/second_favorite', article: @article %>
+   <% end %>
 
-    <%= render 'articles/favorite', article: @article %>
+   <% if @article.favorited?(current_user, :like_third) %>
+   <%= render 'articles/third_unfavorite', article: @article %>
+    <% else %>
+    <%= render 'articles/third_favorite', article: @article %>
+   <% end %>
+
+   <% if @article.favorited?(current_user, :like_forth) %>
+   <%= render 'articles/forth_unfavorite', article: @article %>
+    <% else %>
+    <%= render 'articles/forth_favorite', article: @article %>
+   <% end %>
+
+   <% if @article.favorited?(current_user, :like_fifth) %>
+   <%= render 'articles/fifth_unfavorite', article: @article %>
+    <% else %>
+    <%= render 'articles/fifth_favorite', article: @article %>
+   <% end %>
 
   </div>
 </div>
