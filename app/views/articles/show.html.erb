@@ -1,18 +1,48 @@
-<div class="bg-white">
-  <div class= "w-5/6 mx-auto max-w-screen-xl">
-    <div class=" bg-white text-gray-600 textarea textarea-bordered w-full h-full " >
+
       <h1 class="text-3xl mt-5 flex justify-center"><%= @article.title %></h1>
       <h2 class="text-base mt-5 flex justify-center"><%=l @article.created_at, format: :long %></h2>
       <h3 class="flex justify-center mt-10 bg-white"><%= @article.body %></h3>
-  </div>
+
+
   <div class= "flex justify-center gap-7 mb-10 mt-10">
     <% if @article.user == current_user %>
       <%=link_to '編集', edit_article_path(@article), class: "rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
       <%=link_to '削除', article_path(@article), data: { turbo_method: :delete, turbo_confirm: '投稿を削除しますか？' }, class: "rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
     <% end %>
   </div>
+
   <div class= "flex justify-center gap-7 text-xl">
-    <%= render 'favorite', article: @article %>
+<div class= "flex justify-center gap-7 text-xl">
+  <% if @article.favorited?(current_user, :like_first) %>
+    <%= render 'articles/first_unfavorite', article: @article %>
+    <% else %>
+    <%= render 'articles/first_favorite', article: @article %>
+   <% end %>
+
+   <% if @article.favorited?(current_user, :like_second) %>
+   <%= render 'articles/second_unfavorite', article: @article %>
+    <% else %>
+    <%= render 'articles/second_favorite', article: @article %>
+   <% end %>
+
+   <% if @article.favorited?(current_user, :like_third) %>
+   <%= render 'articles/third_unfavorite', article: @article %>
+    <% else %>
+    <%= render 'articles/third_favorite', article: @article %>
+   <% end %>
+
+   <% if @article.favorited?(current_user, :like_forth) %>
+   <%= render 'articles/forth_unfavorite', article: @article %>
+    <% else %>
+    <%= render 'articles/forth_favorite', article: @article %>
+   <% end %>
+
+   <% if @article.favorited?(current_user, :like_fifth) %>
+   <%= render 'articles/fifth_unfavorite', article: @article %>
+    <% else %>
+    <%= render 'articles/fifth_favorite', article: @article %>
+   <% end %>
+
   </div>
 </div>
 </div>

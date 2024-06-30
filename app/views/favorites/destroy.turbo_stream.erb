@@ -1,0 +1,19 @@
+<%= turbo_stream.replace "first-unfavorite-#{@article.id}" do %>
+  <%= render 'articles/first_favorite', article: @article %>
+<% end %>
+
+<%= turbo_stream.replace "second-unfavorite-#{@article.id}" do %>
+  <%= render 'articles/second_favorite', article: @article %>
+<% end %>
+
+<%= turbo_stream.replace "third-unfavorite-#{@article.id}" do %>
+  <%= render 'articles/third_favorite', article: @article %>
+<% end %>
+
+<%= turbo_stream.replace "forth-unfavorite-#{@article.id}" do %>
+  <%= render 'articles/forth_favorite', article: @article %>
+<% end %>
+
+<%= turbo_stream.replace "fifth-unfavorite-#{@article.id}" do %>
+  <%= render 'articles/fifth_favorite', article: @article %>
+<% end %>
