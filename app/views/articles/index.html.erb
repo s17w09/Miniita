@@ -1,5 +1,11 @@
 <div class= "bg-white">
   <div class= "w-5/6 mx-auto max-w-screen-xl">
+  <div class="text-lg flex justify-center">
+    <%= search_form_for @q do |f| %>
+    <%= f.search_field :user_name_or_title_or_body_cont, class: "text-black bg-white input input-bordered" %>
+    <%= f.submit '検索', class: "text-gray-600 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
+    <% end %>
+  </div>
   <div class= "grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
     <% if @articles.present? %>
       <% @articles.each do |article| %>

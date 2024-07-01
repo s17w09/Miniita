@@ -16,4 +16,16 @@ class Article < ApplicationRecord
   def favorite?
     favorites.exists?
   end
+
+  # name_cont追加時に追加
+  def self.ransackable_attributes(auth_object = nil)
+    ["body", "created_at", "id", "id_value", "title", "updated_at", "user_id"]
+  end
+
+  # name_cont追加時に追加
+  def self.ransackable_associations(auth_object = nil)
+    ["favorites", "user"]
+  end
+    
+
 end
