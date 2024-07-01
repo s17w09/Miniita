@@ -1,8 +1,10 @@
 class ArticlesController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
   before_action :set_article, only: [:edit, :update, :destroy]
+
   def index
-    @articles = Article.includes(:user).all
+    @q = Article.ransack(params[:q])
+    @articles = @q.result(distinct: true).includes(:user).order(created_at: :desc)
   end
 
   def new
