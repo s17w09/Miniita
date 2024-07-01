@@ -7,10 +7,22 @@
           <%= form.text_field :title, placeholder: 'タイトル', class: 'bg-white text-gray-600 textarea textarea-bordered mb-4 w-full'%>
           <br>
           <%= form.label :body, "本文", class: "bg-white text-gray-600" %>
-          <%= form.text_area :body, placeholder: '本文', class: "bg-white text-gray-600 textarea textarea-bordered w-full mb-4 h-full" %>
+          <%= form.text_area :body, id: "markdown", placeholder: '本文', class: "bg-white text-gray-600 textarea textarea-bordered w-full mb-4 h-full" %>
+          <div id="html"></div>
           <%= form.submit "投稿する", class: "mt-10 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+<script>
+  // idが「markdown」の要素を取得。ユーザーが入力を行ったときに以下の関数が実行される。
+  document.getElementById('markdown').addEventListener('input', function () {
+      // ユーザーが入力したMarkdownの内容を取得。
+      const markdown = document.getElementById('markdown').value;
+      // 取得したMarkdownをHTMLに変換。
+      const html = marked.parse(markdown);
+      // idが「html」の要素に変換したHTMLを表示。
+      document.getElementById('html').innerHTML = html;
+  });
+</script>
