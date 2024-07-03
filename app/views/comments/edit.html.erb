@@ -1,2 +1,5 @@
-<h1>Comments#edit</h1>
-<p>Find me in app/views/comments/edit.html.erb</p>
+<%= form_with model: @comment, url: comment_path(@comment) do |form| %>
+  <%= form.label :body, "コメント"%>
+  <%= form.text_area :body, placeholder: 'コメント', class: "textarea textarea-bordered w-full mb-4 h-full bg-white text-gray-600" %>
+  <%= form.submit "投稿する", class: "mt-10 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
+<% end %>
