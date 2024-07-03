@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :articles do
     resources :favorites, only: [:create, :destroy]
-    resources :comments, only: [:create, :show], shallow: true
+    resources :comments, shallow: true
   end
   
   get 'login' => 'usersessions#new', :as => :login
