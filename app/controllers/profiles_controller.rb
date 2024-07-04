@@ -1,7 +1,10 @@
 class ProfilesController < ApplicationController
   before_action :set_user, only: [:edit, :update]
 
-  def show; end
+  def show 
+    @user = current_user
+    @posted_articles = @user.articles
+  end
 
   def edit; end
 

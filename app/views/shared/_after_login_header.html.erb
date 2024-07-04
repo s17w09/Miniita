@@ -8,10 +8,23 @@
     <div class="lg:flex lg:gap-x-12 font-biz items-center">
       <%= link_to "記事を投稿", new_article_path, class: "text-sm font-semibold leading-6 text-slate-200" %>
       <%= link_to "記事を閲覧", articles_path, class: "text-sm font-semibold leading-6 text-slate-200" %>
-      <%= link_to "プロフィール", profile_path, class: "text-sm font-semibold leading-6 text-slate-200" %>
     </div>
     <div class="lg:flex lg:flex-1 lg:justify-end font-biz items-center">
-      <%= link_to 'ログアウト', :logout, data: { turbo_method: :delete }, class: 'text-sm font-semibold leading-6 text-slate-200' %>
     </div>
-  </nav>
+
+<div class="dropdown dropdown-left">
+  <div tabindex="0" role="button" class="btn m-1">
+   <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM10 8.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM11.5 15.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z" />
+    </svg>
+  </div>
+  <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+    <li><a><%= link_to "マイページ", profile_path, class: "text-sm font-semibold leading-6 text-slate-200" %></a></li>
+    <li><a>投稿済の記事</a></li>
+    <li><a>下書きの記事</a></li>
+    <li><a>いいねした記事</a></li>
+    <li><a><%= link_to 'ログアウト', :logout, data: { turbo_method: :delete }, class: 'text-sm font-semibold leading-6 text-slate-200' %></a></li>
+  </ul>
+</div>
+</nav>
 </header>
