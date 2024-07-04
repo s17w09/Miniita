@@ -17,6 +17,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def my_articles
+    @draft_articles = current_user.articles.draft
+    @published_articles = current_user.articles.published
+  end
+
   private
 
   def user_params

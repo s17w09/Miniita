@@ -6,6 +6,8 @@ class Article < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true
 
+  enum status: { draft: 0, published: 1 }
+
   def created_by?(user)
     return true if user_id == user.id
   end
@@ -13,8 +15,6 @@ class Article < ApplicationRecord
   def favorited?(user, type)
     favorites.where(user_id: user.id, favorite_type: type).exists?
   end
-
-  
 
   # name_cont追加時に追加
   def self.ransackable_attributes(auth_object = nil)
@@ -25,7 +25,4 @@ class Article < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
     ["favorites", "user"]
   end
-    
-  
-
 end
