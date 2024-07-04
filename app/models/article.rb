@@ -14,9 +14,7 @@ class Article < ApplicationRecord
     favorites.where(user_id: user.id, favorite_type: type).exists?
   end
 
-  def favorite?
-    favorites.exists?
-  end
+  
 
   # name_cont追加時に追加
   def self.ransackable_attributes(auth_object = nil)
@@ -28,5 +26,6 @@ class Article < ApplicationRecord
     ["favorites", "user"]
   end
     
+  
 
 end
