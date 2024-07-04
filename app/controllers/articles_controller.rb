@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
   def index
     @q = Article.ransack(params[:q])
-    @articles = @q.result(distinct: true).includes(:user).order(created_at: :desc)
+    @articles = @q.result(distinct: true).includes(:user).order(created_at: :desc).published
   end
 
   def new
@@ -14,8 +14,18 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(article_params)
 
+    if params[:draft].present?
+      @article.status = :draft
+    else
+      @article.status = :published
+    end
+
     if @article.save
-      redirect_to article_path(@article)
+      if @article.draft?
+        redirect_to article_path(@article), notice: '投稿が下書きされました。'
+      else
+        redirect_to article_path(@article), notice: '投稿が公開されました。'
+      end
     else
       render :new
     end
@@ -27,20 +37,22 @@ class ArticlesController < ApplicationController
     @comments = @article.comments.includes(:user).order(created_at: :desc)
   end
 
-  def show
-    @article = Article.find(params[:id])
-    @new_comment = Comment.new
-    @comments = @article.comments.includes(:user).order(created_at: :desc)
-  end
-
   def edit; end
 
   def update
+
+    if params[:draft].present?
+      @article.status = :draft
+    else
+      @article.status = :published
+    end
+
     if @article.update(article_params)
-      redirect_to article_path(@article)
+      redirect_to article_path(@article), notice: '下書きが投稿されました。'
+    else
+      render article_path(@article), notice: '下書きを再度保存しました。'
     end
   end
-
 
   def destroy
     @article.destroy!
@@ -50,7 +62,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :status)
   end
 
   def set_article
