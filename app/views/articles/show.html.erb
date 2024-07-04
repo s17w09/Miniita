@@ -45,5 +45,5 @@
 </div>
 
 <%= render 'comments/form', comment: @comment, article: @article %>
-<%= render @article.comments %>
+<%= render @article.comments, comment: @comment %>
 

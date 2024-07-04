@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "commentfavorite-#{comment.id}", class: "like-button" do %>
+  <%= render 'commentfavotites/uncommentfavorite', comment: @comment %>
+<% end %>

@@ -5,3 +5,8 @@
 <%=link_to '編集', edit_comment_path(comment), class: "rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
 <%=link_to '削除', comment_path(comment), data: { turbo_method: :delete, turbo_confirm: '投稿を削除しますか？' }, class: "rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
 <% end %>
+
+
+<%= render 'commentfavorites/commentfavorite', comment: @comment %>
+<%= render 'commentfavorites/uncommentfavorite', comment: @comment %>
+
