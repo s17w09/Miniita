@@ -1,10 +1,11 @@
 <h1>下書き記事</h1>
 <ul>
   <% @draft_articles.each do |article| %>
-  <div class="p-4 border rounded-lg">
+  <div class="p-4 border rounded-lg mb-3">
     <li>
       <%= link_to article.title, article %>
     </li>
+    </div>
   <% end %>
 </ul>
 </div>
