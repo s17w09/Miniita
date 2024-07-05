@@ -88,7 +88,7 @@ Rails.application.configure do
     password: ENV['GMAIL_PASSWORD'], #Gmailで設定したアプリパスワード
     authentication: :plain,
     enable_starttls_auto: true
-
+  }
 
 
   # Ignore bad email addresses and do not raise email delivery errors.
