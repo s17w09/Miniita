@@ -8,6 +8,9 @@ class Article < ApplicationRecord
 
   enum status: { draft: 0, published: 1 }
 
+  scope :latest, -> {order(created_at: :desc)}
+  scope :old, -> {order(created_at: :asc)}
+
   def created_by?(user)
     return true if user_id == user.id
   end
