@@ -1,6 +1,7 @@
 
       <h1 class="text-3xl mt-5 flex justify-center"><%= @article.title %></h1>
-      <h2 class="text-base mt-5 flex justify-center"><%=l @article.created_at, format: :long %></h2>
+      <h2 class="text-base mt-5 flex justify-center">作成日：<%=l @article.created_at, format: :long %></h2>
+      <h2 class="text-base flex justify-center">更新日：<%=l @article.updated_at, format: :long %></h2>
       <h3 class="mt-10 bg-white"><%= render_markdown(@article.body).html_safe %></h3>
 
 

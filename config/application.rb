@@ -17,6 +17,11 @@ module Myapp
     config.autoload_lib(ignore: %w(assets tasks))
     config.time_zone = 'Tokyo'
 
+    #デフォルトのlocaleを日本語(:ja)にする
+    config.i18n.default_locale = :ja
+    
+    #以下の記述を追記する(設定必須)
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
