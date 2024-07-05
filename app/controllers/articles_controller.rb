@@ -3,8 +3,16 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :destroy]
 
   def index
-    @q = Article.ransack(params[:q])
-    @articles = @q.result(distinct: true).includes(:user).order(created_at: :desc).published
+    if params[:latest]
+      @q = Article.ransack(params[:q])
+      @articles = @q.result(distinct: true).includes(:user).published.latest
+    elsif params[:old]
+      @q = Article.ransack(params[:q])
+      @articles = @q.result(distinct: true).includes(:user).published.old
+    else
+      @q = Article.ransack(params[:q])
+      @articles = @q.result(distinct: true).includes(:user).published.shuffle
+    end
   end
 
   def new
