@@ -6,8 +6,10 @@ class Article < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true
 
+  # 記事の状態（下書きor投稿済）のステータス
   enum status: { draft: 0, published: 1 }
 
+  # 記事のソート機能のスコープ
   scope :latest, -> {order(created_at: :desc)}
   scope :old, -> {order(created_at: :asc)}
 

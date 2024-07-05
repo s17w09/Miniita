@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'profiles/edit'
-  get 'profiles/show'
-  get 'profiles/update'
+
+  # letter openerの設定、http://localhost:3000/letter_opener/が見れるようになる
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'login' => 'usersessions#new', :as => :login
   post 'login' => "usersessions#create"
   delete 'logout' => 'usersessions#destroy', :as => :logout
+  resources :password_resets, only: [:create, :edit, :update]
 
   # Defines the root path route ("/")
   # root "posts#index"
