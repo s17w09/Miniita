@@ -71,25 +71,23 @@ Rails.application.configure do
   # config.active_job.queue_adapter = :resque
   # config.active_job.queue_name_prefix = "myapp_production"
 
-  config.action_mailer.perform_caching = false
   
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { protocol: 'https', host:'miniita.onrender.com'}
-  #ホストの設定
+  config.action_mailer.raise_delivery_errors = true # メール送信に失敗した際に、エラーを発生させる
+  config.action_mailer.delivery_method = :smtp # メールをSMTPで送る
 
-  config.action_mailer.delivery_method = :smtp
-  #smtpを使う
-
+  # SMTPサーバーの設定をする
   config.action_mailer.smtp_settings = {
     port: 587,
     address:"smtp.gmail.com",
-    domain: 'gmail.com', #Gmailを使う場合
+    domain: 'miniita.onrender.com', #Gmailを使う場合
     user_name: ENV['GMAIL_ADDRESS'], #Gmailアカウントのメールアドレス
     password: ENV['GMAIL_PASSWORD'], #Gmailで設定したアプリパスワード
     authentication: :plain,
     enable_starttls_auto: true
   }
 
+  config.action_mailer.default_url_options = { protocol: 'https', host:'miniita.onrender.com'}
+  config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
