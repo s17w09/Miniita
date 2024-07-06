@@ -75,13 +75,16 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true # メール送信に失敗した際に、エラーを発生させる
   config.action_mailer.delivery_method = :smtp # メールをSMTPで送る
 
+  # 一旦変数に格納
+  mail = ENV['GMAIL_ADDRESS'], #Gmailアカウントのメールアドレス
+  pass = ENV['GMAIL_PASSWORD'], #Gmailで設定したアプリパスワード
   # SMTPサーバーの設定をする
   config.action_mailer.smtp_settings = {
     port: 587,
     address:"smtp.gmail.com",
     domain: 'miniita.onrender.com', #Gmailを使う場合
-    user_name: ENV['GMAIL_ADDRESS'], #Gmailアカウントのメールアドレス
-    password: ENV['GMAIL_PASSWORD'], #Gmailで設定したアプリパスワード
+    user_name: mail, #Gmailアカウントのメールアドレス
+    password: pass, #Gmailで設定したアプリパスワード
     authentication: :plain,
     enable_starttls_auto: true
   }
