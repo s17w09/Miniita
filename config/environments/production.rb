@@ -76,8 +76,8 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp # メールをSMTPで送る
 
   # 一旦変数に格納
-  mail = ENV['GMAIL_ADDRESS'], #Gmailアカウントのメールアドレス
-  pass = ENV['GMAIL_PASSWORD'], #Gmailで設定したアプリパスワード
+  mail = ENV['GMAIL_ADDRESS']
+  pass = ENV['GMAIL_PASSWORD']
   # SMTPサーバーの設定をする
   config.action_mailer.smtp_settings = {
     port: 587,
