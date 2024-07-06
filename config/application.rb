@@ -7,7 +7,8 @@ require "rails/all"
 Bundler.require(*Rails.groups)
 
 # Dotenvの設定をロードする
-Dotenv::Railtie.load
+require 'dotenv/load'
+
 
 module Myapp
   class Application < Rails::Application
