@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
-  before_action :set_article, only: [:edit, :update, :destroy]
+  before_action :set_article, only: [:edit, :destroy]
 
   def index
     if params[:latest]
@@ -48,11 +48,12 @@ class ArticlesController < ApplicationController
   def edit; end
 
   def update
+    @article = current_user.articles.find(params[:id])
 
-    if params[:draft].present?
-      @article.status = :draft
-    else
+    if params[:published].present?
       @article.status = :published
+    else
+      @article.status = :draft
     end
 
     if @article.update(article_params)

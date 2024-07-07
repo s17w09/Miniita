@@ -3,8 +3,10 @@ class Article < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  validates :title, presence: true
-  validates :body, presence: true
+  with_options if: :published? do
+    validates :title, presence: true
+    validates :body, presence: true
+  end
 
   # 記事の状態（下書きor投稿済）のステータス
   enum status: { draft: 0, published: 1 }
