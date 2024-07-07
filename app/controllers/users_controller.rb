@@ -18,8 +18,12 @@ class UsersController < ApplicationController
   end
 
   def my_articles
-    @draft_articles = current_user.articles.draft
-    @published_articles = current_user.articles.published
+    @draft_articles = current_user.articles.draft.includes(:user).order(created_at: :desc)
+    @published_articles = current_user.articles.published.includes(:user).order(created_at: :desc)
+  end
+
+  def my_favorites
+    @favorites = current_user.favorites.includes(:user).order(created_at: :desc)
   end
 
   private

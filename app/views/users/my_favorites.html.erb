@@ -1,0 +1,12 @@
+<h1>いいねした記事</h1>
+<ul>
+  <% @favorites.each do |favorite| %>
+  <div class="p-4 border rounded-lg mb-3">
+    <li>
+      <%=link_to favorite.article.title, article_path(favorite.article) %>
+    </li>
+    </div>
+  <% end %>
+</ul>
+</div>
+</div>

@@ -20,8 +20,8 @@
   </div>
   <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
     <li><a><%= link_to "マイページ", profile_path, class: "text-sm font-semibold leading-6 text-slate-200" %></a></li>
-    <li><a><%= link_to "記事", my_articles_users_path, class: "text-sm font-semibold leading-6 text-slate-200" %></a></li>
-    <li><a>いいねした記事</a></li>
+    <li><a><%= link_to "自分の記事", my_articles_users_path, class: "text-sm font-semibold leading-6 text-slate-200" %></a></li>
+    <li><a><%= link_to "いいねした記事", my_favorites_users_path, class: "text-sm font-semibold leading-6 text-slate-200" %></a></li>
     <li><a><%= link_to 'ログアウト', :logout, data: { turbo_method: :delete }, class: 'text-sm font-semibold leading-6 text-slate-200' %></a></li>
   </ul>
 </div>
