@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
-  before_action :set_article, only: [:edit, :destroy]
+  before_action :set_article, only: [:edit, :update, :destroy]
 
   def index
     if params[:latest]
@@ -48,7 +48,6 @@ class ArticlesController < ApplicationController
   def edit; end
 
   def update
-    @article = current_user.articles.find(params[:id])
 
     if params[:published].present?
       @article.status = :published
@@ -59,7 +58,7 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to article_path(@article), notice: '下書きが投稿されました。'
     else
-      render article_path(@article), notice: '下書きを再度保存しました。'
+      flash[:notice] = 'タイトルと本文を入力しないと、投稿できません'
     end
   end
 
