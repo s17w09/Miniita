@@ -1,9 +1,8 @@
 <!-------------５つ目のいいねボタン------------->
 <div class="tooltip" data-tip="詳細をもっと知りたい">
-  <%= link_to article_favorite_path(article, @article.id, type: :like_fifth), data: { turbo_method: :delete }, class: "unlike-button-5", id: "fifth-unfavorite-#{@article.id}" do %>
+  <%= link_to article_favorite_path(article.id, type: :like_fifth), data: { turbo_method: :delete }, class: "unlike-button-2" do %>
     <i class="bi bi-bell-fill"></i>
-    <%= article.favorites.where(favorite_type: 'like_fifth').count %>
+    <%= @article.favorites.where(favorite_type: 'like_fifth').count %>
   <% end %>
 </div>
-  
 <!-------------５つ目のいいねボタン------------->

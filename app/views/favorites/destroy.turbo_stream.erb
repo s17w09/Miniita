@@ -1,19 +1,29 @@
-<%= turbo_stream.replace "first-unfavorite-#{@article.id}", class: "unlike-button-1" do %>
+<% if @article.favorited?(current_user, :like_first) %>
+<%= turbo_stream.replace "first-unfavorite-#{@article.id}", class: "unlike-button-1", type: :like_first do %>
   <%= render 'articles/first_favorite', article: @article %>
 <% end %>
+<% end %>
 
-<%= turbo_stream.replace "second-unfavorite-#{@article.id}", class: "unlike-button-2" do %>
+<% if @article.favorited?(current_user, :like_second) %>
+<%= turbo_stream.replace "second-unfavorite-#{@article.id}", class: "unlike-button-2", type: :like_second do %>
   <%= render 'articles/second_favorite', article: @article %>
 <% end %>
+<% end %>
 
-<%= turbo_stream.replace "third-unfavorite-#{@article.id}" , class: "unlike-button-3" do %>
+<% if @article.favorited?(current_user, :like_third) %>
+<%= turbo_stream.replace "third-unfavorite-#{@article.id}", class: "unlike-button-3", type: :like_third do %>
   <%= render 'articles/third_favorite', article: @article %>
 <% end %>
-
-<%= turbo_stream.replace "forth-unfavorite-#{@article.id}", class: "unlike-button-4" do %>
-  <%= render 'articles/forth_favorite', article: @article %>
 <% end %>
 
-<%= turbo_stream.replace "fifth-unfavorite-#{@article.id}", class: "unlike-button-5" do %>
+<% if @article.favorited?(current_user, :like_forth) %>
+<%= turbo_stream.replace "forth-unfavorite-#{@article.id}", class: "unlike-button-4", type: :like_forth do %>
+  <%= render 'articles/forth_favorite', article: @article %>
+<% end %>
+<% end %>
+
+<% if @article.favorited?(current_user, :like_fifth) %>
+<%= turbo_stream.replace "fifth-unfavorite-#{@article.id}", class: "unlike-button-5", type: :like_fifth do %>
   <%= render 'articles/fifth_favorite', article: @article %>
+<% end %>
 <% end %>
