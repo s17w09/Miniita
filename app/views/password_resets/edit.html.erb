@@ -1,3 +1,4 @@
+<% content_for :title, page_title("パスワード再設定") %>
 <h1>Choose a new password</h1>
 <%= form_for @user, :url => password_reset_path(@token), :html => {:method => :put} do |f| %>
   <% if @user.errors.any? %>
