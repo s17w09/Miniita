@@ -1,3 +1,4 @@
+<% content_for :title, page_title("プロフィール") %>
 <%= form_with model: @user, url: profile_path do |form| %>
   <%= form.label :email, "メールアドレス", class: 'block text-sm font-medium leading-6 text-gray-900' %>
     <div class="mb-2">
