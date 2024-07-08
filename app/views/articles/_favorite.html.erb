@@ -8,39 +8,13 @@
   <% end %>
 </div>
 <!-------------１つ目のいいねボタン------------->
-<!-------------２つ目のいいねボタン------------->
+<!-------------2つ目のいいねボタン------------->
 <% if logged_in? %>
   <% if @article.favorited?(current_user, :like_second) %>
     <%= render 'articles/second_unfavorite', article: @article %>
   <% else %>
-     <%= render 'articles/second_favorite', article: @article %>
+    <%= render 'articles/second_favorite', article: @article %>
   <% end %>
   <% end %>
-<!-------------２つ目のいいねボタン------------->
-<!-------------３つ目のいいねボタン------------->
-<% if logged_in? %>
-<% if @article.favorited?(current_user, :like_third) %>
-     <%= render 'articles/third_unfavorite', article: @article %>
-  <% else %>
-     <%= render 'articles/third_favorite', article: @article %>
-  <% end %>
-  <% end %>
-<!-------------３つ目のいいねボタン------------->
-<!-------------４つ目のいいねボタン------------->
-<% if logged_in? %>
-<% if @article.favorited?(current_user, :like_forth) %>
-    <%= render 'articles/forth_unfavorite', article: @article %>
-  <% else %>
-     <%= render 'articles/forth_favorite', article: @article %>
-  <% end %>
-  <% end %>
-<!-------------４つ目のいいねボタン------------->
-<!-------------５つ目のいいねボタン------------->
-<% if logged_in? %>
-<% if @article.favorited?(current_user, :like_fifth) %>
-    <%= render 'articles/fifth_unfavorite', article: @article %>
-  <% else %>
-     <%= render 'articles/fifth_favorite', article: @article %>
-  <% end %>
-  <% end %>
-<!-------------５つ目のいいねボタン------------->
+</div>
+<!-------------2つ目のいいねボタン------------->
