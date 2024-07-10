@@ -6,8 +6,10 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(create_comment_params)
-    @comment.save
+    if @comment.save
+    render: create, notice: 'コメントしました。'
   end
+
 
   def show
     @comment = Comment.find(params[:id])
@@ -17,7 +19,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(update_comment_params)
-      redirect_to article_url
+      redirect_to article_url, notice: 'コメントを編集しました。'
     end
   end
 

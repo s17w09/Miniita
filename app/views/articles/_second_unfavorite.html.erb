@@ -1,9 +1,5 @@
-<!-------------２つ目のいいねボタン------------->
-<div class="tooltip" data-tip="学びが深まった">
-  <%= link_to article_favorite_path(article, @article.id, type: :like_second), data: { turbo_method: :delete }, taegets: "second-unfavorite-#{@article.id}", class: "unlike-button-2" do %>
-    <i class="bi bi-award-fill"></i>
+<div class="tooltip" data-tip="参考になった！">
+  <%= link_to article_favorite_path(article, @article.id, type: :like_second), data: { turbo_method: :delete }, id: ".second-unfavorite", class: "unlike-button-2" do %>
+    <i class="bi bi-arrow-through-heart-fill"></i>
     <%= @article.favorites.where(favorite_type: 'like_second').count %>
   <% end %>
-</div>
-  
-<!-------------２つ目のいいねボタン------------->
