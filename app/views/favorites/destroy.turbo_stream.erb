@@ -1,7 +1,3 @@
-<%= turbo_stream.replace "first-unfavorite-#{@article.id}", class: "like-unbutton-1" do %>
+<%= turbo_stream.replace ".first-unfavorite-#{@article.id}", class: "like-unbutton-1" do %>
   <%= render 'articles/first_favorite', article: @article %>
-<% end %>
-
-<%= turbo_stream.replace "second-unfavorite-#{@article.id}", class: "like-unbutton-2" do %>
-  <%= render 'articles/second_favorite', article: @article %>
 <% end %>
