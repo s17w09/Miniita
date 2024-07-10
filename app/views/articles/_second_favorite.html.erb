@@ -1,8 +1,4 @@
-<!-------------２つ目のいいねボタン------------->
-<div class="tooltip" data-tip="学びが深まった">
-  <%= link_to article_favorites_path(@article.id, type: :like_second), data: { turbo_method: :post, turbo_stream: true }, targets: "second-favorite-#{@article.id}", class: "like-button-2" do %>
-    <i class="bi bi-award"></i>
-    <%= @article.favorites.where(favorite_type: 'like_second').count %>
-  <% end %>
-</div>
-<!-------------２つ目のいいねボタン------------->
+<%= link_to article_favorites_path(@article.id, type: :like_second), data: { turbo_method: :post, turbo_stream: true },  id: ".second-favorite",class: "like-button-2" do %>
+  <i class="bi bi-arrow-through-heart"></i>
+  <%= @article.favorites.where(favorite_type: 'like_second').count %>
+<% end %>

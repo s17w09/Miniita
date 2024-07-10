@@ -9,11 +9,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to articles_path
+      redirect_to articles_path, notice: '新規登録が完了しました。'
       # sorceryのオートログイン機能
       auto_login(@user)
     else
-      render :new
+      render :new, error: '新規登録に失敗しました。'
     end
   end
 

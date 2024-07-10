@@ -41,7 +41,9 @@
     <% else %>
       <%= render "shared/before_login_header" %>
     <% end %>
+    <%= render 'layouts/flash_messages' %>
     <!--------------------------------->
     <%= yield %>
+    <%= render "shared/footer" %>
   </body>
 </html>

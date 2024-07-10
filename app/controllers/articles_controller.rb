@@ -30,9 +30,9 @@ class ArticlesController < ApplicationController
 
     if @article.save
       if @article.draft?
-        redirect_to article_path(@article), notice: '投稿が下書きされました。'
+        redirect_to article_path(@article), notice: '記事を下書きに入れました。'
       else
-        redirect_to article_path(@article), notice: '投稿が公開されました。'
+        redirect_to article_path(@article), notice: '投稿しました。'
       end
     else
       render :new
@@ -56,7 +56,7 @@ class ArticlesController < ApplicationController
     end
 
     if @article.update(article_params)
-      redirect_to article_path(@article), notice: '下書きが投稿されました。'
+      redirect_to article_path(@article), notice: '投稿しました。'
     else
       flash[:notice] = 'タイトルと本文を入力しないと、投稿できません'
     end
@@ -64,7 +64,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy!
-    redirect_to articles_path
+    redirect_to articles_path, notice: '削除しました'
   end
 
   private

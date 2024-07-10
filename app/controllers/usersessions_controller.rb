@@ -9,14 +9,14 @@ class UsersessionsController < ApplicationController
     @user = login(params[:email], params[:password])
   
     if @user
-      redirect_to articles_path
+      redirect_to articles_path, notice: 'ログインしました。'
     else
-      render :new
+      render :new, error: 'ログインに失敗しました。'
     end
   end
 
   def destroy
     logout
-    redirect_to root_path, status: :see_other
+    redirect_to root_path, status: :see_other, notice: 'ログアウトしました。'
   end
 end
