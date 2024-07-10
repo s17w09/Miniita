@@ -1,12 +1,22 @@
 <tr id="comment-<%= comment.id %>">
-<%= comment.user.name %>
-<%= comment.body %>
-
-<% if comment.user == current_user %>
-<%=link_to '編集', edit_comment_path(comment), class: "rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
-<%=link_to '削除', comment_path(comment), data: { turbo_method: :delete, turbo_confirm: '投稿を削除しますか？' }, class: "rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
-<% end %>
-
-<%= render 'commentfavorites/commentfavorite', comment: @comment %>
-<%= render 'commentfavorites/uncommentfavorite', comment: @comment %>
+  <td>
+    <h3 class="small"><%= comment.user.name %></h3>
+    <p><%= simple_format(comment.body) %></p>
+  </td>
+    <td class="action">
+      <ul class="list-inline justify-content-center" style="float: right;">
+        <li class="list-inline-item">
+        <% if comment.user == current_user %>
+          <%= link_to edit_comment_path(comment), class: "edit-comment-link" do %>
+            <i class="bi bi-pencil-fill"></i>
+            <% end %>
+        </li>
+        <li class="list-inline-item">
+          <%= link_to comment_path(comment), class: "delete-comment-link", data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+            <i class="bi bi-trash-fill"></i>
+          <% end %>
+          <% end %>
+        </li>
+      </ul>
+    </td>
 </tr>
