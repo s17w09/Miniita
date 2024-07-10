@@ -18,7 +18,11 @@
       <%= render 'articles/favorite', article: @article, favorite: @favorite %>
       <%= render 'shared/twitter' %>
       <%= render 'comments/form', comment: @comment, article: @article %>
-      <%= render @article.comments, comment: @comment %>
+        <table class="table">
+          <tbody id="table-comment">
+            <%= render @article.comments %>
+          </tbody>
+        </table>
     </div>
   </div>
 <% end %>

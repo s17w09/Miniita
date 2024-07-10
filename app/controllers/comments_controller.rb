@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(create_comment_params)
     @comment.save
-    redirect_to article_path(@comment.article_id)
   end
 
   def show
@@ -24,7 +23,6 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy!
-    redirect_to article_path(@comment.article_id)
   end
   
 

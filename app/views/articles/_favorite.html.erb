@@ -1,20 +1,7 @@
 <!-------------１つ目のいいねボタン------------->
-<% if logged_in? %>
-  <% if @article.favorited?(current_user, :like_first) %>
-    <%= render 'articles/first_unfavorite', article: @article %>
-  <% else %>
-    <%= render 'articles/first_favorite', article: @article %>
-  <% end %>
-  <% end %>
-</div>
+<% if @article.favorited?(current_user, :like_first) %>
+  <%= render 'articles/first_unfavorite', article: @article %>
+<% else %>
+  <%= render 'articles/first_favorite', article: @article %>
+<% end %>
 <!-------------１つ目のいいねボタン------------->
-<!-------------2つ目のいいねボタン------------->
-<% if logged_in? %>
-  <% if @article.favorited?(current_user, :like_second) %>
-    <%= render 'articles/second_unfavorite', article: @article %>
-  <% else %>
-    <%= render 'articles/second_favorite', article: @article %>
-  <% end %>
-  <% end %>
-</div>
-<!-------------2つ目のいいねボタン------------->
