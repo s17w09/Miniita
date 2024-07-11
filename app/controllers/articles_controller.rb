@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
       @articles = @q.result(distinct: true).includes(:user).order(created_at: :asc).page(params[:page]).published.old
     else
       @q = Article.ransack(params[:q])
-      @articles = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
+      @articles = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page]).published.latest
     end
   end
 

@@ -1,5 +1,4 @@
-<div class="tooltip" data-tip="参考になった！">
-  <%= link_to article_favorite_path(article, @article.id, type: :like_fifth), data: { turbo_method: :delete }, id: "fifth-unfavorite", class: "unlike-button-5" do %>
-    <i class="bi bi-arrow-through-heart-fill"></i>
-    <%= @article.favorites.where(favorite_type: 'like_fifth').count %>
-  <% end %>
+<%= link_to article_favorite_path(article, @article.id, type: :like_fifth), data: { turbo_method: :delete }, id: "fifth-unfavorite", class: "unlike-button-5" do %>
+  <i class="bi bi-bell-fill"></i>
+  <%= @article.favorites.where(favorite_type: 'like_fifth').count %>
+<% end %>

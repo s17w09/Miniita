@@ -1,19 +1,29 @@
+<% if @article.unfavorited?(current_user, :like_first) %>
 <%= turbo_stream.replace "first-unfavorite", class: "like-unbutton-1" do %>
   <%= render 'articles/first_favorite', article: @article %>
 <% end %>
+<% end %>
 
+<% if @article.unfavorited?(current_user, :like_second) %>
 <%= turbo_stream.replace "second-unfavorite", class: "like-unbutton-2" do %>
   <%= render 'articles/second_favorite', article: @article %>
 <% end %>
+<% end %>
 
+<% if @article.unfavorited?(current_user, :like_third) %>
 <%= turbo_stream.replace "third-unfavorite", class: "like-unbutton-3" do %>
   <%= render 'articles/third_favorite', article: @article %>
 <% end %>
+<% end %>
 
+<% if @article.unfavorited?(current_user, :like_forth) %>
 <%= turbo_stream.replace "forth-unfavorite", class: "like-unbutton-4" do %>
   <%= render 'articles/forth_favorite', article: @article %>
 <% end %>
+<% end %>
 
+<% if @article.unfavorited?(current_user, :like_fifth) %>
 <%= turbo_stream.replace "fifth-unfavorite", class: "like-unbutton-5" do %>
   <%= render 'articles/fifth_favorite', article: @article %>
+<% end %>
 <% end %>
