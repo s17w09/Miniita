@@ -1,8 +1,10 @@
+<tr id="favorite-firtst">
 <% if @article.favorited?(current_user, :like_first) %>
   <%= render 'articles/first_unfavorite', article: @article %>
 <% else %>
   <%= render 'articles/first_favorite', article: @article %>
 <% end %>
+</tr>
 
 <% if @article.favorited?(current_user, :like_second) %>
   <%= render 'articles/second_unfavorite', article: @article %>
