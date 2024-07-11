@@ -6,8 +6,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(create_comment_params)
-    if @comment.save
-    render: create, notice: 'コメントしました。'
+    @comment.save
   end
 
 

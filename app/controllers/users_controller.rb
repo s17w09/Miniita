@@ -13,7 +13,8 @@ class UsersController < ApplicationController
       # sorceryのオートログイン機能
       auto_login(@user)
     else
-      render :new, error: '新規登録に失敗しました。'
+      flash[:alert] = '新規登録に失敗しました。'
+      render :new
     end
   end
 

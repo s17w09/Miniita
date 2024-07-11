@@ -4,6 +4,7 @@
     <div class="text-xl  flex justify-center h-screen w-full"> 
       <div class="w-full h-full flex flex-col ">
         <%= form_with model: @article do |form| %>
+        <%= render 'shared/error_messages', object: form.object%>
           <%= form.label :title, "タイトル", class: "bg-white text-gray-600 " %>
           <%= form.text_field :title, placeholder: 'タイトル', class: 'bg-white text-gray-600 textarea textarea-bordered mb-4 w-full'%>
           <br>

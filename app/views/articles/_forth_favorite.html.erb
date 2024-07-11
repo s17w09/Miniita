@@ -1,4 +1,4 @@
-<%= link_to article_favorites_path(@article.id, type: :like_forth), data: { turbo_method: :post, turbo_stream: true },  id: ".forth-favorite-#{@article.id}",class: "like-button-4" do %>
+<%= link_to article_favorites_path(@article.id, type: :like_forth), data: { turbo_method: :post, turbo_stream: true },  id: "forth-favorite",class: "like-button-4" do %>
   <i class="bi bi-arrow-through-heart"></i>
   <%= @article.favorites.where(favorite_type: 'like_forth').count %>
 <% end %>

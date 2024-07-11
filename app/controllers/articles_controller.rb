@@ -5,13 +5,13 @@ class ArticlesController < ApplicationController
   def index
     if params[:latest]
       @q = Article.ransack(params[:q])
-      @articles = @q.result(distinct: true).includes(:user).published.latest
+      @articles = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page]).published.latest
     elsif params[:old]
       @q = Article.ransack(params[:q])
-      @articles = @q.result(distinct: true).includes(:user).published.old
+      @articles = @q.result(distinct: true).includes(:user).order(created_at: :asc).page(params[:page]).published.old
     else
       @q = Article.ransack(params[:q])
-      @articles = @q.result(distinct: true).includes(:user).published.shuffle
+      @articles = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
     end
   end
 
