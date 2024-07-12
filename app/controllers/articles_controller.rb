@@ -35,7 +35,8 @@ class ArticlesController < ApplicationController
         redirect_to article_path(@article), notice: '投稿しました。'
       end
     else
-      render :new
+      flash[:error] = 'タイトルと本文を入力しないと、投稿できません'
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -58,7 +59,8 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to article_path(@article), notice: '投稿しました。'
     else
-      flash[:notice] = 'タイトルと本文を入力しないと、投稿できません'
+      flash[:error] = 'タイトルと本文を入力しないと、投稿できません'
+      render :edit, status: :unprocessable_entity
     end
   end
 
