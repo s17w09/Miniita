@@ -77,10 +77,6 @@ ol li {
     margin: 0.5em 0;
 }
 
-link {
-    border-bottom: currentColor 1px solid
-}
-
 /* テーブルのスタイル */
 table {
     border-collapse: collapse;
@@ -105,3 +101,7 @@ hr {
     width: 100%;
     border: none;
    }
+
+   .markdown-content a {
+    text-decoration: underline;
+  }

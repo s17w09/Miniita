@@ -17,10 +17,9 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
-    if @comment.update(update_comment_params)
-      redirect_to article_url, notice: 'コメントを編集しました。'
-    end
+    @comment.update(update_comment_params)
   end
+
 
   def destroy
     @comment.destroy!
