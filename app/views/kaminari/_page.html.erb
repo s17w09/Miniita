@@ -9,10 +9,10 @@
 -%>
 <% if page.current? %>
   <span class="page current">
-    <%= link_to_if page.current?, page, url, {remote: remote, rel: page.rel, class: "rounded-full btn btn-sm btn-neutral m-2"} %>
+    <%= link_to_if page.current?, page, url, {remote: remote, rel: page.rel, class: "app-link rounded-full btn btn-sm btn-neutral m-2"} %>
   </span>
 <% else %>
   <span class="page">
-    <%= link_to_unless page.current?, page, url, {remote: remote, rel: page.rel, class: "rounded-full btn btn-sm btn-ghost m-2"} %>
+    <%= link_to_unless page.current?, page, url, {remote: remote, rel: page.rel, class: "app-link rounded-full btn btn-sm btn-ghost m-2"} %>
   </span>
 <% end %>
