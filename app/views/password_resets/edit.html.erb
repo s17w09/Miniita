@@ -1,5 +1,7 @@
 <% content_for :title, page_title("パスワード再設定") %>
-<h1>Choose a new password</h1>
+<div class="bg-white flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+<div class= "w-5/6 mx-auto max-w-screen-xl justify-center">
+<h1>パスワードを再設定する</h1>
 <%= form_for @user, :url => password_reset_path(@token), :html => {:method => :put} do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -13,19 +15,19 @@
     </div>
   <% end %>
     
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= @user.email %>
+  <div class="field ">
+    <%= f.label :email, "メールアドレス", class: 'mt-3block text-sm font-medium leading-6 text-gray-900' %><br />
+    <%= @user.email%>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    <%= f.label :password, "パスワード(8文字以上/半角の英数字のみ)", class: 'mt-3block text-sm font-medium leading-6 text-gray-900' %><br />
+    <%= f.password_field :password, required: true, class: "mb-3 bg-white block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+  <div class="field ">
+    <%= f.label :password_confirmation, "パスワード確認", class: 'mt-3block text-sm font-medium leading-6 text-gray-900' %><br />
+    <%= f.password_field :password_confirmation, required: true, class: "mb-3 bg-white block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions ">
+    <%= f.submit "登録", class: "mt-10 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
   </div>
 <% end %>
