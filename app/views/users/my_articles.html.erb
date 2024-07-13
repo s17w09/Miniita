@@ -4,7 +4,7 @@
   <% @draft_articles.each do |article| %>
   <div class="p-4 border rounded-lg mb-3">
     <li>
-      <%= link_to article.title, article %>
+      <%= link_to article.title, article, class: "app-link" %>
     </li>
     </div>
   <% end %>
@@ -17,7 +17,7 @@
   <% @published_articles.each do |article| %>
   <div class="p-4 border rounded-lg mb-3">
     <li>
-      <%= link_to article.title, article %>
+      <%= link_to article.title, article, class: "app-link" %>
     </li>
   </div>
   <% end %>
