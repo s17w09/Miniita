@@ -6,12 +6,11 @@
     <%= render 'articles/first_favorite', article: @article %>
   <% end %>
 <% else %>
-    <%= link_to login_path, class: "like-button-1" do %>
+    <%= link_to login_path, class: "app-link like-button-1" do %>
       <i class="bi bi-arrow-through-heart"></i>
       <%= @article.favorites.where(favorite_type: 'like_first').count %>
     <% end %>
 <% end %>
-</div>
 <!-------------１つ目のいいねボタン------------->
 
 <!-------------２つ目のいいねボタン------------->
@@ -22,7 +21,7 @@
     <%= render 'articles/second_favorite', article: @article %>
   <% end %>
 <% else %>
-  <%= link_to login_path, class: "like-button-2" do %>
+  <%= link_to login_path, class: "app-link like-button-2" do %>
     <i class="bi bi-award"></i>
     <%= @article.favorites.where(favorite_type: 'like_second').count %>
   <% end %>
@@ -36,7 +35,7 @@
     <%= render 'articles/third_favorite', article: @article %>
   <% end %>
 <% else %>
-  <%= link_to login_path, class: "like-button-3" do %>
+  <%= link_to login_path, class: "app-link like-button-3" do %>
     <i class="bi bi-arrow-through-heart"></i>
     <%= @article.favorites.where(favorite_type: 'like_third').count %>
   <% end %>
@@ -51,7 +50,7 @@
     <%= render 'articles/forth_favorite', article: @article %>
   <% end %>
 <% else %>
-  <%= link_to login_path, class: "like-button-4" do %>
+  <%= link_to login_path, class: "app-link like-button-4" do %>
     <i class="bi bi-brightness-alt-high"></i>
     <%= @article.favorites.where(favorite_type: 'like_forth').count %>
   <% end %>
@@ -65,7 +64,7 @@
     <%= render 'articles/fifth_favorite', article: @article %>
   <% end %>
 <% else %>
-  <%= link_to login_path, class: "like-button-5" do %>
+  <%= link_to login_path, class: "app-link like-button-5" do %>
     <i class="bi bi-bell"></i>
     <%= @article.favorites.where(favorite_type: 'like_fifth').count %>
   <% end %>

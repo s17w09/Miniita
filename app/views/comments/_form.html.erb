@@ -1,8 +1,10 @@
 <div id="new_comment">
-<%= form_with model: comment, url: article_comments_path(article) do |form| %>
-<%= render 'shared/error_messages', object: form.object%>
-  <%= form.label :body, "コメント"%>
-  <%= form.text_area :body, placeholder: 'コメント', class: "textarea textarea-bordered w-full mb-4 h-full bg-white text-gray-600" %>
-  <%= form.submit "投稿する", class: "mt-10 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
-<% end %>
+  <%= form_with model: comment, url: article_comments_path(article) do |form| %>
+    <%= render 'shared/error_messages', object: form.object%>
+      <%= form.label :body, "コメント"%>
+      <%= form.text_area :body, placeholder: 'コメント', class: "textarea textarea-bordered w-full mb-4 h-full bg-white text-gray-600" %>
+      <div class= "flex justify-center">
+      <%= form.submit "投稿", class: "app-link rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
+      </div>
+  <% end %>
 </div>

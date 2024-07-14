@@ -1,8 +1,9 @@
 <% content_for :title, page_title("プロフィール") %>
-<h1>プロフィール</h1>
-<p>メールアドレス</p>
-<%= current_user.email %>
-<p>氏名</p>
-<%= current_user.name %>
-<%= link_to '編集', edit_profile_path, class: "app-link " %>
-
+  <div class= "w-5/6 mx-auto max-w-screen-xl w-">
+    <h1>プロフィール</h1>
+    <p>メールアドレス</p>
+    <%= current_user.email %>
+    <p>氏名</p>
+    <%= current_user.name %>
+    <%= link_to '編集', edit_profile_path, class: "app-link " %>
+  </div>

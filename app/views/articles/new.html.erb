@@ -1,19 +1,20 @@
 <% content_for :title, page_title("投稿") %>
-<div class="mb-10">
+<div class="mt-10">
   <div class= "w-5/6 mx-auto max-w-screen-xl w-">
     <div class="text-xl  flex justify-center h-screen w-full"> 
       <div class="w-full h-full flex flex-col ">
         <%= form_with model: @article do |form| %>
         <%= render 'shared/error_messages', object: form.object%>
-          <%= form.label :title, "タイトル", class: "bg-white text-gray-600 " %>
+          <%= form.label :title, "タイトル", class: "text-gray-600 " %>
           <%= form.text_field :title, placeholder: 'タイトル', class: 'bg-white text-gray-600 textarea textarea-bordered mb-4 w-full'%>
           <br>
-          <%= form.label :body, "本文", class: "bg-white text-gray-600" %>
+          <%= form.label :body, "本文", class: "text-gray-600" %>
           <%= form.text_area :body, id: "markdown", placeholder: '本文', class: "bg-white text-gray-600 textarea textarea-bordered w-full mb-4 h-full" %>
           <div id="html"></div>
-          <%= form.submit "投稿する", name: 'published', class: "mt-10 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
-          <%= form.submit "下書きする", name: 'draft', class: "mt-10 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
-      <% end %>
+          <div class= "flex justify-center gap-7 mb-10 mt-10">
+          <%= form.submit "投稿", name: 'published', class: "app-link rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
+          <%= form.submit "下書き", name: 'draft',  class: "app-link rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
+          <% end %>
       </div>
     </div>
   </div>
