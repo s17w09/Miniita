@@ -1,9 +1,11 @@
 <% content_for :title, page_title("プロフィール") %>
-  <div class= "w-5/6 mx-auto max-w-screen-xl w-">
+<div class= "w-5/6 mx-auto max-w-screen-xl">
     <h1>プロフィール</h1>
-    <p>メールアドレス</p>
-    <%= current_user.email %>
-    <p>氏名</p>
-    <%= current_user.name %>
-    <%= link_to '編集', edit_profile_path, class: "app-link " %>
+    <div class="mb-5 text-sm font-medium leading-6 text-gray-900">メールアドレス</p>
+    <div class="mb-10 text-lg"><%= current_user.email %></div>
+    <div class="mb-5text-sm font-medium leading-6 text-gray-900">氏名</div>
+    <div class="text-lg"><%= current_user.name %></div>
+    <%= link_to '編集', edit_profile_path, class: "app-link mt-10 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
   </div>
+
+

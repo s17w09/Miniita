@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def my_favorites
-    @favorites = current_user.favorites.includes(:user).order(created_at: :desc)
+    @favorites = current_user.favorites.includes(:article).order(created_at: :desc)
   end
 
   private
