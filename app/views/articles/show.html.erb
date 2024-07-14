@@ -1,31 +1,28 @@
 <% content_for :title, page_title("詳細") %>
-      <h1 class="text-3xl mt-5 flex justify-center"><%= @article.title %></h1>
-      <h2 class="text-base mt-5 flex justify-center">作成日：<%=l @article.created_at, format: :long %></h2>
-      <h2 class="text-base flex justify-center">更新日：<%=l @article.updated_at, format: :long %></h2>
-      <h3 class="mt-10 bg-white"><%= render_markdown(@article.body).html_safe %></h3>
+<div class= "w-5/6 mx-auto max-w-screen-xl">
+  <h1 class="text-3xl mt-5 flex justify-center"><%= @article.title %></h1>
+  <h2 class="text-base mt-5 flex justify-center">作成日：<%=l @article.created_at, format: :long %></h2>
+  <h2 class="text-base flex justify-center">更新日：<%=l @article.updated_at, format: :long %></h2>
+  <h3 class="mt-10 bg-white"><%= render_markdown(@article.body).html_safe %></h3>
 
 
   <div class= "flex justify-center gap-7 mb-10 mt-10">
     <% if @article.user == current_user %>
-      <%=link_to '編集', edit_article_path(@article), class: "app-link rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
+      <%=link_to '編集', edit_article_path(@article), class: "app-link rounded-md bg-indigo-600 px-3 py-1.5 text-sm text-white font-semibold leading-6  shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
       <%=link_to '削除', article_path(@article), data: { turbo_method: :delete, turbo_confirm: '投稿を削除しますか？' }, class: "app-link rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
     <% end %>
   </div>
 
-<% if @article.published? %>
-  <div class= "flex justify-center gap-7 text-xl">
-    <div class= "flex justify-center gap-7 text-xl">
-
-      <%= render 'articles/favorite', article: @article, favorite: @favorite %>
-
-
-      <%= render 'shared/twitter' %>
-      <%= render 'comments/form', comment: @comment, article: @article %>
-        <table class="table">
-          <tbody id="comments">
-            <%= render @article.comments %>
-          </tbody>
-        </table>
-    </div>
+ <div class= "flex justify-center gap-7 text-xl">
+  <% if @article.published? %>
+    <%= render 'articles/favorite', article: @article, favorite: @favorite %>
+    <%= render 'shared/twitter' %>
   </div>
-<% end %>
+    <%= render 'comments/form', comment: @comment, article: @article %>
+      <table class="table">
+        <tbody id="comments">
+          <%= render @article.comments %>
+        </tbody>
+      </table>
+   <% end %>
+</div>
