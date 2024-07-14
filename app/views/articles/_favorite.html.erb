@@ -1,29 +1,73 @@
-<% if @article.favorited?(current_user, :like_first) %>
-  <%= render 'articles/first_unfavorite', article: @article %>
+<!-------------１つ目のいいねボタン------------->
+<% if logged_in? %>
+  <% if @article.favorited?(current_user, :like_first) %>
+    <%= render 'articles/first_unfavorite', article: @article %>
+  <% else %>
+    <%= render 'articles/first_favorite', article: @article %>
+  <% end %>
 <% else %>
-  <%= render 'articles/first_favorite', article: @article %>
+    <%= link_to login_path, class: "like-button-1" do %>
+      <i class="bi bi-arrow-through-heart"></i>
+      <%= @article.favorites.where(favorite_type: 'like_first').count %>
+    <% end %>
+<% end %>
+</div>
+<!-------------１つ目のいいねボタン------------->
+
+<!-------------２つ目のいいねボタン------------->
+<% if logged_in? %>
+  <% if @article.favorited?(current_user, :like_second) %>
+    <%= render 'articles/second_unfavorite', article: @article %>
+  <% else %>
+    <%= render 'articles/second_favorite', article: @article %>
+  <% end %>
+<% else %>
+  <%= link_to login_path, class: "like-button-2" do %>
+    <i class="bi bi-award"></i>
+    <%= @article.favorites.where(favorite_type: 'like_second').count %>
+  <% end %>
+<% end %>
+<!-------------２つ目のいいねボタン------------->
+<!-------------３つ目のいいねボタン------------->
+<% if logged_in? %>
+  <% if @article.favorited?(current_user, :like_third) %>
+    <%= render 'articles/third_unfavorite', article: @article %>
+  <% else %>
+    <%= render 'articles/third_favorite', article: @article %>
+  <% end %>
+<% else %>
+  <%= link_to login_path, class: "like-button-3" do %>
+    <i class="bi bi-arrow-through-heart"></i>
+    <%= @article.favorites.where(favorite_type: 'like_third').count %>
+  <% end %>
 <% end %>
 
-<% if @article.favorited?(current_user, :like_second) %>
-  <%= render 'articles/second_unfavorite', article: @article %>
+<!-------------３つ目のいいねボタン------------->
+<!-------------４つ目のいいねボタン------------->
+<% if logged_in? %>
+  <% if @article.favorited?(current_user, :like_forth) %>
+    <%= render 'articles/forth_unfavorite', article: @article %>
+  <% else %>
+    <%= render 'articles/forth_favorite', article: @article %>
+  <% end %>
 <% else %>
-  <%= render 'articles/second_favorite', article: @article %>
+  <%= link_to login_path, class: "like-button-4" do %>
+    <i class="bi bi-brightness-alt-high"></i>
+    <%= @article.favorites.where(favorite_type: 'like_forth').count %>
+  <% end %>
 <% end %>
-
-<% if @article.favorited?(current_user, :like_third) %>
-  <%= render 'articles/third_unfavorite', article: @article %>
+<!-------------４つ目のいいねボタン------------->
+<!-------------５つ目のいいねボタン------------->
+<% if logged_in? %>
+  <% if @article.favorited?(current_user, :like_fifth) %>
+    <%= render 'articles/fifth_unfavorite', article: @article %>
+  <% else %>
+    <%= render 'articles/fifth_favorite', article: @article %>
+  <% end %>
 <% else %>
-  <%= render 'articles/third_favorite', article: @article %>
+  <%= link_to login_path, class: "like-button-5" do %>
+    <i class="bi bi-bell"></i>
+    <%= @article.favorites.where(favorite_type: 'like_fifth').count %>
+  <% end %>
 <% end %>
-
-<% if @article.favorited?(current_user, :like_forth) %>
-  <%= render 'articles/forth_unfavorite', article: @article %>
-<% else %>
-  <%= render 'articles/forth_favorite', article: @article %>
-<% end %>
-
-<% if @article.favorited?(current_user, :like_fifth) %>
-  <%= render 'articles/fifth_unfavorite', article: @article %>
-<% else %>
-  <%= render 'articles/fifth_favorite', article: @article %>
-<% end %>
+<!-------------５つ目のいいねボタン------------->
