@@ -121,3 +121,7 @@ a.app-link {
     text-decoration: none;
     color: inherit;
 }
+
+.bi:hover {
+    color: rgba(248, 129, 31, 0.946);
+}
