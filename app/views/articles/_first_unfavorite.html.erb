@@ -1,4 +1,4 @@
 <%= link_to article_favorite_path(article, @article.id, type: :like_first), data: { turbo_method: :delete }, id: "first-unfavorite", class: "app-link unlike-button-1" do %>
-  <i class="bi bi-hand-thumbs-up-fill spin" style="color: rgba(248, 129, 31, 0.946);"></i>
+  <i class="bi bi-hand-thumbs-up-fill" style="color: rgba(248, 129, 31, 0.946);"></i>
   <%= @article.favorites.where(favorite_type: 'like_first').count %>
 <% end %>

@@ -1,0 +1,12 @@
+<% if logged_in? %>
+  <% if @comment.favorited?(current_user) %>
+    <%= render 'comments/unfavorite', comment: comment, commentfavorite: commentfavorite %>
+  <% else %>
+    <%= render 'comments/favorite', comment: comment %>
+  <% end %>
+<% else %>
+  <%= link_to login_path do %>
+    <i class="bi bi-arrow-through-heart"></i>
+    <%= comment.favorites.count %>
+  <% end %>
+<% end %>
