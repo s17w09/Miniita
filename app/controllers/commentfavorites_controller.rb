@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentfavoritesController < ApplicationController
   def create
     @comment = Comment.find(params[:comment_id])

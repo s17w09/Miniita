@@ -77,8 +77,16 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
+    ast (2.4.2)
     base64 (0.2.0)
     bcrypt (3.1.20)
+    better_html (2.1.1)
+      actionview (>= 6.0)
+      activesupport (>= 6.0)
+      ast (~> 2.0)
+      erubi (~> 1.4)
+      parser (>= 2.4)
+      smart_properties
     bigdecimal (3.1.8)
     bindex (0.8.1)
     bootsnap (1.18.3)
@@ -111,6 +119,13 @@ GEM
       dotenv (= 3.1.2)
       railties (>= 6.1)
     drb (2.2.1)
+    erb_lint (0.5.0)
+      activesupport
+      better_html (>= 2.0.1)
+      parser (>= 2.7.1.4)
+      rainbow
+      rubocop
+      smart_properties
     erubi (1.13.0)
     faraday (2.9.2)
       faraday-net_http (>= 2.0, < 3.2)
@@ -130,6 +145,7 @@ GEM
       activesupport (>= 5.0.0)
     jsbundling-rails (1.3.0)
       railties (>= 6.0.0)
+    json (2.7.2)
     jwt (2.8.2)
       base64
     kaminari (1.2.2)
@@ -148,6 +164,7 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
+    language_server-protocol (3.17.0.3)
     launchy (3.0.1)
       addressable (~> 2.8)
       childprocess (~> 5.0)
@@ -212,6 +229,10 @@ GEM
       rack (>= 1.2, < 4)
       snaky_hash (~> 2.0)
       version_gem (~> 1.1)
+    parallel (1.25.1)
+    parser (3.3.4.0)
+      ast (~> 2.4.1)
+      racc
     pg (1.5.6)
     psych (5.1.2)
       stringio
@@ -259,6 +280,7 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
+    rainbow (3.1.1)
     rake (13.2.1)
     ransack (4.1.1)
       activerecord (>= 6.1.5)
@@ -271,6 +293,32 @@ GEM
       io-console (~> 0.5)
     rexml (3.3.1)
       strscan
+    rubocop (1.65.0)
+      json (~> 2.3)
+      language_server-protocol (>= 3.17.0)
+      parallel (~> 1.10)
+      parser (>= 3.3.0.2)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 2.4, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.31.1, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.31.3)
+      parser (>= 3.3.1.0)
+    rubocop-performance (1.21.1)
+      rubocop (>= 1.48.1, < 2.0)
+      rubocop-ast (>= 1.31.1, < 2.0)
+    rubocop-rails (2.25.1)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.33.0, < 2.0)
+      rubocop-ast (>= 1.31.1, < 2.0)
+    rubocop-rake (0.6.0)
+      rubocop (~> 1.0)
+    rubocop-rspec (3.0.3)
+      rubocop (~> 1.61)
+    ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
     selenium-webdriver (4.22.0)
       base64 (~> 0.2)
@@ -278,6 +326,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    smart_properties (1.17.0)
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
@@ -304,6 +353,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (2.5.0)
     uri (0.13.0)
     version_gem (1.1.4)
     web-console (4.2.1)
@@ -335,6 +385,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   dotenv-rails
+  erb_lint
   jbuilder
   jsbundling-rails
   kaminari
@@ -346,6 +397,12 @@ DEPENDENCIES
   rails (~> 7.1.3, >= 7.1.3.4)
   rails-i18n
   ransack
+  rubocop
+  rubocop-ast
+  rubocop-performance
+  rubocop-rails
+  rubocop-rake
+  rubocop-rspec
   selenium-webdriver
   sorcery
   sprockets-rails

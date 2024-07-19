@@ -1,6 +1,8 @@
-require_relative "boot"
+# frozen_string_literal: true
 
-require "rails/all"
+require_relative 'boot'
+
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -8,7 +10,6 @@ Bundler.require(*Rails.groups)
 
 # Dotenvの設定をロードする
 require 'dotenv/load'
-
 
 module Myapp
   class Application < Rails::Application
@@ -18,14 +19,14 @@ module Myapp
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    config.autoload_lib(ignore: %w(assets tasks))
+    config.autoload_lib(ignore: %w[assets tasks])
     config.time_zone = 'Tokyo'
 
-    #デフォルトのlocaleを日本語(:ja)にする
+    # デフォルトのlocaleを日本語(:ja)にする
     config.i18n.default_locale = :ja
-    
-    #以下の記述を追記する(設定必須)
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+    # 以下の記述を追記する(設定必須)
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}').to_s]
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

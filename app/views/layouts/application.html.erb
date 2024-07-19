@@ -6,8 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module' %>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5MJ3N91VC"></script>
@@ -36,16 +36,16 @@
 
   <body>
     <!------ヘッダーの出し分け------------->
-    <div class= "bg-indigo-50">
+    <div class="bg-indigo-50">
     <% if current_user %>
-      <%= render "shared/after_login_header" %>
+      <%= render 'shared/after_login_header' %>
     <% else %>
-      <%= render "shared/before_login_header" %>
+      <%= render 'shared/before_login_header' %>
     <% end %>
     <%= render 'layouts/flash_messages' %>
     <!--------------------------------->
     <%= yield %>
-    <%= render "shared/footer" %>
+    <%= render 'shared/footer' %>
   </body>
   </div>
 </html>

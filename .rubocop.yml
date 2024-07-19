@@ -1,0 +1,21 @@
+inherit_from: .rubocop_todo.yml
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 3.1
+  NewCops: enable
+
+Rails/BulkChangeTable:
+  Enabled: false
+
+require:
+  - rubocop-ast
+  - rubocop-rails
+  - rubocop-rake
+  - rubocop-rspec
+  - rubocop-performance

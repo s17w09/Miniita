@@ -1,5 +1,6 @@
 <div class="tooltip" data-tip="解説が丁寧">
-<%= link_to article_favorites_path(@article.id, type: :like_third), data: { turbo_method: :post, turbo_stream: true },  id: "third-favorite", class: "app-link like-button-3" do %>
+<%= link_to article_favorites_path(@article.id, type: :like_third), data: { turbo_method: :post, turbo_stream: true },
+                                                                    id: 'third-favorite', class: 'app-link like-button-3' do %>
   <i class="bi bi-arrow-through-heart"></i>
   <%= @article.favorites.where(favorite_type: 'like_third').count %>
 <% end %>

@@ -1,7 +1,9 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class StaticpagesControllerTest < ActionDispatch::IntegrationTest
-  test "should get top" do
+  test 'should get top' do
     get staticpages_top_url
     assert_response :success
   end

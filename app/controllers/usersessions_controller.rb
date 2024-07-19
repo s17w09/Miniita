@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class UsersessionsController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_login, only: %i[new create]
 
   def new
     @user = login(params[:email], params[:password])
@@ -7,7 +9,7 @@ class UsersessionsController < ApplicationController
 
   def create
     @user = login(params[:email], params[:password])
-  
+
     if @user
       redirect_to articles_path, notice: 'ログインしました。'
     else

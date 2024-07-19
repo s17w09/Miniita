@@ -1,5 +1,6 @@
 <div class="tooltip" data-tip="独自の視点！">
-  <%= link_to article_favorites_path(@article.id, type: :like_forth), data: { turbo_method: :post, turbo_stream: true },  id: "forth-favorite",class: "app-link like-button-4" do %>
+  <%= link_to article_favorites_path(@article.id, type: :like_forth),
+              data: { turbo_method: :post, turbo_stream: true }, id: 'forth-favorite', class: 'app-link like-button-4' do %>
     <i class="bi bi-brightness-alt-high"></i>
     <%= @article.favorites.where(favorite_type: 'like_forth').count %>
   <% end %>

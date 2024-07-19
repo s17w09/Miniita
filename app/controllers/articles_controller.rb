@@ -1,32 +1,40 @@
+# frozen_string_literal: true
+
 class ArticlesController < ApplicationController
-  skip_before_action :require_login, only: [:index, :show]
-  before_action :set_article, only: [:edit, :update, :destroy]
+  skip_before_action :require_login, only: %i[index show]
+  before_action :set_article, only: %i[edit update destroy]
 
   def index
-    if params[:latest]
-      @q = Article.ransack(params[:q])
-      @articles = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page]).published.latest
-    elsif params[:old]
-      @q = Article.ransack(params[:q])
-      @articles = @q.result(distinct: true).includes(:user).order(created_at: :asc).page(params[:page]).published.old
-    else
-      @q = Article.ransack(params[:q])
-      @articles = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page]).published.latest
-    end
+    @q = Article.ransack(params[:q])
+    @articles = if params[:latest]
+                  @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page]).published.latest
+                elsif params[:old]
+                  @q.result(distinct: true).includes(:user).order(created_at: :asc).page(params[:page]).published.old
+                else
+                  @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page]).published.latest
+                end
+  end
+
+  def show
+    @article = Article.find(params[:id])
+    @comments = @article.comments.includes(:user).order(created_at: :desc)
+    @comment = Comment.new
   end
 
   def new
     @article = Article.new
   end
 
+  def edit; end
+
   def create
     @article = current_user.articles.build(article_params)
 
-    if params[:draft].present?
-      @article.status = :draft
-    else
-      @article.status = :published
-    end
+    @article.status = if params[:draft].present?
+                        :draft
+                      else
+                        :published
+                      end
 
     if @article.save
       if @article.draft?
@@ -40,21 +48,12 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def show
-    @article = Article.find(params[:id])
-    @comments = @article.comments.includes(:user).order(created_at: :desc)
-    @comment = Comment.new
-  end
-
-  def edit; end
-
   def update
-
-    if params[:published].present?
-      @article.status = :published
-    else
-      @article.status = :draft
-    end
+    @article.status = if params[:published].present?
+                        :published
+                      else
+                        :draft
+                      end
 
     if @article.update(article_params)
       redirect_to article_path(@article), notice: '投稿しました。'
