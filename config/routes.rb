@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'oauths/oauth'
-  get 'oauths/callback'
+
   # letter openerの設定、http://localhost:3000/letter_opener/が見れるようになる
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
