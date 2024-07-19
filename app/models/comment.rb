@@ -5,7 +5,7 @@ class Comment < ApplicationRecord
 
   validates :body, presence: true
 
-  def comment_favorited?(user)
+  def favorited?(user)
     commentfavorites.where(user_id: user.id).exists?
   end
 end
