@@ -1,7 +1,9 @@
-class ProfilesController < ApplicationController
-  before_action :set_user, only: [:edit, :update]
+# frozen_string_literal: true
 
-  def show 
+class ProfilesController < ApplicationController
+  before_action :set_user, only: %i[edit update]
+
+  def show
     @user = current_user
     @posted_articles = @user.articles
   end

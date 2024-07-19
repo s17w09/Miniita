@@ -1,11 +1,11 @@
-<div class= "w-5/6 mx-auto max-w-screen-xl">
-  <% content_for :title, page_title("自分の記事") %>
+<div class="w-5/6 mx-auto max-w-screen-xl">
+  <% content_for :title, page_title('自分の記事') %>
     <h1>下書き記事</h1>
       <ul>
         <% @draft_articles.each do |article| %>
         <div class="p-4 border rounded-lg mb-3">
           <li>
-            <%= link_to article.title, article, class: "app-link" %>
+            <%= link_to article.title, article, class: 'app-link' %>
           </li>
         </div>
         <% end %>
@@ -15,7 +15,7 @@
         <% @published_articles.each do |article| %>
         <div class="p-4 border rounded-lg mb-3">
           <li>
-            <%= link_to article.title, article, class: "app-link" %>
+            <%= link_to article.title, article, class: 'app-link' %>
           </li>
         </div>
         <% end %>

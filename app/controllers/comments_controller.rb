@@ -1,20 +1,21 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:edit, :update, :destroy]
+  before_action :set_comment, only: %i[edit update destroy]
   def index
     @comment = Comment.new
   end
-
-  def create
-    @comment = current_user.comments.build(create_comment_params)
-    @comment.save
-  end
-
 
   def show
     @comment = Comment.find(params[:id])
   end
 
   def edit; end
+
+  def create
+    @comment = current_user.comments.build(create_comment_params)
+    @comment.save
+  end
 
   def update
     @comment.update(update_comment_params)
@@ -23,7 +24,6 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy!
   end
-  
 
   private
 

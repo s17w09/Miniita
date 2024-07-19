@@ -1,4 +1,4 @@
-<% content_for :title, page_title("新規登録") %>
+<% content_for :title, page_title('新規登録') %>
 <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
   <div class="sm:mx-auto sm:max-w-md">
     <h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">新規登録</h2>
@@ -6,29 +6,34 @@
   <div class="mt-3 sm:mx-auto sm:w-full">
     <div class="px-6 py-12 sm:rounded-lg sm:px-12">
       <%= form_with model: @user do |form| %>
-      <%= render 'shared/error_messages', object: form.object%>
+      <%= render 'shared/error_messages', object: form.object %>
       <div>
         <%= form.label :name, '名前', class: 'text-sm font-medium leading-6 text-gray-900' %>
         <div class="mb-2">
-        <%= form.text_field :name, required: true, class: 'bg-white white w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' %>
+        <%= form.text_field :name, required: true,
+                                   class: 'bg-white white w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' %>
       </div>
       <div>
-        <%= form.label :email, "メールアドレス", class: 'block text-sm font-medium leading-6 text-gray-900' %>
+        <%= form.label :email, 'メールアドレス', class: 'block text-sm font-medium leading-6 text-gray-900' %>
         <div class="mb-2">
-        <%= form.text_field :email, required: true, class: "bg-white block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"%>
+        <%= form.text_field :email, required: true,
+                                    class: 'bg-white block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' %>
       </div>
       <div>
-        <%= form.label :password, "パスワード(8文字以上/半角の英数字のみ)", class: 'block text-sm font-medium leading-6 text-gray-900' %>
+        <%= form.label :password, 'パスワード(8文字以上/半角の英数字のみ)', class: 'block text-sm font-medium leading-6 text-gray-900' %>
         <div class="mb-2">
-        <%= form.password_field :password, required: true, class: "bg-white block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"%>
+        <%= form.password_field :password, required: true,
+                                           class: 'bg-white block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' %>
       </div>
   </div>
   <div>
-      <%= form.label :password_confirmation, "パスワード確認", class: 'block text-sm font-medium leading-6 text-gray-900' %>
+      <%= form.label :password_confirmation, 'パスワード確認', class: 'block text-sm font-medium leading-6 text-gray-900' %>
         <div class="mb-2">
-        <%= form.password_field :password_confirmation, required: true, class: "bg-white block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+        <%= form.password_field :password_confirmation, required: true,
+                                                        class: 'bg-white block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6' %>
         </div>
       </div>
-      <%= form.submit "登録", class: "mt-10 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
+      <%= form.submit '登録',
+                      class: 'mt-10 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' %>
       <% end %>
 </div>
