@@ -2,7 +2,7 @@
   <td>
     <h3 class="small"><%= comment.user.name %></h3>
     <p><%= simple_format(comment.body) %></p>
-    <%= render 'commentfavorites/commentfavorite', comment: comment %>
+    <%= render 'comments/commentfavorite', comment: comment, commentfavorite: @commentfavorite %>
   </td>
     <td class="action">
       <ul class="list-inline justify-content-center" style="float: right;">

@@ -21,7 +21,7 @@
     <%= render 'comments/form', comment: @comment, article: @article %>
       <table class="table">
         <tbody id="comments">
-          <%= render @article.comments %>
+          <%= render @article.comments, commentfavorites: @commentfavorites %>
         </tbody>
       </table>
    <% end %>
