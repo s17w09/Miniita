@@ -2,7 +2,7 @@ class OauthsController < ApplicationController
   skip_before_action :require_login, raise: false
 
   def oauth
-    return redirect_to root_path if logged_in?
+    return redirect_to root_path, notice: 'ログイン' if logged_in?
     login_at(params[:provider])
   end
 
