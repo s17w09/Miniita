@@ -1,4 +1,6 @@
 class OauthsController < ApplicationController
+  skip_before_action :require_login, only: [:oauth, :callback]
+
   def oauth
     return redirect_to root_path if logged_in?
     login_at(params[:provider])
