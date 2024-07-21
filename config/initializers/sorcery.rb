@@ -95,9 +95,9 @@ Rails.application.config.sorcery.configure do |config|
   # You can skip including the email field if you use an intermediary signup form. (using build_from method).
   # The r_emailaddress scope is only necessary if you are using the create_from method directly.
   
-  config.github.key = Rails.application.credentials.dig(:github, :key)
-  config.github.secret = Rails.application.credentials.dig(:github, :secret)
-  config.github.callback_url = Rails.application.credentials.dig(:github, :callback_url)
+  config.github.key = ENV['GITHUB_ID']
+  config.github.secret = ENV['GITHUB_SECRET']
+  config.github.callback_url = ENV['GITHUB_CALLBACK_URL']
   config.github.user_info_mapping = { email: "email", name: "login", remote_avatar_url: "avatar_url" }
   config.github.scope = "user:email"
   
