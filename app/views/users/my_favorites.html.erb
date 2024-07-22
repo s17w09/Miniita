@@ -1,8 +1,53 @@
 <% content_for :title, page_title('いいねした投稿') %>
   <div class="w-5/6 mx-auto max-w-screen-xl">
     <h1>いいねした記事</h1>
+      <h3>参考になった！<h3>
       <ul>
-        <% @favorites.each do |favorite| %>
+        <% @like_first.each do |favorite| %>
+          <div class="p-4 border rounded-lg mb-3">
+            <li>
+              <%= link_to favorite.article.title, article_path(favorite.article), class: 'app-link' %>
+            </li>
+          </div>
+        <% end %>
+      </ul>
+
+      <h3>学びが深まった<h3>
+      <ul>
+        <% @like_second.each do |favorite| %>
+          <div class="p-4 border rounded-lg mb-3">
+            <li>
+              <%= link_to favorite.article.title, article_path(favorite.article), class: 'app-link' %>
+            </li>
+          </div>
+        <% end %>
+      </ul>
+
+      <h3>解説が丁寧<h3>
+      <ul>
+        <% @like_third.each do |favorite| %>
+          <div class="p-4 border rounded-lg mb-3">
+            <li>
+              <%= link_to favorite.article.title, article_path(favorite.article), class: 'app-link' %>
+            </li>
+          </div>
+        <% end %>
+      </ul>
+
+      <h3>独自の視点！<h3>
+      <ul>
+        <% @like_forth.each do |favorite| %>
+          <div class="p-4 border rounded-lg mb-3">
+            <li>
+              <%= link_to favorite.article.title, article_path(favorite.article), class: 'app-link' %>
+            </li>
+          </div>
+        <% end %>
+      </ul>
+
+      <h3>詳細をもっと知りたい<h3>
+      <ul>
+        <% @like_fifth.each do |favorite| %>
           <div class="p-4 border rounded-lg mb-3">
             <li>
               <%= link_to favorite.article.title, article_path(favorite.article), class: 'app-link' %>
