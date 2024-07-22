@@ -16,8 +16,9 @@ class OauthsController < ApplicationController
         reset_session
         auto_login(@user)
         redirect_to articles_path, success: "#{provider.titleize}アカウントでログインしました。"
-      rescue
-        redirect_to root_path, error: "#{provider.titleize}アカウントでのログインに失敗しました。"
+      rescue => e
+        puts e
+
       end
     end
   end

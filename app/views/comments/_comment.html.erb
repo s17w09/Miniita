@@ -1,8 +1,12 @@
 <tr id="comment-<%= comment.id %>">
   <td>
     <h3 class="small"><%= comment.user.name %></h3>
-    <p><%= simple_format(comment.body) %></p>
-    <%= render 'comments/commentfavorite', comment:, commentfavorite: @commentfavorite %>
+     <div id="post_comment">
+      <p><%= simple_format(comment.body) %></p>
+     </div>
+      <h5 class="small">投稿日：<%= l comment.created_at, format: :long %></h5>
+      <h5 class="small">最終更新日：<%= l comment.updated_at, format: :long %></h5>
+      <%= render 'comments/commentfavorite', comment:, commentfavorite: @commentfavorite %>
   </td>
     <td class="action">
       <ul class="list-inline justify-content-center" style="float: right;">
@@ -13,8 +17,7 @@
             <% end %>
         </li>
         <li class="list-inline-item">
-          <%= link_to comment_path(comment), class: 'app-link delete-comment-link',
-                                             data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+          <%= link_to comment_path(comment), class: 'app-link delete-comment-link', data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
             <i class="bi bi-trash-fill"></i>
           <% end %>
           <% end %>
