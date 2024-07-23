@@ -1,5 +1,5 @@
 <!-----コメント編集する文言を表示------>
- <%= turbo_stream.replace "post_comment" do %>
+ <%= turbo_stream.replace "post_comment-#{@comment.id}" do %>
   <%= form_with model: @comment do |form| %>
     <%= form.label :body, "コメント"%>
     <%= form.text_area :body, placeholder: 'コメント', class: "textarea textarea-bordered w-full mb-4 h-full bg-white text-gray-600" %>
