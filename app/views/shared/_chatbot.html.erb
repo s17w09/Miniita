@@ -1,0 +1,92 @@
+<!-- モーダルのボタン -->
+<button class="text-4xl" onclick="my_modal_2.showModal()">
+  <i class="bi bi-chat-left-heart"></i>
+</button>
+
+<!-- モーダルの内容 -->
+<dialog id="my_modal_2" class="modal">
+  <div class="modal-box mb-5 bg-white text-gray-600">
+    <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onclick="my_modal_2.close()">x</button>
+    <h3 class="font-bold text-lg">Miniita Botで質問</h3>
+    <p class="py-4">
+      <!----------チャット画面の大枠------------------->
+      <div class="flex flex-col items-center justify-center py-6 w-full h-full">
+        <div class="max-w-4xl w-full space-y-8 h-full">
+          <div id="conversation" class="space-y-4 p-4 rounded overflow-y-auto">
+          </div>
+
+          <!-- ドロップダウンメニューとテキスト入力 -->
+          <form id="text_form" class="flex items-center px-2 py-1 border-t border-gray-200 bg-white">
+            <select id="dropdown" class="px-3 py-2 border rounded border-gray-300 bg-white text-gray-600 mr-2">
+              <option value="">選択してください</option>
+              <option value="MiniitaBotでは、3-5項目で記事のテンプレートを作成します。
+              テンプレートにして欲しい内容を、次の鉤括弧内に入力してください。「」についてテンプレート化してください。">テンプレート作成依頼</option>
+              <option value="MiniitaNotでは、記事内容の正当性を確認します。（誤っている可能性もあるため、ご自身でもご確認ください）
+              どの箇所の内容を確認して欲しいのか、次の鉤括弧内に入力してください。「」について内容を正確に確認し、誤っていれば内容を指摘してください。">記事内容の確認依頼</option>
+              <option value="MiniitaBotでは、あなたの記事の誤字脱字、文章構成を確認します。
+              確認して欲しい箇所を、次の鉤括弧内に入力してください。「」について誤字脱字、文章構成を確認し、誤っていれば内容を指摘してください。">誤字脱字の確認依頼</option>
+              <option value="MiniitaBotへ聞きたい内容を、フリーで下記へ入力してください。">その他</option>
+            </select>
+            <input type="text" placeholder="質問内容を入力してください" id="user_input" class="flex-1 px-3 py-2 border rounded border-gray-300 focus:border-blue-500 focus:outline-none focus:ring bg-white text-gray-600">
+            <button id="button_post" class="px-4 py-2 bg-green-500 text-white rounded-md transition duration-300 ease-in-out hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-200 ml-2">送信</button>
+          </form>
+        </div>
+      </div>
+
+      <script>
+        const button_post = document.getElementById('button_post');
+        const dropdown = document.getElementById('dropdown');
+        const userInput = document.getElementById('user_input');
+
+        // ドロップダウンメニューの選択が変更されたときの処理
+        dropdown.addEventListener('change', function() {
+          userInput.value = dropdown.value;
+        });
+
+        button_post.addEventListener('click', function(event) {
+          event.preventDefault();
+
+          if (userInput.value.trim() === "") {
+            return;
+          }
+
+          const url = "<%= openai_openais_path('json') %>?user_input=" + userInput.value;
+          const postOptions = {
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            method: "GET"
+          };
+
+          fetch(url, postOptions)
+            .then(response => response.json())
+            .then(item => {
+              const list = document.getElementById("conversation");
+
+              // ユーザーの質問
+              const inputHTML = `
+                <div class="text-right flex items-end justify-end space-x-2">
+                  <div class="chat-bubble inline-block bg-blue-100 px-4 py-2 rounded-lg max-w-3/4 break-words text-sky-950">
+                    <span>${userInput.value}</span>
+                  </div>
+                </div>`;
+              list.insertAdjacentHTML("beforeend", inputHTML);
+
+              // MiniitaBotからの返事
+              const responseHTML = `
+                <div class="text-left flex items-start space-x-2">
+                  <div class="chat-bubble inline-block bg-gray-100 px-4 py-2 rounded-lg max-w-3/4 break-words text-sky-950">
+                    <span>${item.text}</span>
+                  </div>
+                </div>`;
+              list.insertAdjacentHTML("beforeend", responseHTML);
+              userInput.value = "";
+              list.scrollTop = list.scrollHeight;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+      </script>
+    </p>
+  </div>
+</dialog>

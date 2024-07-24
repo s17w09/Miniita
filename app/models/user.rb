@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :commentfavorites, dependent: :destroy
   has_many :authentications, dependent: :destroy
-  
+
   accepts_nested_attributes_for :authentications
   has_one :profile
 

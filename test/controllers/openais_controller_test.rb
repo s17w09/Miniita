@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class AuthenticationTest < ActiveSupport::TestCase
+class OpenaisControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

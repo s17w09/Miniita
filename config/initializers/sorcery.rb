@@ -6,7 +6,7 @@
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging,
 # :magic_login, :external
-Rails.application.config.sorcery.submodules = [:reset_password, :external]
+Rails.application.config.sorcery.submodules = %i[reset_password external]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
@@ -82,7 +82,7 @@ Rails.application.config.sorcery.configure do |config|
   # i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce, :slack, :line].
   # Default: `[]`
 
-  #外部認証にgithubを指定
+  # 外部認証にgithubを指定
   config.external_providers = [:github]
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
@@ -94,20 +94,19 @@ Rails.application.config.sorcery.configure do |config|
   # Linkedin requires r_emailaddress scope to fetch user's email address.
   # You can skip including the email field if you use an intermediary signup form. (using build_from method).
   # The r_emailaddress scope is only necessary if you are using the create_from method directly.
-  
-  config.github.key = ENV['GITHUB_ID']
-  config.github.secret = ENV['GITHUB_SECRET']
 
-  if Rails.env.production?
-    config.github.callback_url = "https://miniita.onrender.com/oauth/callback?provider=github"
-  else
-    config.github.callback_url = "http://localhost:3000/oauth/callback?provider=github"
-  end
+  config.github.key = ENV.fetch('GITHUB_ID', nil)
+  config.github.secret = ENV.fetch('GITHUB_SECRET', nil)
 
-  
-  config.github.user_info_mapping = { email: "email", name: "login", remote_avatar_url: "avatar_url" }
-  config.github.scope = "user:email"
-  
+  config.github.callback_url = if Rails.env.production?
+                                 'https://miniita.onrender.com/oauth/callback?provider=github'
+                               else
+                                 'http://localhost:3000/oauth/callback?provider=github'
+                               end
+
+  config.github.user_info_mapping = { email: 'email', name: 'login', remote_avatar_url: 'avatar_url' }
+  config.github.scope = 'user:email'
+
   # config.linkedin.key = ""
   # config.linkedin.secret = ""
   # config.linkedin.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=linkedin"

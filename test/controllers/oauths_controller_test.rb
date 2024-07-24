@@ -1,12 +1,14 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class OauthsControllerTest < ActionDispatch::IntegrationTest
-  test "should get oauth" do
+  test 'should get oauth' do
     get oauths_oauth_url
     assert_response :success
   end
 
-  test "should get callback" do
+  test 'should get callback' do
     get oauths_callback_url
     assert_response :success
   end
