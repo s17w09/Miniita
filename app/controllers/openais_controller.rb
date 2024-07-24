@@ -20,6 +20,7 @@ class OpenaisController < ApplicationController
         " },    
         { role: "user", @user_input}], # Required.
         temperature: 0.7,
+        max_tokens: 600  #平均でひらがな１文字１～２トークン、漢字１文字２～３トークンのため、日本語300文字程度と考え600に設定
       })
      
   
