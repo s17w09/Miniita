@@ -1,5 +1,5 @@
-class OpenaisController < ApplicationController
-
+class Openai::OpenaisController < ApplicationController
+    protect_from_forgery
   def show; end
 
   def text
@@ -18,7 +18,8 @@ class OpenaisController < ApplicationController
         ユーザーから、「「」について誤字脱字、文章構成を確認し、誤っていれば内容を指摘してください。」の内容とともに質問などが送られてきたら、鉤括弧内の内容をもとに、誤字脱字・文章構成を確認し誤っていれば内容を指摘してください。
         ユーザーから、上記以外の内容が送信されたら、その内容に正確に回答してください。
         " },    
-        { role: "user", @user_input}], # Required.
+        { role: "user", content: @user_input }
+        ], # Required.
         temperature: 0.7,
         max_tokens: 600  #平均でひらがな１文字１～２トークン、漢字１文字２～３トークンのため、日本語300文字程度と考え600に設定
       })

@@ -20,7 +20,11 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: %i[edit show update]
-  resources :openais, only: %i[show text]
+
+  namespace :openai do
+    get 'openais/', to: 'openais#text'
+    get 'openais/show', to: 'openais#show'
+  end
 
   resources :articles do
     resources :favorites, only: %i[create destroy]

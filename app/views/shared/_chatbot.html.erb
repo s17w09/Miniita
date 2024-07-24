@@ -19,9 +19,9 @@
           <form id="text_form" class="flex items-center px-2 py-1 border-t border-gray-200 bg-white">
             <select id="dropdown" class="px-3 py-2 border rounded border-gray-300 bg-white text-gray-600 mr-2">
               <option value="">選択してください</option>
-              <option value="MiniitaBotでは、3-5項目で記事のテンプレートを作成します。<br>
+              <option value="MiniitaBotでは、3-5項目で記事のテンプレートを作成します。
               テンプレートにして欲しい内容を、次の鉤括弧内に入力してください。「」についてテンプレート化してください。">テンプレート作成依頼</option>
-              <option value="MiniitaNotでは、記事内容の正当性を確認します。（誤っている可能性もあるため、ご自身でもご確認ください）<br>
+              <option value="MiniitaNotでは、記事内容の正当性を確認します。（誤っている可能性もあるため、ご自身でもご確認ください）
               どの箇所の内容を確認して欲しいのか、次の鉤括弧内に入力してください。「」について内容を正確に確認し、誤っていれば内容を指摘してください。">記事内容の確認依頼</option>
               <option value="MiniitaBotでは、あなたの記事の誤字脱字、文章構成を確認します。
               確認して欲しい箇所を、次の鉤括弧内に入力してください。「」について誤字脱字、文章構成を確認し、誤っていれば内容を指摘してください。">誤字脱字の確認依頼</option>
@@ -50,7 +50,7 @@
             return;
           }
 
-          const url = "<%= openai_path('json') %>?user_input=" + userInput.value;
+          const url = "<%= openai_openais_path('json') %>?user_input=" + userInput.value;
           const postOptions = {
             headers: {
               'Accept': 'application/json',
