@@ -17,7 +17,8 @@
             <% end %>
         </li>
         <li class="list-inline-item">
-          <%= link_to comment_path(comment), class: 'app-link delete-comment-link', data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+          <%= link_to comment_path(comment), class: 'app-link delete-comment-link',
+                                             data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
             <i class="bi bi-trash-fill"></i>
           <% end %>
           <% end %>

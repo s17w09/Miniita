@@ -45,13 +45,27 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
+
+# パスワードリセット環境設定
 gem 'config'
+
+# 環境変数
 gem 'dotenv-rails'
+
+# ページネーション
 gem 'kaminari'
+
+# マークダウン記法対応
 gem 'kramdown'
 gem 'kramdown-parser-gfm'
+
+# 日本語対応
 gem 'rails-i18n'
+
+# 検索機能
 gem 'ransack'
+
+# 認証
 gem 'sorcery'
 
 # rubocop関連
@@ -65,7 +79,11 @@ gem 'rubocop-rspec'
 # eslint
 gem 'erb_lint'
 
+# デバック
 gem 'pry-rails'
+
+# openAI
+gem 'ruby-openai'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
