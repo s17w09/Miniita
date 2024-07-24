@@ -1,0 +1,4 @@
+github:
+  client_id: <%= ENV.fetch('GITHUB_ID', nil) %>
+  client_secret: <%= ENV.fetch('GITHUB_SECRET', nil) %>
+  callback_url: "https://miniita.onrender.com/oauth/callback?provider=github"
