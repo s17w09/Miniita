@@ -8,8 +8,8 @@ class CommentfavoritesController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    @commentfavorite = current_user.commentfavorites.find_by(comment_id: params[:id])
+    @comment = Comment.find(params[:comment_id])
+    @commentfavorite = current_user.commentfavorites.find_by(comment_id: params[:comment_id])
     @commentfavorite.destroy
   end
 end
