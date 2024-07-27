@@ -1,3 +1,3 @@
-<%= turbo_stream.replace "first-comment-unfavorite" do %>
+<%= turbo_stream.replace "first-unfavorite-#{@comment.id}" do %>
   <%= render 'comments/favorite', comment: @comment %>
 <% end %>
