@@ -6,7 +6,7 @@
      </div>
       <h5 class="small">投稿日：<%= l comment.created_at, format: :long %></h5>
       <h5 class="small">最終更新日：<%= l comment.updated_at, format: :long %></h5>
-      <%= render 'comments/commentfavorite', comment:, commentfavorite: @commentfavorite %>
+      <%= render 'comments/commentfavorite', comment: comment %>
   </td>
     <td class="action">
       <ul class="list-inline justify-content-center" style="float: right;">

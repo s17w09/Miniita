@@ -20,7 +20,7 @@
       <table class="table">
         <tbody id="comments">
         <%= render 'comments/form', comment: @comment, article: @article %>
-        <%= render @article.comments, commentfavorites: @commentfavorites %>
+        <%= render @article.comments, comment: @comment, article: @article %>
         </tbody>
       </table>
    <% end %>
