@@ -1,6 +1,6 @@
 <div class="w-5/6 mx-auto max-w-screen-xl">
   <% content_for :title, page_title('自分の記事') %>
-    <h1>下書き記事</h1>
+    <h1>下書き記事 : <%= @draft_articles.count %></h1>
       <ul>
         <% @draft_articles.each do |article| %>
         <div class="p-4 border rounded-lg mb-3">
@@ -10,7 +10,7 @@
         </div>
         <% end %>
       </ul>
-    <h1>投稿済記事</h1>
+    <h1>投稿済記事 : <%= @published_articles.count %></h1>
       <ul>
         <% @published_articles.each do |article| %>
         <div class="p-4 border rounded-lg mb-3">

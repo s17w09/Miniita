@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     collection do
       get :my_articles
       get :my_favorites
+      get :my_badges
     end
   end
 

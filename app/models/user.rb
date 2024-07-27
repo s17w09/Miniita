@@ -28,4 +28,28 @@ class User < ApplicationRecord
   def self.ransackable_associations(_auth_object = nil)
     %w[articles favorites]
   end
+
+  def first_published
+    articles.count >= 1
+  end
+
+  def third_published
+    articles.count >= 3
+  end
+    
+  def fifth_published
+    articles.count >= 5
+  end
+
+  def tenth_published
+    articles.count >= 10
+  end
+
+  def twentieth_published
+    articles.count >= 20
+  end
+
+  def thirtieth_published
+    articles.count >= 30
+  end
 end

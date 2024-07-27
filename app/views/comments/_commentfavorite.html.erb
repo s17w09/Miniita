@@ -1,8 +1,8 @@
 <% if logged_in? %>
   <% if @comment.favorited?(current_user) %>
-    <%= render 'comments/unfavorite', comment:, commentfavorite: %>
+    <%= render 'comments/unfavorite', commentfavorite: commentfavorite, comment: comment %>
   <% else %>
-    <%= render 'comments/favorite', comment: %>
+    <%= render 'comments/favorite', commentfavorite: commentfavorite, comment: comment %>
   <% end %>
 <% else %>
   <%= link_to login_path do %>
