@@ -36,7 +36,7 @@ class User < ApplicationRecord
   def third_published
     articles.count >= 3
   end
-    
+
   def fifth_published
     articles.count >= 5
   end

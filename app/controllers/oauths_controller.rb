@@ -18,7 +18,7 @@ class OauthsController < ApplicationController
         auto_login(@user)
         redirect_to articles_path, notice: "#{provider.titleize}アカウントでログインしました。"
       rescue
-        redirect_to root_path, :notice => "#{provider.titleize}アカウントでログインに失敗しました。"
+        redirect_to root_path, notice: "#{provider.titleize}アカウントでのログインに失敗しました。"
       end
     end
   end
