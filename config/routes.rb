@@ -39,6 +39,6 @@ Rails.application.routes.draw do
   delete 'logout' => 'usersessions#destroy', :as => :logout
   resources :password_resets, only: %i[create edit update]
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  get '/policy', to: 'staticpages#privacy_policy', as: :privacy_policy
+  get '/term', to: 'staticpages#term', as: :term
 end
