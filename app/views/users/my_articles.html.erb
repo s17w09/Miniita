@@ -3,21 +3,22 @@
     <h1>下書き記事 : <%= @draft_articles.count %></h1>
       <ul>
         <% @draft_articles.each do |article| %>
-        <div class="p-4 border rounded-lg mb-3">
-          <li>
-            <%= link_to article.title, article, class: 'app-link' %>
-          </li>
-        </div>
+          <div class="p-4 border rounded-lg mb-3">
+            <%= link_to article_path(article), class: 'app-link' do %>
+              <h2 class="text-xl mt-2 text-gray-600"><%= article.title %></h2>
+            <% end %>
+          </div>
         <% end %>
       </ul>
+
     <h1>投稿済記事 : <%= @published_articles.count %></h1>
       <ul>
         <% @published_articles.each do |article| %>
         <div class="p-4 border rounded-lg mb-3">
-          <li>
-            <%= link_to article.title, article, class: 'app-link' %>
-          </li>
-        </div>
+          <%= link_to article_path(article), class: 'app-link' do %>
+              <h2 class="text-xl mt-2 text-gray-600"><%= article.title %></h2>
+            <% end %>
+          </div>
         <% end %>
       </ul>
 </div>
