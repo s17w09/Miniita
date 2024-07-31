@@ -5,8 +5,8 @@
     <%= render 'comments/favorite', comment: %>
   <% end %>
 <% else %>
-  <%= link_to login_path do %>
+  <%= link_to login_path, class: 'app-link' do %>
     <i class="bi bi-arrow-through-heart"></i>
-    <%= comment.favorites.count %>
+    <%= comment.commentfavorites.count %>
   <% end %>
 <% end %>
