@@ -12,6 +12,10 @@
     <div class="lg:flex lg:flex-1 lg:justify-end font-biz items-center">
     </div>
 
+  <%= link_to notifications_path, class: 'app-link' do %>
+  <i class="bi bi-bell"></i>
+  <% end %>
+
 <div class="dropdown dropdown-left">
   <div tabindex="0" role="button">
    <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -28,5 +32,4 @@
                                          class: 'app-link text-sm font-semibold leading-6 text-slate-200' %></a></li>
   </ul>
 </div>
-</nav>
 </header>

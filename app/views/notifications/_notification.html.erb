@@ -1,0 +1,18 @@
+<% notification.visitor %>
+<% notification.visited %>
+<%= visitor.name %>さんが
+
+  <% case notification.action %>
+    <% when 'like' then %>
+      <%= link_to 'あなたの投稿', notification.article, style: 'font-weight: bold;' %>にいいねしました。
+    <% when 'comment' then %>
+      <% if notification.article.user_id == visited.id %>
+        <%= link_to 'あなたの投稿', notification.article, style: 'font-weight: bold;' %>
+      <% else %>
+        <%= link_to article_path(notification.article) do %>
+         <%= notification.article.user.name %>さんの投稿にコメントしました。
+         <%= Comment.find_by(id: notification.comment_id)&.comment %>
+      <%= time_age_in_words(notification.created_at).upcase %>
+      <% end %>
+  <% end %>
+  <% end %>
