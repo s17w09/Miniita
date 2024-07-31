@@ -73,7 +73,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter = :resque
   # config.active_job.queue_name_prefix = "myapp_production"
 
-  config.action_mailer.default_url_options = { host: 'miniita.onrender.com', protocol: 'https',
+  config.action_mailer.default_url_options = { host: 'www.miniita.com', protocol: 'https',
                                                from: 'miniita.info@gmail.com' }
   config.action_mailer.raise_delivery_errors = true
 
@@ -81,7 +81,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,
-    domain: 'miniita.onrender.com',
+    domain: 'www.miniita.com',
     user_name: ENV.fetch('GMAIL_USERNAME', nil),
     password: ENV.fetch('GMAIL_PASSWORD', nil),
     authentication: 'plain',
