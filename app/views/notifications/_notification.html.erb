@@ -1,5 +1,5 @@
-<% notification.visitor %>
-<% notification.visited %>
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
 <%= visitor.name %>さんが
 
   <% case notification.action %>
@@ -7,12 +7,11 @@
       <%= link_to 'あなたの投稿', notification.article, style: 'font-weight: bold;' %>にいいねしました。
     <% when 'comment' then %>
       <% if notification.article.user_id == visited.id %>
-        <%= link_to 'あなたの投稿', notification.article, style: 'font-weight: bold;' %>
+        <%= link_to 'あなたの投稿', notification.article, style: 'font-weight: bold;' %>にコメントしました。
       <% else %>
-        <%= link_to article_path(notification.article) do %>
-         <%= notification.article.user.name %>さんの投稿にコメントしました。
-         <%= Comment.find_by(id: notification.comment_id)&.comment %>
-      <%= time_age_in_words(notification.created_at).upcase %>
+        <%= link_to article_path(notification.article), class: 'app-link' do %>
+        <a class="font-bold" ><%= notification.article.user.name %>さんの投稿</a>にコメントしました。
+      <%= time_ago_in_words(notification.created_at).upcase %>
       <% end %>
   <% end %>
   <% end %>
