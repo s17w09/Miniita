@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :notifications, only: %i[index]
+
   get 'login' => 'usersessions#new', :as => :login
   post 'login' => 'usersessions#create'
   delete 'logout' => 'usersessions#destroy', :as => :logout

@@ -14,7 +14,10 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(create_comment_params)
+    @article = @comment.article
     @comment.save
+    # 通知の作成
+    @article.create_notification_comment!(current_user, @comment.id)
   end
 
   def update
