@@ -2,6 +2,7 @@
 
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
+
   def index
     @comment = Comment.new
   end
