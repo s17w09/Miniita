@@ -99,7 +99,7 @@ Rails.application.config.sorcery.configure do |config|
   config.github.secret = ENV.fetch('GITHUB_SECRET', nil)
 
   config.github.callback_url = if Rails.env.production?
-                                 'https://www.miniita.com//oauth/callback?provider=github'
+                                 'https://www.miniita.com/oauth/callback?provider=github'
                                else
                                  'http://localhost:3000/oauth/callback?provider=github'
                                end
