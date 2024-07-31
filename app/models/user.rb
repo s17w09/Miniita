@@ -8,7 +8,11 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :commentfavorites, dependent: :destroy
   has_many :authentications, dependent: :destroy
+
+  # 通知を送ったユーザーへの通知
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  
+  # 通知を受け取ったユーザーへの通知
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
   accepts_nested_attributes_for :authentications
