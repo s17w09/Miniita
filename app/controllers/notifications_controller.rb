@@ -9,4 +9,9 @@ class NotificationsController < ApplicationController
       notification.update(checked: true)
     end
   end
+
+  def destroy
+    @notifications = current_user.notifications.destroy_all
+    redirect_to notifications_path
+  end
 end
