@@ -1,4 +1,4 @@
 <!-----コメント編集した内容が投稿される------>
-<%= turbo_stream.prepend "comments" do %>
+<%= turbo_stream.append "comments" do %>
   <%= render 'comments/comment', comment: @comment %>
 <% end %>

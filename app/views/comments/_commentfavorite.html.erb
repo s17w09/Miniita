@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <% if @comment.favorited?(current_user) %>
-    <%= render 'comments/unfavorite', comment:, commentfavorite: %>
+    <%= render 'comments/unfavorite', comment: %>
   <% else %>
     <%= render 'comments/favorite', comment: %>
   <% end %>
