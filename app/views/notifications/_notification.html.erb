@@ -13,7 +13,7 @@
       <% if notification.article.user_id == visited.id %>
         <%= link_to 'あなたの投稿', notification.article, style: 'font-weight: bold;' %>にコメントしました。
       <% else %>
-        <%= link_to notification.article, class: 'app-link' do %>
+        <%= link_to notification.article do %>
           <span style='font-weight: bold;'><%= notification.article.user.name %>さんの投稿</span>にコメントしました。
         <% end %>
      <% end %>

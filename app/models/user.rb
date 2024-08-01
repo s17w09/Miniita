@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   # 通知を送ったユーザーへの通知
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
-  
+
   # 通知を受け取ったユーザーへの通知
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 

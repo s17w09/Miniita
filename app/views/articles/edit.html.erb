@@ -9,8 +9,8 @@
           <br>
           <%= form.label :body, '本文', class: ' text-gray-600' %>
           <div class="grid grid-cols-1 lg: grid-cols-2 gap-5">
-         <%= form.text_area :body, id: 'markdown', placeholder: '本文',
-                                   class: 'textarea textarea-bordered w-full mb-4 h-full bg-white text-gray-600 h-screen', style: "overflow:auto;" %>
+        <%= form.text_area :body, id: 'markdown', placeholder: '本文',
+      class: 'textarea textarea-bordered w-full mb-4 h-full bg-white text-gray-600 h-screen', style: "overflow:auto;", value: @article.body %>
           <div id="html", class="bg-white text-gray-600 textarea textarea-bordered h-screen", style= "overflow:auto;"></div>
           </div>
           <div class="flex justify-center gap-7 mb-10 mt-10">
@@ -27,7 +27,7 @@
     </div>
   </div>
 <script>
-  // idが「markdown」の要素を取得。ユーザーが入力を行ったときに以下の関数が実行される。
+   // idが「markdown」の要素を取得。ユーザーが入力を行ったときに以下の関数が実行される。
   document.getElementById('markdown').addEventListener('input', function () {
       // ユーザーが入力したMarkdownの内容を取得。
       const markdown = document.getElementById('markdown').value;

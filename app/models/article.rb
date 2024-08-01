@@ -56,9 +56,7 @@ class Article < ApplicationRecord
     )
 
     # 自分の投稿に対するいいねは、通知済みにする
-    if notification.visitor_id == notification.visited_id
-      notification.checked = true
-    end
+    notification.checked = true if notification.visitor_id == notification.visited_id
     notification.save if notification.valid?
   end
 
@@ -75,8 +73,8 @@ class Article < ApplicationRecord
     # コメントを複数回した場合に、1つの投稿に複数回きちんと通知する
     notification = current_user.active_notifications.new(
       article_id: id,
-      comment_id: comment_id,
-      visited_id: visited_id,
+      comment_id:,
+      visited_id:,
       action: 'comment'
     )
 
