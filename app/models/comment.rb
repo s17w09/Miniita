@@ -28,9 +28,7 @@ class Comment < ApplicationRecord
     )
 
     # 自分の投稿に対するいいねは、通知済みにする
-    if notification.visitor_id == notification.visited_id
-      notification.checked = true
-    end
+    notification.checked = true if notification.visitor_id == notification.visited_id
     notification.save if notification.valid?
   end
 end
