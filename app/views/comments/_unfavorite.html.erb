@@ -1,4 +1,4 @@
-<%= link_to commentfavorite_path(commentfavorite), data: { turbo_method: :delete }, id: "first-unfavorite-#{comment.id}",
+<%= link_to commentfavorite_path(commentfavorite), data: { turbo_method: :delete }, id: "first-unfavorite-#{commentfavorite.id}",
                                                    class: 'app-link' do %>
   <i class="bi bi-arrow-through-heart-fill"></i>
   <%= comment.commentfavorites.count %>

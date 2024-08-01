@@ -7,7 +7,7 @@
       <%= link_to 'あなたの投稿', notification.article, style: 'font-weight: bold;' %>にいいねしました。
       <%= time_ago_in_words(notification.created_at).upcase %>
     <% when 'commentlike' then %>
-      <%= link_to 'あなたのコメント', notification.comment, style: 'font-weight: bold;' %>にいいねしました。
+      <%= link_to 'あなたのコメント', notification.comment.article, style: 'font-weight: bold;' %>にいいねしました。
       <%= time_ago_in_words(notification.created_at).upcase %>
     <% when 'comment' then %>
       <% if notification.article.user_id == visited.id %>

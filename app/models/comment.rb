@@ -14,16 +14,17 @@ class Comment < ApplicationRecord
 
   def create_notification_commentlike!(current_user)
     # すでにコメントに、いいねされているかの確認
-    temp = Notification.where(['visitor_id = ? and visited_id = ? and comment_id = ? and action = ?', current_user.id,
-                               user_id, id, 'commentlike'])
+    temp = Notification.where(['visitor_id = ? and visited_id = ? and comment_id = ? and article_id = ? and action = ?', current_user.id,
+                               user_id, id, article_id, 'commentlike'])
 
     # 上記で確認したtempで、いいねされていない場合のみ通知レコードを作成
     return if temp.present?
 
     # 現在のユーザーで、相手に送る通知を作成する
     notification = current_user.active_notifications.new(
-      comment_id: id,
       visited_id: user_id,
+      comment_id: id,
+      article_id:,
       action: 'commentlike'
     )
 
