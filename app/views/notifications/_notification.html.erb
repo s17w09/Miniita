@@ -1,7 +1,7 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
-<%= visitor.name %>さんが
 
+<%= visitor.name %>さんが
   <% case notification.action %>
     <% when 'like' then %>
       <%= link_to 'あなたの投稿', notification.article, style: 'font-weight: bold;' %>にいいねしました。
@@ -9,6 +9,9 @@
     <% when 'commentlike' then %>
       <%= link_to 'あなたのコメント', notification.comment.article, style: 'font-weight: bold;' %>にいいねしました。
       <%= time_ago_in_words(notification.created_at).upcase %>
+    <% when 'badge' then %>
+    <%= link_to 'マイページ', my_badges_users_path, style: 'font-weight: bold;' %>上でバッジが付与されました。
+    <%= time_ago_in_words(notification.created_at).upcase %>
     <% when 'comment' then %>
       <% if notification.article.user_id == visited.id %>
         <%= link_to 'あなたの投稿', notification.article, style: 'font-weight: bold;' %>にコメントしました。
@@ -19,4 +22,3 @@
      <% end %>
      <%= time_ago_in_words(notification.created_at).upcase %>
   <% end %>
-  

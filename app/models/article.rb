@@ -82,4 +82,23 @@ class Article < ApplicationRecord
     notification.checked == true if notification.visitor_id == notification.visited_id
     notification.save if notification.valid?
   end
+
+  def create_notification_badge(current_user, article_id)
+    Article.published.where(user_id: current_user.id).count
+
+    return unless 1 || (3 || (5 || (10 || (20 || 30))))
+
+    save_notification_badge(current_user, article_id)
+  end
+
+  def save_notification_badge(current_user, _article_id)
+    notification = current_user.active_notifications.new(
+      article_id: id,
+      visitor_id: current_user.id,
+      visited_id: current_user.id,
+      action: 'badge'
+    )
+
+    notification.save if notification.valid?
+  end
 end
