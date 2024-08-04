@@ -1,6 +1,5 @@
 <h3 class="text-center">通知</h3>
-<!----------自分に対するコメントやいいねは通知に表示しない--------------->
-<% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+<% notifications = @notifications.where(visitor_id: current_user.id) %>
 <% if notifications.exists? %>
 <%= render notifications %>
 <%= paginate notifications %>
