@@ -84,11 +84,11 @@ class Article < ApplicationRecord
   end
 
   def create_notification_badge(current_user, article_id)
-    Article.published.where(user_id: current_user.id).count
+    count = Article.published.where(user_id: current_user.id).count
 
-    return unless 1 || (3 || (5 || (10 || (20 || 30))))
-
-    save_notification_badge(current_user, article_id)
+    if [1, 3, 5,10,20,30].include?(count)
+      save_notification_badge(current_user, article_id)
+    end
   end
 
   def save_notification_badge(current_user, _article_id)
