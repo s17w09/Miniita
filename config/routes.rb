@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get :my_articles
       get :my_favorites
       get :my_badges
+      get :my_dashboards
     end
   end
 
