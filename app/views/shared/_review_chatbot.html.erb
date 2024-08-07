@@ -1,0 +1,79 @@
+<!----------チャット画面の大枠------------------->
+<div class="flex flex-col items-center justify-center py-6 w-full h-full">
+  <div class="max-w-4xl w-full space-y-8 h-full">
+    <div id="conversation" class="space-y-4 p-4 rounded overflow-y-auto">
+    </div>
+
+    <!-- ドロップダウンメニューとテキスト入力 -->
+    <form id="text_area" class="flex items-center px-2 py-1 border-t border-gray-200 bg-white">
+      <select id="dropdown" class="px-3 py-2 border rounded border-gray-300 bg-white text-gray-600 mr-2">
+        <option value="">選択してください</option>
+        <option value="<%= @article_title %>がこれまで投稿した記事のタイトル名です。今後より良い記事を作成するためにタイトル名を総評してください。">タイトルへのレビュー</option>
+        <option value="<%= @article_body.first %>が回目に投稿した記事です。今後より良い記事を作成するために総評してください。">1投稿目の記事内容の総評</option>
+        <option value="<%= @article_body.second %>が2回目に投稿した記事です。今後より良い記事を作成するために総評してください。">2投稿目の記事内容の総評</option>
+        <option value="<%= @article_body.third %>が3回目投稿した記事です。今後より良い記事を作成するために総評してください。">3投稿目の記事内容の総評</option>
+        <option value="">その他の記事内容の総評</option>
+      </select>
+      <input type="textarea" placeholder="質問内容を入力してください" id="user_input" class="flex-1 px-3 py-2 border rounded border-gray-300 focus:border-blue-500 focus:outline-none focus:ring bg-white text-gray-600">
+      <button id="button_post" class="px-4 py-2 bg-green-500 text-white rounded-md transition duration-300 ease-in-out hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-200 ml-2">送信</button>
+    </form>
+  </div>
+</div>
+
+<script>
+        const button_post = document.getElementById('button_post');
+        const dropdown = document.getElementById('dropdown');
+        const userInput = document.getElementById('user_input');
+
+        // ドロップダウンメニューの選択が変更されたときの処理
+        dropdown.addEventListener('change', function() {
+          userInput.value = dropdown.value;
+        });
+
+        button_post.addEventListener('click', function(event) {
+          event.preventDefault();
+
+          if (userInput.value.trim() === "") {
+            return;
+          }
+
+          const url = "<%= openai_openais_path('json') %>?user_input=" + userInput.value;
+          const postOptions = {
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            method: "GET"
+          };
+
+          fetch(url, postOptions)
+            .then(response => response.json())
+            .then(item => {
+              const list = document.getElementById("conversation");
+
+              // ユーザーの質問
+              const inputHTML = `
+                <div class="text-right flex items-end justify-end space-x-2">
+                  <div class="chat-bubble inline-block bg-blue-100 px-4 py-2 rounded-lg max-w-3/4 break-words text-sky-950">
+                    <span>${userInput.value}</span>
+                  </div>
+                </div>`;
+              list.insertAdjacentHTML("beforeend", inputHTML);
+
+              // MiniitaBotからの返事
+              const responseHTML = `
+                <div class="text-left flex items-start space-x-2">
+                  <div class="chat-bubble inline-block bg-gray-100 px-4 py-2 rounded-lg max-w-3/4 break-words text-sky-950">
+                    <span>${item.text}</span>
+                  </div>
+                </div>`;
+              list.insertAdjacentHTML("beforeend", responseHTML);
+              userInput.value = "";
+              list.scrollTop = list.scrollHeight;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+      </script>
+    </p>
+  </div>
+</dialog>
