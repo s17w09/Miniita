@@ -3,6 +3,9 @@
 module Openai
   class OpenaisController < ApplicationController
     protect_from_forgery
+
+    include ApplicationHelper
+
     def show; end
 
     def text
@@ -30,7 +33,8 @@ module Openai
       )
 
       @text = response.dig('choices', 0, 'message', 'content')
-      render json: { text: @text }
+      markdown_html = render_markdown(@text) # マークダウンをHTMLに変換
+      render json: { text: markdown_html }
     end
   end
 end

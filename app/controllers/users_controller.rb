@@ -66,7 +66,8 @@ class UsersController < ApplicationController
     )
 
     @text = response.dig('choices', 0, 'message', 'content')
-    render json: { text: @text }
+    markdown_html = render_markdown(@text) # マークダウンをHTMLに変換
+    render json: { text: markdown_html }
   end
 
   private
