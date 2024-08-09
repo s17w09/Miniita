@@ -10,18 +10,15 @@
           <%= form.label :body, '本文', class: ' text-gray-600' %>
           <div class="grid grid-cols-1 lg: grid-cols-2 gap-5">
         <%= form.text_area :body, id: 'markdown', placeholder: '本文',
-      class: 'textarea textarea-bordered w-full mb-4 h-full bg-white text-gray-600 h-screen', style: "overflow:auto;", value: @article.body %>
-          <div id="html", class="bg-white text-gray-600 textarea textarea-bordered h-screen", style= "overflow:auto;"></div>
-          </div>
-          <div class="flex justify-center gap-7 mb-10 mt-10">
+                                  class: 'textarea textarea-bordered w-full mb-4 h-full bg-white text-gray-600 h-screen', style: 'overflow:auto;', value: @article.body %>
+          <div id="html"
           <%= form.submit '投稿', name: 'published',
                                 class: 'mb-10 app-link rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' %>
           <% if @article.draft? %>
           <%= form_with model: @article do |form| %>
           <%= form.submit '下書き', name: 'draft',
                                  class: 'mb-10 app-link rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' %>
-         <% end %>
-          </div>
+         <% end %>>
         <% end %>
         <% end %>
     </div>
