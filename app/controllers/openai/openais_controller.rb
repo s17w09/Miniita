@@ -3,7 +3,6 @@
 module Openai
   class OpenaisController < ApplicationController
     protect_from_forgery
-
     include ApplicationHelper
 
     def show; end
