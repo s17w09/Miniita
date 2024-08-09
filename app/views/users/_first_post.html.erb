@@ -1,5 +1,5 @@
 <!-----margin-top: 5pxは、いいねボタンと高さを合わせるために記載------->
 <%= link_to "https://twitter.com/intent/tweet?url=#{articles_url}&text=%0a%0a %23Miniitaで初投稿バッジを獲得しました! %23Everyday_with_MINIITA",
             onclick: "window.open(this.href,'hoge', 'height=480, width=640');return false;", target: '_blank', data: { toggle: 'tooltip', placement: 'bottom' }, title: 'Xでシェアする', style: 'display: inline-block; margin-top: 5px;', class: 'app-link', rel: 'noopener' do %>
-    <%= image_tag "first_post.png", class: "card-img-top", width: "250", height:"250" %>
+    <%= image_tag 'first_post.png', class: 'card-img-top', width: '250', height: '250' %>
 <% end %>
