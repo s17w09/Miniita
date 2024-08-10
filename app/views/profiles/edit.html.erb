@@ -1,6 +1,6 @@
 <% content_for :title, page_title('プロフィール') %>
 <div class="w-5/6 mx-auto max-w-screen-xl mt-20">
-  <h1 class="text-4xl font-bold text-gray-600 mb-20">プロフィール更新</h1>
+  <h1 class="text-3xl font-bold text-gray-600 mb-20">プロフィール更新</h1>
   <%= form_with model: @user, url: profile_path do |form| %>
     <div class="mb-5">
       <%= form.label :email, 'メールアドレス', class: 'ml-4 text-base font-medium leading-6 text-gray-600' %>

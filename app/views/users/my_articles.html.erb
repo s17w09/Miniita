@@ -1,24 +1,27 @@
 <div class="w-5/6 mx-auto max-w-screen-xl">
   <% content_for :title, page_title('自分の記事') %>
-    <h1>下書き記事 : <%= @draft_articles.count %></h1>
+    <div class="mt-20">
+    <h1 class="text-3xl font-bold text-gray-600">下書き記事 : <%= @draft_articles.count %></h1>
       <ul>
         <% @draft_articles.each do |article| %>
-          <div class="p-4 border rounded-lg mb-3">
+          <div class="p-4 border rounded-lg mb-3 bg-stone-50">
             <%= link_to article_path(article), class: 'app-link' do %>
-              <h2 class="text-xl mt-2 text-gray-600"><%= article.title %></h2>
+              <h2 class="pl-4 text-xl font-semibold mt-2 text-gray-600"><%= article.title %></h2>
             <% end %>
           </div>
         <% end %>
       </ul>
-
-    <h1>投稿済記事 : <%= @published_articles.count %></h1>
+    </div>
+    <div class="mt-20">
+    <h1 class="text-3xl font-bold text-gray-600">投稿済記事 : <%= @published_articles.count %></h1>
       <ul>
         <% @published_articles.each do |article| %>
-        <div class="p-4 border rounded-lg mb-3">
+        <div class="p-4 border rounded-lg mb-3 bg-stone-50">
           <%= link_to article_path(article), class: 'app-link' do %>
-              <h2 class="text-xl mt-2 text-gray-600"><%= article.title %></h2>
+              <h2 class="pl-4 text-xl font-semibold mt-2 text-gray-600"><%= article.title %></h2>
             <% end %>
           </div>
         <% end %>
       </ul>
+    </div>
 </div>
