@@ -49,7 +49,7 @@
 
   <body>
     <!------ヘッダーの出し分け------------->
-    <div class="background-image">
+    <div class="background-image ">
     <% if current_user %>
       <%= render 'shared/after_login_header' %>
     <% else %>
@@ -58,7 +58,7 @@
     <%= render 'layouts/flash_messages' %>
     <!--------------------------------->
     <%= yield %>
-
+  <%= render 'shared/footer' %>
   </body>
   </div>
 </html>
