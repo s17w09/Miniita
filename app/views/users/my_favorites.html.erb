@@ -1,54 +1,57 @@
 <% content_for :title, page_title('いいねした投稿') %>
   <div class="w-5/6 mx-auto max-w-screen-xl">
-    <h1>いいねした記事</h1>
-      <h3>参考になった！<h3>
+  <div class="mt-20">
+    <h1 class="mb-10 text-3xl font-bold text-gray-600">いいねした記事</h1>
+      <h3 class="ml-3 text-xl font-bold text-gray-600"><i class="bi bi-hand-thumbs-up"></i> 参考になった<h3>
         <ul>
           <% @like_first.each do |favorite| %>
-            <div class="p-4 border rounded-lg mb-3">
+            <div class="p-4 border rounded-lg mb-3 bg-stone-50">
               <%= link_to article_path(favorite.article), class: 'app-link' do %>
-                <h2 class="text-xl mt-2 text-gray-600"><%= favorite.article.title %></h2>
+                <h2 class="pl-4 font-semibold text-xl mt-2 text-gray-600"><%= favorite.article.title %></h2>
               <% end %>
             </div>
           <% end %>
         </ul>
-      <h3>学びが深まった<h3>
+      <h3 class="ml-3 mt-10 text-xl font-bold text-gray-600"><i class="bi bi-award"></i>  学びが深まった<h3>
         <ul>
           <% @like_second.each do |favorite| %>
-            <div class="p-4 border rounded-lg mb-3">
+            <div class="p-4 border rounded-lg mb-3 bg-stone-50">
               <%= link_to article_path(favorite.article), class: 'app-link' do %>
-                <h2 class="text-xl mt-2 text-gray-600"><%= favorite.article.title %></h2>
+                <h2 class="pl-4 font-semibold text-xl mt-2 text-gray-600"><%= favorite.article.title %></h2>
               <% end %>
             </div>
           <% end %>
         </ul>
-      <h3>解説が丁寧<h3>
+      <h3 class="ml-3 mt-10 text-xl font-bold text-gray-600"><i class="bi bi-arrow-through-heart"></i>  解説が丁寧<h3>
       <ul>
           <% @like_third.each do |favorite| %>
-            <div class="p-4 border rounded-lg mb-3">
+            <div class="p-4 border rounded-lg mb-3 bg-stone-50">
               <%= link_to article_path(favorite.article), class: 'app-link' do %>
-                <h2 class="text-xl mt-2 text-gray-600"><%= favorite.article.title %></h2>
+                <h2 class="pl-4 font-semibold text-xl mt-2 text-gray-600"><%= favorite.article.title %></h2>
               <% end %>
             </div>
           <% end %>
         </ul>
-      <h3>独自の視点！<h3>
+      <h3 class="ml-3 mt-10 text-xl font-bold text-gray-600"><i class="bi bi-brightness-alt-high"></i>  独自の視点<h3>
       <ul>
           <% @like_forth.each do |favorite| %>
-            <div class="p-4 border rounded-lg mb-3">
+            <div class="p-4 border rounded-lg mb-3 bg-stone-50">
               <%= link_to article_path(favorite.article), class: 'app-link' do %>
-                <h2 class="text-xl mt-2 text-gray-600"><%= favorite.article.title %></h2>
+                <h2 class="pl-4 font-semibold text-xl mt-2 text-gray-600"><%= favorite.article.title %></h2>
               <% end %>
             </div>
           <% end %>
         </ul>
-      <h3>詳細をもっと知りたい<h3>
+      <h3 class="ml-3 mt-10 text-xl font-bold text-gray-600"><i class="bi bi-bell"></i>  詳細をもっと知りたい<h3>
       <ul>
           <% @like_fifth.each do |favorite| %>
-            <div class="p-4 border rounded-lg mb-3">
+            <div class="p-4 border rounded-lg mb-3 bg-stone-50">
               <%= link_to article_path(favorite.article), class: 'app-link' do %>
-                <h2 class="text-xl mt-2 text-gray-600"><%= favorite.article.title %></h2>
+                <h2 class="pl-4 font-semibold text-xl mt-2 text-gray-600"><%= favorite.article.title %></h2>
               <% end %>
             </div>
           <% end %>
+          <div class="mb-20"></div>
         </ul>
+  </div>
   </div>
