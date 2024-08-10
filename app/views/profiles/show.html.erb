@@ -1,10 +1,10 @@
 <% content_for :title, page_title('プロフィール') %>
-<div class="w-5/6 mx-auto max-w-screen-xl">
-    <h1>プロフィール</h1>
-    <div class="mb-5 text-sm font-medium leading-6 text-gray-900">メールアドレス</p>
-    <div class="mb-10 text-lg"><%= current_user.email %></div>
-    <div class="mb-5text-sm font-medium leading-6 text-gray-900">氏名</div>
-    <div class="text-lg"><%= current_user.name %></div>
+  <div class="w-5/6 mx-auto max-w-screen-xl mt-20">
+    <h1 class="text-4xl font-bold text-gray-600">プロフィール</h1>
+    <div class="mt-20 ml-5 text-base leading-6 text-gray-600">メールアドレス</p></div>
+    <div class="font-bold mb-5 ml-8 text-xl text-gray-600"><%= current_user.email %></div>
+    <div class="ml-5 text-base leading-6 text-gray-600">氏名</div>
+    <div class="font-bold text-xl ml-8 mb-20 text-gray-600"><%= current_user.name %></div>
     <%= link_to '編集', edit_profile_path,
-                class: 'app-link mt-10 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' %>
+                class: 'app-link mt-10 flex w-full justify-center rounded-md bg-blue-900 text-gray-100 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-800' %>
   </div>

@@ -124,7 +124,6 @@ a {
 /* app-link クラスを持つリンクには下線を引かない */
 a.app-link {
     text-decoration: none;
-    color: inherit;
 }
 
 .bi:hover {
