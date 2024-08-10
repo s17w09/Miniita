@@ -1,31 +1,44 @@
 <% content_for :title, page_title('一覧') %>
   <div class="w-5/6 mx-auto max-w-screen-xl">
-    <div class="mt-3 gap-4 text-lg">
+    <div class="mt-20">
       <%= search_form_for @q do |f| %>
-        <%= f.search_field :user_name_or_title_or_body_cont, class: 'text-black bg-white input input-bordered w-9/12 ' %>
-        <%= f.submit "&#128269;".html_safe, class: "btn-default ml-5" %>
+        <%= f.search_field :user_name_or_title_or_body_cont, class: 'text-black bg-white input input-bordered w-96 ' %>
+        <%= f.submit '&#128269;'.html_safe, class: 'btn-default ml-5' %>
       <% end %>
-      <%= link_to '新しい順', articles_path(latest: 'true'), class: 'app-link' %>
-      |
-      <%= link_to '古い順', articles_path(old: 'true'), class: 'app-link ' %>
-    </div>
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-6">
-    <% if @articles.present? %>
-      <% @articles.each do |article| %>
-      <div class="p-4 border rounded-lg bg-stone-50">
-      <%= link_to article_path(article), class: 'app-link' do %>
-        <h1 class="font-bold text-xl mt-2 text-gray-600"><%= article.title %></h1>
-        <h3 class="text-sm text-gray-600">作成日：<%= l article.created_at, format: :long %><%= article.user.name %></h3>
-        <h2 class="text-xl mt-2 text-gray-600"><i class="bi bi-balloon-heart"></i></i><%= article.favorites.count %><i class="bi bi-chat-dots"></i><%= article.comments.count %></h2>
-       <% end %>
+      <div class="mt-1 ml-4">
+        <%= link_to '新しい順', articles_path(latest: 'true'), class: 'app-link text-sm' %> |
+        <%= link_to '古い順', articles_path(old: 'true'), class: 'app-link text-sm' %>
       </div>
-    <% end %>
-    <% else %>
-      <p>投稿がありません</p>
-    <% end %>
-  </div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-10 ">
+      <% if @articles.present? %>
+        <% @articles.each do |article| %>
+          <div class="p-4 border rounded-lg bg-stone-50">
+            <%= link_to article_path(article), class: 'app-link' do %>
+              <h1 class="font-bold text-xl mt-2 text-gray-600 mb-5"><%= article.title %></h1>
+              <h3 class="text-sm text-gray-600">作成日：<%= l article.created_at, format: :short %></h3>
+              <h3 class="text-sm text-gray-600 mt-0">投稿者：<%= article.user.name %></h3>
+              <div class="flex items-center">
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="flex items-center">
+                    <h3 class="text-base text-gray-600 mr-2"><i class="bi bi-heart"></i></h3>
+                    <span class="text-base text-gray-600"><%= article.favorites.count %></span>
+                  </div>
+                  <div class="flex items-center">
+                    <h3 class="text-base text-gray-600 mr-2"><i class="bi bi-chat-dots"></i></h3>
+                    <span class="text-base text-gray-600"><%= article.comments.count %></span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <p>投稿がありません</p>
+      <% end %>
+    </div>
     <div class="flex justify-center">
-    <%= paginate @articles %>
-  </div>
+      <%= paginate @articles %>
+    </div>
+  <%= render 'shared/footer' %>
 </div>
-<%= render 'shared/footer' %>
