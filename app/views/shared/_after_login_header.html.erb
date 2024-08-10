@@ -1,16 +1,8 @@
 <header>
-  <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-    <div class="flex lg:flex-1 items-center">
-      <%= link_to root_path do %>
-        <p>ロゴ</p>
-      <% end %>
-    </div>
-    <div class="lg:flex lg:gap-x-12 font-biz items-center">
+  <div class="w-5/6 mx-auto max-w-screen-xl">
+  <div class="right-0">
       <%= link_to '記事を投稿', new_article_path, class: 'app-link text-sm  leading-6 text-slate-200' %>
       <%= link_to '記事を閲覧', articles_path, class: 'app-link text-sm leading-6 text-slate-200' %>
-    </div>
-    <div class="lg:flex lg:flex-1 lg:justify-end font-biz items-center">
-    </div>
       <%= link_to notifications_path, class: 'app-link' do %>
       <i class="bi bi-bell"></i>
       <% end %>
@@ -32,5 +24,6 @@
     <li><a><%= link_to 'ログアウト', :logout, data: { turbo_method: :delete },
                                          class: 'app-link text-sm font-semibold leading-6 text-slate-200' %></a></li>
   </ul>
+</div>
 </div>
 </header>
