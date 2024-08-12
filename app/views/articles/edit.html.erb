@@ -1,24 +1,32 @@
 <% content_for :title, page_title('編集') %>
-  <div class="w-5/6 mx-auto max-w-screen-xl mt-10">
+  <div class="w-5/6 mx-auto max-w-screen-xl mt-20">
     <div class="w-full">
         <%= form_with model: @article do |form| %>
-          <%= form.label :title, 'タイトル', class: ' text-gray-600' %>
+          <%= form.label :title, 'タイトル', class: 'text-gray-600 font-bold text-xl' %>
           <%= render 'shared/error_messages', object: form.object %>
-          <%= form.text_field :title, placeholder: 'タイトル',
-                                      class: 'mb-10 bg-white text-gray-600 textarea textarea-bordered w-full' %>
+          <%= form.text_field :title,
+                                      class: 'text-lg mb-10 bg-white text-gray-600 textarea textarea-bordered w-full' %>
           <br>
-          <%= form.label :body, '本文', class: ' text-gray-600' %>
-          <div class="grid grid-cols-1 lg: grid-cols-2 gap-5">
-        <%= form.text_area :body, id: 'markdown', placeholder: '本文',
-                                  class: 'textarea textarea-bordered w-full mb-4 h-full bg-white text-gray-600 h-screen', style: 'overflow:auto;', value: @article.body %>
-          <div id="html"
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start">
+            <div>
+              <%= form.label :body, '本文', class: 'text-gray-600 font-bold text-xl' %>
+              <%= form.text_area :body, id: 'markdown',
+      class: 'text-lg pr-5 pl-5 pt-5 pb-5 textarea textarea-bordered w-full mb-4 h-full bg-white text-gray-600 h-screen', style: "overflow:auto;", value: @article.body %>
+          </div>
+          <div>
+          <%= form.label :markdown, 'マークダウン出力', class: 'text-gray-600 font-bold text-xl mb-2 block' %>
+          <div id="html", class="text-lg pr-5 pl-5 pt-5 pb-5 bg-white text-gray-600 textarea textarea-bordered h-screen", style= "overflow:auto;"></div>
+          </div>
+          </div>
+          <div class="flex justify-center gap-7 mb-10 mt-10">
           <%= form.submit '投稿', name: 'published',
-                                class: 'mb-10 app-link rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' %>
+                                class: 'mb-10 app-link rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2' %>
           <% if @article.draft? %>
           <%= form_with model: @article do |form| %>
           <%= form.submit '下書き', name: 'draft',
-                                 class: 'mb-10 app-link rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' %>
-         <% end %>>
+                                 class: 'mb-10 app-link rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2' %>
+         <% end %>
+          </div>
         <% end %>
         <% end %>
     </div>
