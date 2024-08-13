@@ -1,5 +1,5 @@
 <% content_for :title, page_title('投稿') %>
-<div class="w-5/6 mx-auto max-w-screen-xl mt-20">
+<div class="w-5/6 mx-auto max-w-screen-xl flex-grow mb-20 mt-20">
   <div class="w-full">
     <%= form_with model: @article do |form| %>
       <%= render 'shared/error_messages', object: form.object %>
