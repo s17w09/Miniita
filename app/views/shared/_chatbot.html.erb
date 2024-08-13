@@ -5,10 +5,10 @@
 
 <!-- モーダルの内容 -->
 <dialog id="my_modal_2" class="modal">
-  <div class="modal-box mb-5 bg-white text-gray-600">
+  <div class="modal-box mb-5 bg-stone-50 text-gray-600">
     <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onclick="my_modal_2.close()">x</button>
     <h3 class="font-bold text-lg">Miniita Botで質問</h3>
-    <p class="py-4">
+    <p class="py-4 paragraph">
       <!----------チャット画面の大枠------------------->
       <div class="flex flex-col items-center justify-center py-6 w-full h-full">
         <div class="max-w-4xl w-full space-y-8 h-full">
@@ -16,8 +16,8 @@
           </div>
 
           <!-- ドロップダウンメニューとテキスト入力 -->
-          <form id="text_form" class="flex items-center px-2 py-1 border-t border-gray-200 bg-white">
-            <select id="dropdown" class="px-3 py-2 border rounded border-gray-300 bg-white text-gray-600 mr-2">
+          <form id="text_form" class="flex items-center px-2 py-1 border-t border-gray-200 bg-stone-50">
+            <select id="dropdown" class="px-3 py-2 border rounded border-gray-300 bg-stone-50 text-gray-600 mr-2">
               <option value="">選択してください</option>
               <option value="MiniitaBotでは、3-5項目で記事のテンプレートを作成します。
               テンプレートにして欲しい内容を、次の鉤括弧内に入力してください。「」についてテンプレート化してください。">テンプレート作成依頼</option>
@@ -27,7 +27,7 @@
               確認して欲しい箇所を、次の鉤括弧内に入力してください。「」について誤字脱字、文章構成を確認し、誤っていれば内容を指摘してください。">誤字脱字の確認依頼</option>
               <option value="MiniitaBotへ聞きたい内容を、フリーで下記へ入力してください。">その他</option>
             </select>
-            <input type="textarea" placeholder="質問内容を入力してください" id="user_input" class="flex-1 px-3 py-2 border rounded border-gray-300 focus:border-blue-500 focus:outline-none focus:ring bg-white text-gray-600">
+            <input type="textarea" placeholder="質問内容を入力してください" id="user_input" class="flex-1 px-3 py-2 border rounded border-gray-300 focus:border-blue-500 focus:outline-none focus:ring bg-stone-50 text-gray-600">
             <button id="button_post" class="px-4 py-2 bg-green-500 text-white rounded-md transition duration-300 ease-in-out hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-200 ml-2">送信</button>
           </form>
         </div>

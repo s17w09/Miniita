@@ -1,12 +1,12 @@
 <% content_for :title, page_title('継続サポート') %>
-<p>①総閲覧数</P>
-<p>②総文字数（タイトル除く）： </P>
-<p>③総いいね数（内訳も記載する）： <%= @article_favorite.count %></P>
+<p class="paragraph">①総閲覧数</P>
+<p class="paragraph">②総文字数（タイトル除く）： </P>
+<p class="paragraph">③総いいね数（内訳も記載する）： <%= @article_favorite.count %></P>
 
-<p>④チャットボットからの総評</P>
+<p class="paragraph">④チャットボットからの総評</P>
 <% if @article_published.count >= 5 %>
-<p>あなたはこれまで、<%= @article_published.count %>記事投稿しました。おめでとうございます！MiniitaBotから総評をもらいましょう！下記からもらいたい総評を選んでください。</p>
+<p class="paragraph">あなたはこれまで、<%= @article_published.count %>記事投稿しました。おめでとうございます！MiniitaBotから総評をもらいましょう！下記からもらいたい総評を選んでください。</p>
 <%= render 'shared/review_chatbot' %>
 <% else %>
-<p>5記事以上書かないと、この機能は使えません</p>
+<p class="paragraph">5記事以上書かないと、この機能は使えません</p>
 <% end %>

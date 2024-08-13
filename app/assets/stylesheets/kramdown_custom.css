@@ -8,43 +8,51 @@ h1 {
     font-size: 1.65em; 
     margin-top: 1em;
     margin-bottom: 0.5em;
+    font-weight: 800;
+
 }
 
 h2 {
     font-size: 1.5em; 
     margin-top: 1em;
     margin-bottom: 0.5em;
+    font-weight: 800;
 }
 
 h3 {
     font-size: 1.17em;
-    margin-top: 0.5em;
+    margin-top: 1.5em;
     margin-bottom: 0.5em;
+    font-weight: 700;
 }
 
 h4 {
     font-size: 1.12em;
-    margin-top: 0.5em;
+    margin-top: 1em;
     margin-bottom: 0.5em;
+    font-weight: 700;
 }
 
 h5 {
     font-size: 0.83em;
-    margin-top: 0.5em;
+    margin-top: 1em;
     margin-bottom: 0.5em;
+    font-weight: 700;
 }
 
 h6 {
     font-size: 0.75em;
-    margin-top: 0.5em;
+    margin-top: 1em;
     margin-bottom: 0.5em;
+    font-weight: 600;
 }
 /* 見出し */
-
 
 /* コードブロック */
 /* pre: 複数行のコードブロック */
 pre {
+    margin-top: 1em;
+    margin-bottom: 1em;
     background-color: #f5f5f5;  /* 背景色 */
     padding: 10px;              /* 内側の余白 */
     border-radius: 5px;         /* 角の丸み */
@@ -55,15 +63,23 @@ pre {
 /* code: インラインコード */
 code {
     background-color: #f5f5f5;
-    padding: 2px 4px;
+    border: 1px solid #ddd;
+    padding: 4px 10px 4px 10px;
     border-radius: 4px;
+}
+
+/* ブロック内のインラインコード枠線を消す */
+pre code {
+    border: none; /* 枠線を無効にする */
+    padding: 0;   /* 余白を無効にする */
 }
 /* コードブロック */
 
 /* 引用 */
 blockquote {
     background-color: #f9f9f9; /* 背景色 */
-    border-left: 5px solid #ccc; /* 左側のボーダー */
+    border-left: 3px solid #8f9faa; /* 左側のボーダー */
+    color: #8a959d;
     margin: 1.5em 10px; /* 外側の余白 */
     padding: 0.5em 10px; /* 内側の余白 */
     quotes: "“" "”" "‘" "’";
@@ -115,18 +131,32 @@ table th {
     background-color: #f2f2f2;  /*  背景色を設定 */
 }
 
-/* すべてのリンクに下線を引く */
 a {
-    text-decoration: underline;
-    color: inherit;
+    color: rgb(30 64 175);
 }
 
-/* app-link クラスを持つリンクには下線を引かない */
+a:hover {
+   color: rgb(59 130 246);
+}
+
 a.app-link {
-    text-decoration: none;
+    color: inherit; /* 親要素から色を継承する */
+}
+
+a.app-link:hover {
+    color: inherit; /* 親要素から色を継承し、hover時に色を変えない */
 }
 
 .bi:hover {
     color: rgba(248, 129, 31, 0.946);
 }
 
+p {
+    margin-top: 1.0em;
+    margin-bottom: 0.5em;
+}
+
+p.paragraph {
+    margin-top: inherit;
+    margin-bottom: inherit;
+}
