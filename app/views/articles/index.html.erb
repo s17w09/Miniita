@@ -1,5 +1,5 @@
 <% content_for :title, page_title('一覧') %>
-  <div class="w-5/6 mx-auto max-w-screen-xl">
+  <div class="w-5/6 mx-auto max-w-screen-xl flex-grow mb-20">
     <div class="mt-20">
       <%= search_form_for @q do |f| %>
         <%= f.search_field :user_name_or_title_or_body_cont, class: 'text-black bg-stone-50 input input-bordered w-96 ' %>

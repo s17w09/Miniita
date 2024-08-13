@@ -1,35 +1,37 @@
 <% content_for :title, page_title('新規登録') %>
-  <div class="w-5/6 mx-auto max-w-screen-xl mt-20">
-    <h1 class="text-2xl font-bold text-gray-600">新規登録</h1>
-          <%= form_with model: @user do |form| %>
-          <%= render 'shared/error_messages', object: form.object %>
-          <div>
-            <%= form.label :name, '名前', class: 'mt-20 ml-4 text-base leading-6 text-gray-600' %>
-            <div class="mb-2">
-            <%= form.text_field :name, required: true,
-                                       class: 'text-xl font-bold pl-4 bg-gray-100 text-gray-600 block w-full rounded-md border-0 py-2.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600' %>
-          </div>
-          <div>
-            <%= form.label :email, 'メールアドレス', class: 'mt-20 ml-4 text-base leading-6 text-gray-600' %>
-            <div class="mb-2">
-            <%= form.text_field :email, required: true,
-                                        class: 'text-xl font-bold pl-4 bg-gray-100 text-gray-600 block w-full rounded-md border-0 py-2.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600' %>
-          </div>
-          <div>
-            <%= form.label :password, 'パスワード(8文字以上/半角の英数字のみ)', class: 'mt-20 ml-4 text-base leading-6 text-gray-600' %>
-            <div class="mb-2">
-            <%= form.password_field :password, required: true,
-                                               class: 'text-xl font-bold pl-4 bg-gray-100 text-gray-600 block w-full rounded-md border-0 py-2.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600' %>
-          </div>
+<div class="w-5/6 mx-auto max-w-screen-xl flex-grow mt-20">
+  <h1 class="text-2xl font-bold text-gray-600 mb-10">新規登録</h1>
+  <%= form_with model: @user do |form| %>
+    <%= render 'shared/error_messages', object: form.object %>
+    <div>
+      <%= form.label :name, '名前', class: 'mt-20 ml-4 text-base leading-6 text-gray-600' %>
+      <div class="mb-2">
+        <%= form.text_field :name, required: true,
+                             class: 'text-xl font-bold pl-4 bg-gray-100 text-gray-600 block w-full rounded-md border-0 py-2.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600' %>
       </div>
-      <div>
-          <%= form.label :password_confirmation, 'パスワード確認', class: 'mt-20 ml-4 text-base leading-6 text-gray-600' %>
-            <div class="mb-2">
-            <%= form.password_field :password_confirmation, required: true,
-                                                            class: 'text-xl font-bold pl-4 bg-gray-100 text-gray-600 block w-full rounded-md border-0 py-2.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600' %>
-            </div>
-          </div>
-          <%= form.submit '登録',
-                          class: 'app-link mt-10 mb-20 flex w-full justify-center rounded-md bg-blue-900 text-gray-100 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-800' %>
-          <% end %>
     </div>
+    <div>
+      <%= form.label :email, 'メールアドレス', class: 'mt-20 ml-4 text-base leading-6 text-gray-600' %>
+      <div class="mb-2">
+        <%= form.text_field :email, required: true,
+                             class: 'text-xl font-bold pl-4 bg-gray-100 text-gray-600 block w-full rounded-md border-0 py-2.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600' %>
+      </div>
+    </div>
+    <div>
+      <%= form.label :password, 'パスワード(8文字以上/半角の英数字のみ)', class: 'mt-20 ml-4 text-base leading-6 text-gray-600' %>
+      <div class="mb-2">
+        <%= form.password_field :password, required: true,
+                                 class: 'text-xl font-bold pl-4 bg-gray-100 text-gray-600 block w-full rounded-md border-0 py-2.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600' %>
+      </div>
+    </div>
+    <div>
+      <%= form.label :password_confirmation, 'パスワード確認', class: 'mt-20 ml-4 text-base leading-6 text-gray-600' %>
+      <div class="mb-2">
+        <%= form.password_field :password_confirmation, required: true,
+                                 class: 'text-xl font-bold pl-4 bg-gray-100 text-gray-600 block w-full rounded-md border-0 py-2.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600' %>
+      </div>
+    </div>
+    <%= form.submit '登録',
+                    class: 'app-link mt-10 mb-20 flex w-full justify-center rounded-md bg-blue-900 text-gray-100 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-800' %>
+  <% end %>
+</div>
