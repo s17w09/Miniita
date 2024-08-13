@@ -47,9 +47,8 @@
 
   </head>
 
-  <body>
+   <body class="flex flex-col min-h-screen background-image">
     <!------ヘッダーの出し分け------------->
-    <div class="background-image">
     <% if current_user %>
       <%= render 'shared/after_login_header' %>
     <% else %>
@@ -60,5 +59,4 @@
     <%= yield %>
   <%= render 'shared/footer' %>
   </body>
-  </div>
 </html>
