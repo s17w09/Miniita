@@ -7,8 +7,8 @@
   <% end %>
 <% else %>
     <%= link_to login_path, class: 'app-link like-button-1' do %>
-      <i class="bi bi-arrow-through-heart"></i>
-      <%= @article.favorites.where(favorite_type: 'like_first').count %>
+      <i class="bi bi-arrow-through-heart text-gray-600"></i>
+      <p class="text-xs paragraph flex justify-center"><%= @article.favorites.where(favorite_type: 'like_first').count %></p>
     <% end %>
 <% end %>
 <!-------------１つ目のいいねボタン------------->
@@ -22,8 +22,8 @@
   <% end %>
 <% else %>
   <%= link_to login_path, class: 'app-link like-button-2' do %>
-    <i class="bi bi-award"></i>
-    <%= @article.favorites.where(favorite_type: 'like_second').count %>
+    <i class="bi bi-award text-gray-600"></i>
+    <p class="text-xs paragraph flex justify-center"><%= @article.favorites.where(favorite_type: 'like_second').count %></p>
   <% end %>
 <% end %>
 <!-------------２つ目のいいねボタン------------->
@@ -36,8 +36,8 @@
   <% end %>
 <% else %>
   <%= link_to login_path, class: 'app-link like-button-3' do %>
-    <i class="bi bi-arrow-through-heart"></i>
-    <%= @article.favorites.where(favorite_type: 'like_third').count %>
+    <i class="bi bi-arrow-through-heart text-gray-600"></i>
+    <p class="text-xs paragraph flex justify-center"><%= @article.favorites.where(favorite_type: 'like_third').count %></p>
   <% end %>
 <% end %>
 
@@ -51,8 +51,8 @@
   <% end %>
 <% else %>
   <%= link_to login_path, class: 'app-link like-button-4' do %>
-    <i class="bi bi-brightness-alt-high"></i>
-    <%= @article.favorites.where(favorite_type: 'like_forth').count %>
+    <i class="bi bi-brightness-alt-high text-gray-600"></i>
+   <p class="text-xs paragraph flex justify-center"> <%= @article.favorites.where(favorite_type: 'like_forth').count %></p>
   <% end %>
 <% end %>
 <!-------------４つ目のいいねボタン------------->
@@ -65,8 +65,8 @@
   <% end %>
 <% else %>
   <%= link_to login_path, class: 'app-link like-button-5' do %>
-    <i class="bi bi-bell"></i>
-    <%= @article.favorites.where(favorite_type: 'like_fifth').count %>
+    <i class="bi bi-bell text-gray-600"></i>
+    <p class="text-xs paragraph flex justify-center"><%= @article.favorites.where(favorite_type: 'like_fifth').count %></p>
   <% end %>
 <% end %>
 <!-------------５つ目のいいねボタン------------->
