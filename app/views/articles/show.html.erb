@@ -1,32 +1,34 @@
 <% content_for :title, page_title('詳細') %>
 <div class="mb-20">
-  <div class="w-5/6 mx-auto max-w-screen-xl mt-20 flex-grow">
-  <div class="p-4 border rounded-lg bg-stone-50 text-gray-600 pr-20 pl-20 pt-20 pb-20">
-    <h1 class="text-3xl font-bold mt-5 flex justify-center"><%= @article.title %></h1>
-    <p class="paragraph text-sm font-normal"><i class="bi bi-signpost"></i> 作成日：<%= l @article.created_at, format: :long %></p>
-    <p class="paragraph text-sm font-normal"><i class="bi bi-signpost"></i> 更新日：<%= l @article.updated_at, format: :long %></p>
-    <p class="paragraph text-sm font-normal"><i class="bi bi-signpost"></i> 投稿者：<%= @article.user.name %></p>
-    <h3 class="mt-10"><%= render_markdown(@article.body).html_safe %></h3>
-    </div>
-    <div class="flex justify-center gap-7 mb-10 mt-10">
-      <% if @article.user == current_user %>
-        <%= link_to '編集', edit_article_path(@article),
-                    class: 'rounded-md bg-blue-900 px-3 py-1.5 text-sm text-white font-semibold leading-6  shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2' %>
-        <%= link_to '削除', article_path(@article), data: { turbo_method: :delete, turbo_confirm: '投稿を削除しますか？' },
-                                                  class: 'rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2' %>
+  <div class="w-5/6 mx-auto max-w-screen-xl mt-20 flex-grow flex">
+    <div class="flex flex-col gap-4 text-xl mt- mr-7" style="align-items: flex-start;">
+      <% if @article.published? %>
+        <%= render 'shared/twitter' %>
+        <%= render 'articles/favorite', article: @article, favorite: @favorite %>
       <% end %>
+    </div>
+    <div class="flex-grow p-4 border rounded-lg bg-stone-50 text-gray-600 pr-20 pl-20 pt-10 pb-20">
+      <h1 class="text-3xl font-bold mt-5 flex justify-center"><%= @article.title %></h1>
+      <p class="paragraph text-sm font-normal"><i class="bi bi-signpost"></i> 作成日：<%= l @article.created_at, format: :long %></p>
+      <p class="paragraph text-sm font-normal"><i class="bi bi-signpost"></i> 更新日：<%= l @article.updated_at, format: :long %></p>
+      <p class="paragraph text-sm font-normal"><i class="bi bi-signpost"></i> 投稿者：<%= @article.user.name %></p>
+      <h3 class="mt-10"><%= render_markdown(@article.body).html_safe %></h3>
+      <div class="flex justify-center gap-7 mb-10 mt-10">
+        <% if @article.user == current_user %>
+          <%= link_to '編集', edit_article_path(@article),
+                      class: 'rounded-md bg-blue-900 px-3 py-1.5 text-sm text-white font-semibold leading-6  shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2' %>
+          <%= link_to '削除', article_path(@article), data: { turbo_method: :delete, turbo_confirm: '投稿を削除しますか？' },
+                                                    class: 'rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2' %>
+        <% end %>
+      </div>
+      <div class="mt-10">
+        <%= render 'comments/form', comment: @comment, article: @article %>
+        <table class="table">
+          <tbody id="comments">
+            <%= render @article.comments, comment: @comment, commentfavorite: @commentfavorite %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-  <div class="flex justify-center gap-7 text-xl">
-    <% if @article.published? %>
-      <%= render 'articles/favorite', article: @article, favorite: @favorite %>
-      <%= render 'shared/twitter' %>
-  </div>
-      <%= render 'comments/form', comment: @comment, article: @article %>
-      <table class="table">
-        <tbody id="comments">
-        <%= render @article.comments, comment: @comment, commentfavorite: @commentfavorite %>
-        </tbody>
-      </table>
-   <% end %>
-</div>
 </div>
