@@ -1,12 +1,17 @@
 <% content_for :title, page_title('継続サポート') %>
-<div class="w-5/6 mx-auto max-w-screen-xl flex-grow">
-<p class="paragraph">①総閲覧数</P>
-<p class="paragraph">②総文字数（タイトル除く）： </P>
-<p class="paragraph">③総いいね数（内訳も記載する）： <%= @article_favorite.count %></P>
-
-<p class="paragraph">④チャットボットからの総評</P>
+<div class="w-5/6 mx-auto max-w-screen-xl mt-20 flex-grow">
+<h1 class="text-3xl font-bold text-gray-600 mb-10">継続サポート</h1>
+  <p class="ml-5 text-gray-600 font-bold"><i class="bi bi-tags-fill"></i> 総いいね数： <%= @article_favorite.count %></P>
+  <div class="flex flex-col-5 ml-5">
+    <p class="ml-5 text-gray-600">内訳：<i class="bi bi-hand-thumbs-up text-gray-600"></i><%= @article_favorite.where(favorite_type: :like_first).count %></P>
+    <p class="ml-5 text-gray-600"><i class="bi bi-award text-gray-600"></i><%= @article_favorite.where(favorite_type: :like_second).count %></P>
+    <p class="ml-5 text-gray-600"><i class="bi bi-arrow-through-heart text-gray-600"></i><%= @article_favorite.where(favorite_type: :like_third).count %></P>
+    <p class="ml-5 text-gray-600"><i class="bi bi-brightness-alt-high text-gray-600"></i><%= @article_favorite.where(favorite_type: :like_forth).count %></P>
+    <p class="ml-5 text-gray-600"><i class="bi bi-bell text-gray-600"></i><%= @article_favorite.where(favorite_type: :like_fifth).count %></P>
+</div>
+<p class="ml-5 text-gray-600 font-bold mt-10"><i class="bi bi-tags-fill"></i> チャットボットからの総評</P>
 <% if @article_published.count >= 5 %>
-<p class="paragraph">あなたはこれまで、<%= @article_published.count %>記事投稿しました。おめでとうございます！MiniitaBotから総評をもらいましょう！下記からもらいたい総評を選んでください。</p>
+<p class="ml-10 text-gray-600">あなたはこれまで、<%= @article_published.count %>記事投稿しました。おめでとうございます！MiniitaBotから総評をもらいましょう！下記から受け取りたい総評を選んでください。</p>
 <%= render 'shared/review_chatbot' %>
 <% else %>
 <p class="paragraph">5記事以上書かないと、この機能は使えません</p>
