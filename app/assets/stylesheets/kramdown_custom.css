@@ -147,10 +147,6 @@ a.app-link:hover {
     color: inherit; /* 親要素から色を継承し、hover時に色を変えない */
 }
 
-.bi:hover {
-    color: rgba(248, 129, 31, 0.946);
-}
-
 p {
     margin-top: 1.0em;
     margin-bottom: 0.5em;
