@@ -1,28 +1,20 @@
 <tr id="comment-<%= comment.id %>">
-  <td>
-    <h3 class="small"><%= comment.user.name %></h3>
+  <td class="bg-stone-50 border rounded-lg">
      <div id="post_comment-<%= comment.id %>">
-      <p><%= simple_format(comment.body) %></p>
+      <h1 class="font-bold text-xl text-gray-600"><%= simple_format(comment.body) %></h1>
      </div>
-      <h5 class="small">投稿日：<%= l comment.created_at, format: :long %></h5>
-      <h5 class="small">最終更新日：<%= l comment.updated_at, format: :long %></h5>
+      <h3 class="font-normal text-sm text-gray-600">投稿日：<%= l comment.created_at, format: :long %></h3>
+      <h3 class="font-normal text-sm text-gray-600 mt-0">投稿者：<%= comment.user.name %></h3>
+      <div class="flex col-3 gap-5">
       <%= render 'comments/commentfavorite', comment: %>
-  </td>
-    <td class="action">
-      <ul class="list-inline justify-content-center" style="float: right;">
-        <li class="list-inline-item">
-        <% if comment.user == current_user %>
-           <%= link_to edit_comment_path(comment), class: 'app-link edit-comment-link', data: { turbo_stream: true } do %>
-            <i class="bi bi-pencil-fill"></i>
-            <% end %>
-        </li>
-        <li class="list-inline-item">
-          <%= link_to comment_path(comment), class: 'app-link delete-comment-link',
-                                             data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
-            <i class="bi bi-trash-fill"></i>
-          <% end %>
-          <% end %>
-        </li>
-      </ul>
-    </td>
+      <% if comment.user == current_user %>
+        <%= link_to edit_comment_path(comment), class: 'app-link edit-comment-link', data: { turbo_stream: true } do %>
+        <i class="bi bi-pencil-fill text-gray-600 hover:text-gray-400"></i>
+        <% end %>
+        <%= link_to comment_path(comment), class: 'app-link delete-comment-link',
+                                           data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+        <i class="bi bi-trash-fill text-gray-600 hover:text-gray-400"></i>
+        <% end %>
+      <% end %>
+      </div>
 </tr>

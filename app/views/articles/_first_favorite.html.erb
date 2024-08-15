@@ -1,4 +1,4 @@
-<div class="tooltip" data-tip="参考になった！" >
+<div class="tooltip" data-tip="参考になった！">
   <%= link_to article_favorites_path(@article.id, type: :like_first), data: { turbo_method: :post, turbo_stream: true },
                                                                       id: 'first-favorite', class: 'app-link like-button-1' do %>
     <i class="bi bi-hand-thumbs-up text-gray-600 hover:text-teal-400"></i>
