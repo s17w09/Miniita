@@ -1,5 +1,5 @@
 <%= link_to article_favorite_path(article, @article.id, type: :like_second), data: { turbo_method: :delete },
                                                                              id: 'second-unfavorite', class: 'app-link unlike-button-2' do %>
   <i class="bi bi-award-fill" style="color: rgb(20 184 166);"></i>
-  <p class="text-xs paragraph"><%= @article.favorites.where(favorite_type: 'like_second').count %></p>
+  <p class="text-xs paragraph flex justify-center"><%= @article.favorites.where(favorite_type: 'like_second').count %></p>
 <% end %>
