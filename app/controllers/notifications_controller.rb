@@ -7,7 +7,6 @@ class NotificationsController < ApplicationController
     # notificationの中でまだしていない通知のみ取り出す
     @notifications.where(checked: false).find_each do |notification|
       notification.update(checked: true)
-      render partial: 'index'
     end
   end
 end

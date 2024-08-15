@@ -6,7 +6,7 @@
       <h3 class="font-normal text-sm text-gray-600">投稿日：<%= l comment.created_at, format: :long %></h3>
       <h3 class="font-normal text-sm text-gray-600 mt-0">投稿者：<%= comment.user.name %></h3>
       <div class="flex col-3 gap-5">
-      <%= render 'comments/commentfavorite', comment: %>
+      <%= render 'comments/commentfavorite', comment: , commentfavorite: commentfavorite %>
       <% if comment.user == current_user %>
         <%= link_to edit_comment_path(comment), class: 'app-link edit-comment-link', data: { turbo_stream: true } do %>
         <i class="bi bi-pencil-fill text-gray-600 hover:text-gray-400"></i>
