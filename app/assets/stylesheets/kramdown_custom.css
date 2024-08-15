@@ -156,3 +156,15 @@ p.paragraph {
     margin-top: inherit;
     margin-bottom: inherit;
 }
+
+ /* 箇条書きリスト */
+ul {
+    list-style: none;
+  }
+  li {
+    text-indent: -1em;
+    padding-left: 1em;
+  }
+  li::before {
+    content: '・';
+  }
