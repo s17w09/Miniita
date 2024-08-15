@@ -1,5 +1,5 @@
 <%= link_to comment_commentfavorites_path(comment), data: { turbo_method: :post, turbo_stream: true }, id: "first-favorite-#{comment.id}",
                                                     class: 'app-link' do %>
-  <i class="bi bi-arrow-through-heart"></i>
+  <i class="bi bi-arrow-through-heart text-gray-600 hover:text-teal-400"></i>
   <%= comment.commentfavorites.count %>
 <% end %>
