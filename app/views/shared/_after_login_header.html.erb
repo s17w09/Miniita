@@ -21,13 +21,13 @@
             <path d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM10 8.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM11.5 15.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z" />
           </svg>
         </div>
-        <ul tabindex="0" class="bg-stone-50 text-gray-600 dropdown-content menu rounded-box z-[1] w-52 p-2 shadow">
-          <li><%= link_to 'プロフィール編集', profile_path, class: 'mt-3 app-link text-sm font-semibold' %></li>
-          <li><%= link_to '自分の記事', my_articles_users_path, class: 'app-link text-sm font-semibold' %></li>
-          <li><%= link_to 'いいねした記事', my_favorites_users_path, class: 'app-link text-sm font-semibold' %></li>
-          <li><%= link_to 'マイバッジ', my_badges_users_path, class: 'app-link text-sm font-semibold' %></li>
-          <li><%= link_to '継続サポート', my_dashboards_users_path, class: 'app-link text-sm font-semibold' %></li>
-          <li><%= link_to 'ログアウト', :logout, data: { turbo_method: :delete }, class: 'app-link text-sm font-semibold' %></li>
+        <ul tabindex="0" class="bg-stone-50 dropdown-content  menu rounded-box z-[1] w-52 p-2 shadow">
+          <p><%= link_to 'プロフィール編集', profile_path, class: 'mt-3 text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
+          <p><%= link_to '自分の記事', my_articles_users_path, class: 'text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
+          <p><%= link_to 'いいねした記事', my_favorites_users_path, class: 'text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
+          <p><%= link_to 'マイバッジ', my_badges_users_path, class: 'text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
+          <p><%= link_to '継続サポート', my_dashboards_users_path, class: 'text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
+          <p><%= link_to 'ログアウト', :logout, data: { turbo_method: :delete }, class: 'text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
         </ul>
       </div>
     </div>
