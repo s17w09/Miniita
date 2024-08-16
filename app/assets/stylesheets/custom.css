@@ -241,11 +241,6 @@ ul {
     animation-delay: 1.0s;  /*アニメーションの開始を何秒遅らせるか */
     animation-direction:normal;  /*普通方向の再生で動きを繰り返す */
     }
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> main
     @keyframes fadeInAnime1{
       0% {
         opacity: 0;
