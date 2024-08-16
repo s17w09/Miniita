@@ -50,16 +50,18 @@
    <body class="flex flex-col min-h-screen background-image">
     <!------ヘッダーの出し分け------------->
     <% if current_user %>
-     <% unless current_page?(root_path) %>
+     <% unless current_page?(root_path) || current_page?(new_user_path) %>
       <%= render 'shared/after_login_header' %>
      <% end %>
     <% else %>
+    <% unless current_page?(root_path)|| current_page?(new_user_path)  || current_page?(login_path) %>
       <%= render 'shared/before_login_header' %>
+    <% end %>
     <% end %>
     <%= render 'layouts/flash_messages' %>
     <!--------------------------------->
     <%= yield %>
-    <% unless current_page?(root_path) %>
+    <% unless current_page?(root_path)|| current_page?(new_user_path)  || current_page?(login_path) %>
      <%= render 'shared/footer' %>
     <% end %>
   </body>
