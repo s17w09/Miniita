@@ -186,3 +186,108 @@ ul {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
   border-color: transparent;
 }
+
+/*========= スクロールをすると下のエリアが上にかぶさるCSS ===============*/
+.main-heading {
+    position: fixed;
+    top: 20%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: rgb(250 250 249);
+    text-shadow: 0 0 15px #666;
+    text-align: center;
+}
+
+.second-heading {
+    position: fixed;
+    top: 25%;
+    left: 10%;
+    transform: translateY(-25%);
+}
+
+.third-heading {
+    position: fixed;
+    top: 60%;
+    left: 10%;
+    transform: translateY(-65%);
+}
+
+
+#header{
+    /*headerを全画面で見せる*/
+  width:100%;
+  height: 100vh;
+  position: relative;
+} 
+
+/*下の被さるエリアの指定*/
+#container{
+  position: relative;
+  z-index:1;
+    /*以下はレイアウトのための記述*/
+  background:#fff;
+  padding:150px 0px ;
+  text-align: center;
+}
+/*========= ここまで：スクロールをすると下のエリアが上にかぶさるCSS ===============*/
+
+/*トップのMiniitaをふわっと出現させる*/
+.fadeIn1 {
+    animation-name: fadeInAnime1; /*アニメーションの定義名*/
+    animation-fill-mode:backwards; /*アニメーションの開始と終了時の状態を指定、backwardsはアニメーションの最初の状態に戻る*/
+    animation-duration:4s; /*アニメーションの一回分の長さ */
+    animation-iteration-count:1;  /*このアニメーションの動きの回数 */
+    animation-timing-function:ease;  /*アニメーションの開始時と終了時が緩やかに変化 */
+    animation-delay: 1.0s;  /*アニメーションの開始を何秒遅らせるか */
+    animation-direction:normal;  /*普通方向の再生で動きを繰り返す */
+    }
+
+    @keyframes fadeInAnime1{
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+.fadeIn2 {
+    animation-name: fadeInAnime2; /*アニメーションの定義名*/
+    animation-fill-mode:backwards; /*アニメーションの開始と終了時の状態を指定、backwardsはアニメーションの最初の状態に戻る*/
+    animation-duration:6s; /*アニメーションの一回分の長さ */
+    animation-iteration-count:1;  /*このアニメーションの動きの回数 */
+    animation-timing-function:ease;  /*アニメーションの開始時と終了時が緩やかに変化 */
+    animation-delay: 3.0s;  /*アニメーションの開始を何秒遅らせるか */
+    animation-direction:normal;  /*普通方向の再生で動きを繰り返す */
+    }
+
+    @keyframes fadeInAnime2{
+        0% {
+        opacity: 0;
+        }
+
+        100% {
+        opacity: 1;
+        }
+    }
+
+.fadeIn3 {
+    animation-name: fadeInAnime2; /*アニメーションの定義名*/
+    animation-fill-mode:backwards; /*アニメーションの開始と終了時の状態を指定、backwardsはアニメーションの最初の状態に戻る*/
+    animation-duration:3s; /*アニメーションの一回分の長さ */
+    animation-iteration-count:1;  /*このアニメーションの動きの回数 */
+    animation-timing-function:ease;  /*アニメーションの開始時と終了時が緩やかに変化 */
+    animation-delay: 3.0s;  /*アニメーションの開始を何秒遅らせるか */
+    animation-direction:normal;  /*普通方向の再生で動きを繰り返す */
+    }
+
+    @keyframes fadeInAnime3{
+        0% {
+        opacity: 0;
+        }
+
+        100% {
+        opacity: 1;
+        }
+    }
