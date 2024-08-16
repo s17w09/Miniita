@@ -35,7 +35,7 @@
         <div class="flex-grow">
           <table class="table w-9/12 mr-28">
             <tbody id="comments">
-              <%= render @article.comments, comment: @comment, commentfavorite: @commentfavorite %>
+              <%= render @article.comments, article: @article, comment: @comment, commentfavorite: @commentfavorite %>
             </tbody>
           </table>
         </div>
