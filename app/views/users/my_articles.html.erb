@@ -4,7 +4,7 @@
     <h1 class="text-3xl font-bold text-gray-600">下書き記事 : <%= @draft_articles.count %></h1>
       <ul>
         <% @draft_articles.each do |article| %>
-          <div class="p-4 border rounded-lg mb-3 bg-stone-50">
+          <div class="p-4 border rounded-lg mb-3 bg-stone-50 float1">
             <%= link_to article_path(article), class: 'app-link' do %>
               <h2 class="pl-4 text-xl font-semibold mt-2 text-gray-600"><%= article.title %></h2>
             <% end %>
@@ -16,7 +16,7 @@
     <h1 class="text-3xl font-bold text-gray-600">投稿済記事 : <%= @published_articles.count %></h1>
       <ul>
         <% @published_articles.each do |article| %>
-        <div class="p-4 border rounded-lg mb-3 bg-stone-50">
+        <div class="p-4 border rounded-lg mb-3 bg-stone-50 float1">
           <%= link_to article_path(article), class: 'app-link' do %>
               <h2 class="pl-4 text-xl font-semibold mt-2 text-gray-600"><%= article.title %></h2>
             <% end %>

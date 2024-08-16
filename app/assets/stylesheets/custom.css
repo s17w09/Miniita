@@ -168,3 +168,21 @@ ul {
   li::before {
     content: '・';
   }
+
+  /*== 影がついて浮き上がる */
+
+/*ボタンの形状*/
+.float1{
+    border: 1px solid #ccc;
+    color: #333;
+    text-decoration: none; 
+    outline: none;
+    /*アニメーションの指定*/
+    transition: all .5s;
+}
+
+/*hoverをしたらボックスに影がつく*/
+.float1:hover {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+  border-color: transparent;
+}
