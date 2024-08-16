@@ -241,12 +241,15 @@ ul {
     animation-delay: 1.0s;  /*アニメーションの開始を何秒遅らせるか */
     animation-direction:normal;  /*普通方向の再生で動きを繰り返す */
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> main
     @keyframes fadeInAnime1{
       0% {
         opacity: 0;
       }
-
       100% {
         opacity: 1;
       }
@@ -261,12 +264,10 @@ ul {
     animation-delay: 3.0s;  /*アニメーションの開始を何秒遅らせるか */
     animation-direction:normal;  /*普通方向の再生で動きを繰り返す */
     }
-
     @keyframes fadeInAnime2{
         0% {
         opacity: 0;
         }
-
         100% {
         opacity: 1;
         }
@@ -281,12 +282,10 @@ ul {
     animation-delay: 3.0s;  /*アニメーションの開始を何秒遅らせるか */
     animation-direction:normal;  /*普通方向の再生で動きを繰り返す */
     }
-
     @keyframes fadeInAnime3{
         0% {
         opacity: 0;
         }
-
         100% {
         opacity: 1;
         }
