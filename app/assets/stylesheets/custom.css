@@ -157,18 +157,6 @@ p.paragraph {
     margin-bottom: inherit;
 }
 
- /* 箇条書きリスト */
-ul {
-    list-style: none;
-  }
-  li {
-    text-indent: -1em;
-    padding-left: 1em;
-  }
-  li::before {
-    content: '・';
-  }
-
   /*== 影がついて浮き上がる */
 
 /*ボタンの形状*/

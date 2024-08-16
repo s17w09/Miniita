@@ -7,14 +7,14 @@
         <%= render 'articles/favorite', article: @article, favorite: @favorite %>
       <% end %>
     </div>
-    <div class="flex-grow p-4 border rounded-lg bg-stone-50 text-gray-600 pr-20 pl-20 pt-10 pb-20">
-      <h1 class="text-3xl font-bold mt-5 flex justify-center"><%= @article.title %></h1>++
-      <p class="paragraph text-sm font-normal"><i class="bi bi-signpost"></i> 作成日：<%= l @article.created_at,
-                                                                                        format: :long %></p>
-      <p class="paragraph text-sm font-normal"><i class="bi bi-signpost"></i> 更新日：<%= l @article.updated_at,
-                                                                                        format: :long %></p>
+    <div class="flex-grow p-4 border rounded-lg bg-stone-50 text-gray-600 max-w-full pr-20 pl-20 pt-10 pb-20">
+      <h1 class="text-3xl font-bold mt-5 text-center"><%= @article.title %></h1>
+      <p class="paragraph text-sm font-normal"><i class="bi bi-signpost"></i> 作成日：<%= l @article.created_at, format: :long %></p>
+      <p class="paragraph text-sm font-normal"><i class="bi bi-signpost"></i> 更新日：<%= l @article.updated_at, format: :long %></p>
       <p class="paragraph text-sm font-normal"><i class="bi bi-signpost"></i> 投稿者：<%= @article.user.name %></p>
-      <h3 class="mt-10"><%= render_markdown(@article.body).html_safe %></h3>
+      <div class="mt-10">
+        <%= render_markdown(@article.body).html_safe %>
+      </div>
       <div class="flex justify-center gap-7 mb-10 mt-10">
         <% if @article.user == current_user %>
           <%= link_to '編集', edit_article_path(@article),
@@ -26,14 +26,14 @@
     </div>
   </div>
   <div class="w-5/6 mx-auto max-w-screen-xl mt-28">
-    <div class="ml-10 pb-10">
+    <div class="pb-10">
       <h1 class="text-2xl ml-10 mt-10 mb-6 font-bold text-gray-600">コメント</h1>
-      <div class="flex gap-8">
-        <div class="flex-shrink-0 w-1/2 ml-28">
+      <div class="flex flex-wrap gap-8">
+        <div class="flex-shrink-0 w-full md:w-1/2">
           <%= render 'comments/form', comment: @comment, article: @article %>
         </div>
-        <div class="flex-grow">
-          <table class="table w-9/12 mr-28">
+        <div class="flex-grow w-full md:w-1/2">
+          <table class="table w-full">
             <tbody id="comments">
               <%= render @article.comments, article: @article, comment: @comment, commentfavorite: @commentfavorite %>
             </tbody>
