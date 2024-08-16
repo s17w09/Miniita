@@ -29,7 +29,7 @@ class Article < ApplicationRecord
   def unfavorited?(user, type)
     favorites.where(user_id: user.id, favorite_type: type).empty?
   end
-
+  
   # name_cont追加時に追加
   def self.ransackable_attributes(_auth_object = nil)
     %w[body created_at id id_value title updated_at user_id]
