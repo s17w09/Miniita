@@ -1,33 +1,43 @@
 <header>
   <div class="w-5/6 mx-auto max-w-screen-xl mt-10 flex justify-between items-center">
-    <!-- 左端に配置される部分 -->
     <div class="flex space-x-6">
       <%= link_to new_article_path, class: 'app-link leading-6 text-slate-200' do %>
         <i class="bi bi-pencil-square text-2xl text-gray-600 hover:text-gray-400"></i>
-      <p class="paragraph text-xs">投稿</p>
+        <p class="paragraph text-xs">投稿</p>
       <% end %>
       <%= link_to articles_path, class: 'app-link leading-6 text-slate-200' do %>
-      <i class="bi bi-book text-2xl app-link text-gray-600 hover:text-gray-400"></i>
-      <p class="paragraph text-xs">閲覧</p>
-       <% end %>
+        <i class="bi bi-book text-2xl app-link text-gray-600 hover:text-gray-400"></i>
+        <p class="paragraph text-xs">閲覧</p>
+      <% end %>
     </div>
     <div class="flex space-x-4 items-center mb-5">
-      <%= link_to notifications_path, class: 'app-link' do %>
-        <i class="bi bi-bell  text-xl text-gray-600 hover:text-gray-400"></i>
-      <% end %>
+      <div class="relative">
+        <%= link_to notifications_path, class: 'app-link' do %>
+          <i class="bi bi-bell text-xl text-gray-600 hover:text-gray-400"></i>
+          <% if unchecked_notifications.any? %>
+            <i class="bi bi-circle-fill text-sm absolute top-0 right-0 text-blue-800" style="transform: translate(25%, -25%);"></i>
+          <% end %>
+        <% end %>
+      </div>
       <div class="dropdown dropdown-left text-gray-600 hover:text-gray-400">
         <div tabindex="0" role="button">
           <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM10 8.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM11.5 15.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z" />
           </svg>
         </div>
-        <ul tabindex="0" class="bg-stone-50 dropdown-content  menu rounded-box z-[1] w-52 p-2 shadow">
-          <p><%= link_to 'プロフィール編集', profile_path, class: 'mt-3 text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
-          <p><%= link_to '自分の記事', my_articles_users_path, class: 'text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
-          <p><%= link_to 'いいねした記事', my_favorites_users_path, class: 'text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
-          <p><%= link_to 'マイバッジ', my_badges_users_path, class: 'text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
-          <p><%= link_to '継続サポート', my_dashboards_users_path, class: 'text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
-          <p><%= link_to 'ログアウト', :logout, data: { turbo_method: :delete }, class: 'text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
+        <ul tabindex="0" class="bg-stone-50 dropdown-content menu rounded-box z-[1] w-52 p-2 shadow">
+          <p><%= link_to 'プロフィール編集', profile_path,
+                         class: 'mt-3 text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
+          <p><%= link_to '自分の記事', my_articles_users_path,
+                         class: 'text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
+          <p><%= link_to 'いいねした記事', my_favorites_users_path,
+                         class: 'text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
+          <p><%= link_to 'マイバッジ', my_badges_users_path,
+                         class: 'text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
+          <p><%= link_to '継続サポート', my_dashboards_users_path,
+                         class: 'text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
+          <p><%= link_to 'ログアウト', :logout, data: { turbo_method: :delete },
+                                           class: 'text-sm font-semibold ml-5 text-gray-600 hover:text-gray-400' %></p>
         </ul>
       </div>
     </div>

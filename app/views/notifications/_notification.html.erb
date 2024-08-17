@@ -1,7 +1,7 @@
 <div class="flex flex-wrap items-center text-gray-600">
-  <% visitor = notification.visitor %>
-  <% visited = notification.visited %>
-  <i class="bi bi-tags-fill mr-2"></i> 
+  <% notification.visitor %>
+  <% notification.visited %>
+  <i class="bi bi-tags-fill mr-2"></i>
   <span class="mr-2"><%= visitor.name %>さんが</span>
   <% case notification.action %>
     <% when 'like' then %>
