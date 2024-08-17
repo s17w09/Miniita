@@ -8,9 +8,10 @@
     <div class="flex col-3 gap-5">
       <% if logged_in? %>
         <% if comment.favorited?(current_user) %>
-          <%= render 'comments/unfavorite', comment: comment, commentfavorite: comment.commentfavorites.find_by(user: current_user) %>
+          <%= render 'comments/unfavorite', comment:,
+                                            commentfavorite: comment.commentfavorites.find_by(user: current_user) %>
         <% else %>
-          <%= render 'comments/favorite', comment: comment %>
+          <%= render 'comments/favorite', comment: %>
         <% end %>
       <% else %>
         <%= link_to login_path, class: 'app-link' do %>
@@ -22,7 +23,8 @@
         <%= link_to edit_comment_path(comment), class: 'app-link edit-comment-link', data: { turbo_stream: true } do %>
           <i class="bi bi-pencil-fill text-gray-600 hover:text-gray-400"></i>
         <% end %>
-        <%= link_to comment_path(comment), class: 'app-link delete-comment-link', data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+        <%= link_to comment_path(comment), class: 'app-link delete-comment-link',
+                                           data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
           <i class="bi bi-trash-fill text-gray-600 hover:text-gray-400"></i>
         <% end %>
       <% end %>

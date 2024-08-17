@@ -14,7 +14,8 @@
                                         class: 'text-lg pr-5 pl-5 pt-5 pb-5 textarea textarea-bordered w-full mb-4 h-full bg-stone-50 text-gray-600 h-screen', style: 'overflow:auto;', value: @article.body %>
             </div>
             <div>
-              <%= form.label :markdown, 'マークダウン出力 (編集開始するとマークダウンが出力されます)', class: 'text-gray-600 font-bold text-xl mb-2 block' %>
+              <%= form.label :markdown, 'マークダウン出力 (編集開始するとマークダウンが出力されます)',
+                             class: 'text-gray-600 font-bold text-xl mb-2 block' %>
               <div id="html" class="text-lg pr-5 pl-5 pt-5 pb-5 bg-stone-50 text-gray-600 textarea textarea-bordered h-screen w-full"
                    style="overflow:auto;"></div>
             </div>

@@ -57,7 +57,8 @@ class UsersController < ApplicationController
       parameters: {
         model: 'gpt-4o-mini', # 必要なモデルを指定
         messages: [
-          { role: 'system', content: 'あなたは優秀なWEBエンジニアです。ユーザー入力に応答してください。max_tokensを1000で設定しているので、tokenを1000以内で文章を収めてください。' },
+          { role: 'system',
+            content: 'あなたは優秀なWEBエンジニアです。ユーザー入力に応答してください。max_tokensを1000で設定しているので、tokenを1000以内で文章を収めてください。' },
           { role: 'user', content: @user_input }
         ],
         temperature: 0.7,
