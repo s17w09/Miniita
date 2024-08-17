@@ -1,26 +1,20 @@
-<div class="flex flex col-1 text-gray-600">
-<% visitor = notification.visitor %>
-<% visited = notification.visited %>
-
-<i class="bi bi-tags-fill"></i> <%= visitor.name %>さんが
+<div class="flex flex-wrap items-center text-gray-600">
+  <% visitor = notification.visitor %>
+  <% visited = notification.visited %>
+  <i class="bi bi-tags-fill mr-2"></i> 
+  <span class="mr-2"><%= visitor.name %>さんが</span>
   <% case notification.action %>
     <% when 'like' then %>
-      <%= link_to 'あなたの投稿', notification.article, style: 'font-weight: bold;' %>にいいねしました。
-      <p class="text-gray-400 paragraph"><%= time_ago_in_words(notification.created_at).upcase %>前</p>
+      <%= link_to 'あなたの投稿', notification.article, class: 'font-bold mr-2' %>にいいねしました。
+       <p class="text-gray-400 paragraph"><%= time_ago_in_words(notification.created_at).upcase %>前</p>
     <% when 'commentlike' then %>
-      <%= link_to 'あなたのコメント', notification.comment.article, style: 'font-weight: bold;' %>にいいねしました。
-      <p class="text-gray-400 paragraph"><%= time_ago_in_words(notification.created_at).upcase %>前</p>
+      <%= link_to 'あなたのコメント', notification.article, style: 'font-weight: bold;' %>にいいねしました。
+       <p class="text-gray-400 paragraph"><%= time_ago_in_words(notification.created_at).upcase %>前</p>
     <% when 'badge' then %>
-    <%= link_to 'マイページ', my_badges_users_path, style: 'font-weight: bold;' %>上でバッジを付与されました！
-    <p class="text-gray-400 paragraph"><%= time_ago_in_words(notification.created_at).upcase %>前</p>
+      <%= link_to 'マイページ', my_badges_users_path, class: 'font-bold mr-2' %>上でバッジを付与されました！
+       <p class="text-gray-400 paragraph"><%= time_ago_in_words(notification.created_at).upcase %>前</p>
     <% when 'comment' then %>
-      <% if notification.article.user_id == visited.id %>
-        <%= link_to 'あなたの投稿', notification.article, style: 'font-weight: bold;' %>にコメントしました。
-      <% else %>
-        <%= link_to notification.article do %>
-          <span style='font-weight: bold;'><%= notification.article.user.name %>さんの投稿</span>にコメントしました。
-        <% end %>
-     <% end %>
-     <p class="text-gray-400 paragraph"><%= time_ago_in_words(notification.created_at).upcase %>前</p>
-  <% end %>
-  </div>
+      <%= link_to 'あなたの投稿', notification.article, class: 'font-bold mr-2' %>にコメントしました。
+       <p class="text-gray-400 paragraph"><%= time_ago_in_words(notification.created_at).upcase %>前</p>
+       <% end %>
+</div>

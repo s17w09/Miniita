@@ -3,7 +3,7 @@
   <h1 class="text-3xl font-bold text-gray-600">マイバッジ</h1>
   <p class="mb-20 ml-4 text-gray-600">Miniitaでの記事投稿ありがとうございます。1、3、5、10、20、30記事目にバッジが付与されます。バッジ獲得目指して投稿を継続してみましょう！<br>
   獲得したバッジはXでシェアすることが可能です。</p>
-    <div class="grid grid-cols-1 lg: grid-cols-6 gap-5 mt-10">
+     <div class="grid grid-cols-1 lg:grid-cols-6 gap-5 mt-10 mb-20 justify-items-center">
       <% if @first_article %>
         <%= render 'users/first_post' %>
       <% else %>
