@@ -3,6 +3,11 @@
   <div class="w-5/6 mx-auto max-w-screen-xl space-y-8 h-full">
     <div id="conversation" class="space-y-4 p-4 rounded overflow-y-auto">
     </div>
+   
+    <!-- ローディングスピナー -->
+    <div id="loading_spinner" class="hidden flex justify-center items-center">
+      <span class="loading loading-spinner loading-md"></span>
+    </div>
 
     <!-- ドロップダウンメニューとテキスト入力 -->
     <form id="text_area" class="flex flex-col md:flex-row items-start md:items-center gap-4 px-2 py-1">
@@ -21,11 +26,12 @@
     </form>
   </div>
 </div>
-
 <script>
   const button_post = document.getElementById('button_post');
   const dropdown = document.getElementById('dropdown');
   const userInput = document.getElementById('user_input');
+  const loadingSpinner = document.getElementById('loading_spinner');
+  const conversation = document.getElementById('conversation');
 
   // ドロップダウンメニューの選択が変更されたときの処理
   dropdown.addEventListener('change', function() {
@@ -39,6 +45,9 @@
       return;
     }
 
+    // ローディングスピナーを表示
+    loadingSpinner.classList.remove('hidden');
+
     const url = "<%= my_dashboards_users_path('json') %>?user_input=" + userInput.value;
     const postOptions = {
       headers: {
@@ -51,7 +60,8 @@
     fetch(url, postOptions)
       .then(response => response.json())
       .then(item => {
-        const list = document.getElementById("conversation");
+        // ローディングスピナーを非表示
+        loadingSpinner.classList.add('hidden');
 
         // ユーザーの質問
         const inputHTML = `
@@ -60,7 +70,7 @@
               <span>${userInput.value}</span>
             </div>
           </div>`;
-        list.insertAdjacentHTML("beforeend", inputHTML);
+        conversation.insertAdjacentHTML("beforeend", inputHTML);
 
         // MiniitaBotからの返事
         const responseHTML = `
@@ -69,24 +79,14 @@
               <span>${item.text}</span>
             </div>
           </div>`;
-        list.insertAdjacentHTML("beforeend", responseHTML);
+        conversation.insertAdjacentHTML("beforeend", responseHTML);
         userInput.value = "";
-        list.scrollTop = list.scrollHeight;
+        conversation.scrollTop = conversation.scrollHeight;
       })
-      .catch(error => console.error('Error:', error));
+      .catch(error => {
+        console.error('Error:', error);
+        // ローディングスピナーを非表示
+        loadingSpinner.classList.add('hidden');
+      });
   });
 </script>
-
-<!-- モーダルのスタイル設定 -->
-<style>
-  @media (max-width: 767px) {
-    dialog.modal .modal-box {
-      width: 90%; /* 携帯画面で幅を広げる */
-    }
-  }
-  @media (min-width: 768px) {
-    dialog.modal .modal-box {
-      width: 50%; /* PC画面では幅を50%に設定 */
-    }
-  }
-</style>

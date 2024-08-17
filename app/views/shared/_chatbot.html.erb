@@ -2,7 +2,6 @@
 <button class="text-4xl" onclick="my_modal_1.showModal()">
   <i class="bi bi-chat-left-heart text-gray-600"></i>
 </button>
-
 <!-- モーダルの内容 -->
 <dialog id="my_modal_1" class="modal">
   <div class="modal-box mb-5 bg-stone-50 text-gray-600 w-11/12 md:w-1/2 mx-auto" style="width: 80% height: 50%;">
@@ -15,7 +14,10 @@
         <div class="max-w-4xl w-full space-y-8 h-full">
           <div id="conversation" class="space-y-4 p-4 rounded overflow-y-auto">
           </div>
-
+          <!-- ローディング画面 -->
+          <div id="loading_spinner" class="hidden flex justify-center items-center">
+            <span class="loading loading-spinner loading-md"></span>
+          </div>
           <!-- ドロップダウンメニューとテキスト入力 -->
           <form id="text_form" class="flex flex-col items-start px-2 py-1 border-t border-gray-200 bg-stone-50 w-full">
             <select id="dropdown" class="w-full px-3 py-2 border rounded border-gray-300 bg-stone-50 text-gray-600 mb-2">
@@ -30,62 +32,70 @@
           </form>
         </div>
       </div>
-      
-
-      <script>
-        const button_post = document.getElementById('button_post');
-        const dropdown = document.getElementById('dropdown');
-        const userInput = document.getElementById('user_input');
-
-        // ドロップダウンメニューの選択が変更されたときの処理
-        dropdown.addEventListener('change', function() {
-          userInput.value = dropdown.value;
-        });
-
-        button_post.addEventListener('click', function(event) {
-          event.preventDefault();
-
-          if (userInput.value.trim() === "") {
-            return;
-          }
-
-          const url = "<%= openai_openais_path('json') %>?user_input=" + userInput.value;
-          const postOptions = {
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            method: "GET"
-          };
-
-          fetch(url, postOptions)
-            .then(response => response.json())
-            .then(item => {
-              const list = document.getElementById("conversation");
-
-              // ユーザーの質問
-              const inputHTML = `
-                <div class="text-right flex items-end justify-end space-x-2">
-                  <div class="chat-bubble inline-block bg-blue-100 px-4 py-2 rounded-lg max-w-3/4 break-words text-sky-950">
-                    <span>${userInput.value}</span>
-                  </div>
-                </div>`;
-              list.insertAdjacentHTML("beforeend", inputHTML);
-
-              // MiniitaBotからの返事
-              const responseHTML = `
-                <div class="text-left flex items-start space-x-2">
-                  <div class="chat-bubble inline-block bg-gray-100 px-4 py-2 rounded-lg max-w-3/4 break-words text-sky-950">
-                    <span>${item.text}</span>
-                  </div>
-                </div>`;
-              list.insertAdjacentHTML("beforeend", responseHTML);
-              userInput.value = "";
-              list.scrollTop = list.scrollHeight;
-            })
-            .catch(error => console.error('Error:', error));
-        });
-      </script>
     </p>
   </div>
 </dialog>
+<script>
+  const button_post = document.getElementById('button_post');
+  const dropdown = document.getElementById('dropdown');
+  const userInput = document.getElementById('user_input');
+  const loadingSpinner = document.getElementById('loading_spinner');
+  const conversation = document.getElementById('conversation');
+
+  // ドロップダウンメニューの選択が変更されたときの処理
+  dropdown.addEventListener('change', function() {
+    userInput.value = dropdown.value;
+  });
+
+  button_post.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    if (userInput.value.trim() === "") {
+      return;
+    }
+
+    // ローディングスピナーを表示
+    loadingSpinner.classList.remove('hidden');
+
+    const url = "<%= openai_openais_path('json') %>?user_input=" + userInput.value;
+    const postOptions = {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "GET"
+    };
+
+    fetch(url, postOptions)
+      .then(response => response.json())
+      .then(item => {
+        // ローディングスピナーを非表示
+        loadingSpinner.classList.add('hidden');
+
+        // ユーザーの質問
+        const inputHTML = `
+          <div class="text-right flex items-end justify-end space-x-2">
+            <div class="chat-bubble inline-block bg-blue-100 px-4 py-2 rounded-lg max-w-3/4 break-words text-sky-950">
+              <span>${userInput.value}</span>
+            </div>
+          </div>`;
+        conversation.insertAdjacentHTML("beforeend", inputHTML);
+
+        // MiniitaBotからの返事
+        const responseHTML = `
+          <div class="text-left flex items-start space-x-2">
+            <div class="chat-bubble inline-block bg-gray-100 px-4 py-2 rounded-lg max-w-3/4 break-words text-sky-950">
+              <span>${item.text}</span>
+            </div>
+          </div>`;
+        conversation.insertAdjacentHTML("beforeend", responseHTML);
+        userInput.value = "";
+        conversation.scrollTop = conversation.scrollHeight;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // ローディングスピナーを非表示
+        loadingSpinner.classList.add('hidden');
+      });
+  });
+</script>
