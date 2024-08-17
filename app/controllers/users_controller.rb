@@ -47,6 +47,7 @@ class UsersController < ApplicationController
     @article_published = current_user.articles.published
     @article_favorite = current_user.favorites
     @article_title = current_user.articles.published.pluck(:title)
+    @article_body_count = current_user.articles.published.sum { |article| article.body.length }
 
     @user_input = params[:user_input]
     return if @user_input.blank?
