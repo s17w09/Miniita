@@ -5,75 +5,74 @@
     </div>
 
     <!-- ドロップダウンメニューとテキスト入力 -->
-    <form id="text_area" class="flex items-center px-2 py-1 ">
-      <select id="dropdown" class="px-3 py-2 border rounded border-gray-300 bg-stone-50 text-gray-600 mr-2">
-        <option value="">選択してください</option>
-        <option value="「<%= @article_title.first %>」が初めて投稿した記事のタイトル名です。今後より良い記事を作成するためにタイトル名を総評、またこのタイトルからどんな記事を書けばいいかレビューしてください。">初めて投稿した記事のタイトルの総評</option>
-        <option value="「<%= @article_title.second %>」が2回目に投稿した記事のタイトル名です。今後より良い記事を作成するためにタイトル名を総評、またこのタイトルからどんな記事を書けばいいかレビューしてください。">2回目に投稿した記事のタイトルの総評</option>
-        <option value="「<%= @article_title.third %>」が3回目記事のタイトル名です。今後より良い記事を作成するためにタイトル名を総評、またこのタイトルからどんな記事を書けばいいかレビューしてください。">3回目に投稿した記事のタイトルの総評</option>
-       <option value="「<%= @article_title.fourth %>」が4回目記事のタイトル名です。今後より良い記事を作成するためにタイトル名を総評、またこのタイトルからどんな記事を書けばいいかレビューしてください。">4回目に投稿した記事のタイトルの総評</option>
-       <option value="「<%= @article_title.fifth %>」が5回目記事のタイトル名です。今後より良い記事を作成するためにタイトル名を総評、またこのタイトルからどんな記事を書けばいいかレビューしてください。">5回目に投稿した記事のタイトルの総評</option>
-      </select>
-      <textarea placeholder="質問内容を入力してください" id="user_input" class="flex-1 px-3 py-2 border rounded border-gray-300 focus:border-blue-500 focus:outline-none focus:ring bg-stone-50 text-gray-600" rows="8"></textarea>
-      <button id="button_post" class="font-bold px-4 py-2 bg-blue-900 text-white rounded-md transition duration-300 ease-in-out hover:bg-blue-800 focus:outline-none ml-2">送信</button>
+    <form id="text_area" class="flex flex-col md:flex-row items-start md:items-center gap-4 px-2 py-1">
+      <div class="flex-1">
+        <select id="dropdown" class="w-full px-3 py-2 border rounded border-gray-300 bg-stone-50 text-gray-600 mb-2 md:mb-0">
+          <option value="">選択してください</option>
+          <option value="「<%= @article_title.first %>」が初めて投稿した記事のタイトル名です。今後より良い記事を作成するためにタイトル名を総評、またこのタイトルからどんな記事を書けばいいかレビューしてください。">初めて投稿した記事のタイトルの総評</option>
+          <option value="「<%= @article_title.second %>」が2回目に投稿した記事のタイトル名です。今後より良い記事を作成するためにタイトル名を総評、またこのタイトルからどんな記事を書けばいいかレビューしてください。">2回目に投稿した記事のタイトルの総評</option>
+          <option value="「<%= @article_title.third %>」が3回目記事のタイトル名です。今後より良い記事を作成するためにタイトル名を総評、またこのタイトルからどんな記事を書けばいいかレビューしてください。">3回目に投稿した記事のタイトルの総評</option>
+          <option value="「<%= @article_title.fourth %>」が4回目記事のタイトル名です。今後より良い記事を作成するためにタイトル名を総評、またこのタイトルからどんな記事を書けばいいかレビューしてください。">4回目に投稿した記事のタイトルの総評</option>
+          <option value="「<%= @article_title.fifth %>」が5回目記事のタイトル名です。今後より良い記事を作成するためにタイトル名を総評、またこのタイトルからどんな記事を書けばいいかレビューしてください。">5回目に投稿した記事のタイトルの総評</option>
+        </select>
+      </div>
+      <textarea placeholder="質問内容を入力してください" id="user_input" class="flex-1 px-3 py-2 border rounded border-gray-300 focus:border-blue-500 focus:outline-none focus:ring bg-stone-50 text-gray-600 mb-2 md:mb-0" rows="8"></textarea>
+      <button id="button_post" class="font-bold px-4 py-2 bg-blue-900 text-white rounded-md transition duration-300 ease-in-out hover:bg-blue-800 focus:outline-none">送信</button>
     </form>
   </div>
 </div>
 
 <script>
-        const button_post = document.getElementById('button_post');
-        const dropdown = document.getElementById('dropdown');
-        const userInput = document.getElementById('user_input');
+  const button_post = document.getElementById('button_post');
+  const dropdown = document.getElementById('dropdown');
+  const userInput = document.getElementById('user_input');
 
-        // ドロップダウンメニューの選択が変更されたときの処理
-        dropdown.addEventListener('change', function() {
-          userInput.value = dropdown.value;
-        });
+  // ドロップダウンメニューの選択が変更されたときの処理
+  dropdown.addEventListener('change', function() {
+    userInput.value = dropdown.value;
+  });
 
-        button_post.addEventListener('click', function(event) {
-          event.preventDefault();
+  button_post.addEventListener('click', function(event) {
+    event.preventDefault();
 
-          if (userInput.value.trim() === "") {
-            return;
-          }
+    if (userInput.value.trim() === "") {
+      return;
+    }
 
-          const url = "<%= my_dashboards_users_path('json') %>?user_input=" + userInput.value;
-          const postOptions = {
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            method: "GET"
-          };
+    const url = "<%= my_dashboards_users_path('json') %>?user_input=" + userInput.value;
+    const postOptions = {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "GET"
+    };
 
-          fetch(url, postOptions)
-            .then(response => response.json())
-            .then(item => {
-              const list = document.getElementById("conversation");
+    fetch(url, postOptions)
+      .then(response => response.json())
+      .then(item => {
+        const list = document.getElementById("conversation");
 
-              // ユーザーの質問
-              const inputHTML = `
-                <div class="text-right flex items-end justify-end space-x-2">
-                  <div class="chat-bubble inline-block bg-blue-100 px-4 py-2 rounded-lg max-w-3/4 break-words text-sky-950">
-                    <span>${userInput.value}</span>
-                  </div>
-                </div>`;
-              list.insertAdjacentHTML("beforeend", inputHTML);
+        // ユーザーの質問
+        const inputHTML = `
+          <div class="text-right flex items-end justify-end space-x-2">
+            <div class="chat-bubble inline-block bg-blue-100 px-4 py-2 rounded-lg max-w-3/4 break-words text-sky-950">
+              <span>${userInput.value}</span>
+            </div>
+          </div>`;
+        list.insertAdjacentHTML("beforeend", inputHTML);
 
-              // MiniitaBotからの返事
-              const responseHTML = `
-                <div class="text-left flex items-start space-x-2">
-                  <div class="chat-bubble inline-block bg-gray-100 px-4 py-2 rounded-lg max-w-3/4 break-words text-sky-950">
-                    <span>${item.text}</span>
-                  </div>
-                </div>`;
-              list.insertAdjacentHTML("beforeend", responseHTML);
-              userInput.value = "";
-              list.scrollTop = list.scrollHeight;
-            })
-            .catch(error => console.error('Error:', error));
-        });
-      </script>
-    </p>
-  </div>
-</dialog>
+        // MiniitaBotからの返事
+        const responseHTML = `
+          <div class="text-left flex items-start space-x-2">
+            <div class="chat-bubble inline-block bg-gray-100 px-4 py-2 rounded-lg max-w-3/4 break-words text-sky-950">
+              <span>${item.text}</span>
+            </div>
+          </div>`;
+        list.insertAdjacentHTML("beforeend", responseHTML);
+        userInput.value = "";
+        list.scrollTop = list.scrollHeight;
+      })
+      .catch(error => console.error('Error:', error));
+  });
+</script>
