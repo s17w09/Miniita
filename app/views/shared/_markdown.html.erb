@@ -1,127 +1,139 @@
-<!-- You can open the modal using ID.showModal() method -->
-<button class="text-4xl" onclick="my_modal_3.showModal()"><i class="bi bi-chat-left-heart text-gray-600"></i></button>
+<!-- モーダルを開くボタン -->
+<button class="text-4xl" onclick="my_modal_3.showModal()">
+  <i class="bi bi-chat-left-heart text-gray-600"></i>
+</button>
+
+<!-- モーダル本体 -->
 <dialog id="my_modal_3" class="modal">
-  <div class="modal-box mb-5 bg-stone-50 text-gray-600" style="max-width: 50%; height: 80%;">
+  <div class="modal-box mb-5 bg-stone-50 text-gray-600 w-5/6 mx-auto md:w-1/2" style="height: 80%;">
     <form method="dialog">
       <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
     </form>
     <h3 class="text-lg font-bold mb-5">マークダウン記法使い方</h3>
-        <p class="font-bold text-left"><i class="bi bi-tags-fill"></i>見出し語  「# 〇〇」</p>
-        <p class="paragraph text-sm text-left">
-        ・ 行頭に「#」をつけると、見出し形式になります。<br>
-        ・「#」の数が見出しレベルです。<br>
-        ・「#」のあとは半角空欄を空けてください。<br>
-        ・「# 例文」 が一番大きい文字、「###### 例文」 が一番小さい文字になります。
-        </p>
 
-        <p class="font-bold mt-5 text-left"><i class="bi bi-tags-fill"></i>太字  「**〇〇**」「__〇〇__」</p>
-        <p class="paragraph text-sm text-left">
-        ・ ** または __ によって囲まれた文字列は「太字」になります。
-        </p>
+    <!-- モーダルの内容 -->
+    <p class="font-bold text-left"><i class="bi bi-tags-fill"></i>見出し語  「# 〇〇」</p>
+    <p class="paragraph text-sm text-left">
+      ・ 行頭に「#」をつけると、見出し形式になります。<br>
+      ・「#」の数が見出しレベルです。<br>
+      ・「#」のあとは半角空欄を空けてください。<br>
+      ・「# 例文」 が一番大きい文字、「###### 例文」 が一番小さい文字になります。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>イタリック（斜体）  「*〇〇*」「_〇〇_」</p>
-        <p class="paragraph text-sm text-left">
-        ・ * または _ によって囲まれた文字列は「斜体」になります。
-        </p>
+    <p class="font-bold mt-5 text-left"><i class="bi bi-tags-fill"></i>太字  「**〇〇**」「__〇〇__」</p>
+    <p class="paragraph text-sm text-left">
+      ・ ** または __ によって囲まれた文字列は「太字」になります。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>太字かつイタリック  「***〇〇***」「___〇〇___」</p>
-        <p class="paragraph text-sm text-left">
-        ・ *** または ___ によって囲まれた文字列は「太字かつイタリック」になります。
-        </p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>イタリック（斜体）  「*〇〇*」「_〇〇_」</p>
+    <p class="paragraph text-sm text-left">
+      ・ * または _ によって囲まれた文字列は「斜体」になります。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>訂正線  「~~〇〇~~」</p>
-        <p class="paragraph text-sm text-left">
-        ・ ~~ で囲まれた文字は「訂正線（取り消し線）」になります。
-        </p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>太字かつイタリック  「***〇〇***」「___〇〇___」</p>
+    <p class="paragraph text-sm text-left">
+      ・ *** または ___ によって囲まれた文字列は「太字かつイタリック」になります。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>下線  「&lt;u&gt;〇〇&lt;/u&gt;」</p>
-        <p class="paragraph text-sm text-left">
-        ・ 「&lt;u&gt; &lt;/u&gt;」で囲まれた文字は「下線」になります。
-        </p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>訂正線  「~~〇〇~~」</p>
+    <p class="paragraph text-sm text-left">
+      ・ ~~ で囲まれた文字は「訂正線（取り消し線）」になります。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>水平線  「***」「---」「_ _ _」</p>
-        <p class="paragraph text-sm text-left">
-        ・ ３つ以上の - * _ だけを入力した行は水平線（罫線）になります。
-        </p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>下線  「&lt;u&gt;〇〇&lt;/u&gt;」</p>
+    <p class="paragraph text-sm text-left">
+      ・ 「&lt;u&gt; &lt;/u&gt;」で囲まれた文字は「下線」になります。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>URL  「 [〇〇](URL) 」</p>
-        <p class="paragraph text-sm text-left">
-        ・ [表示テキスト](URL) でURLリンクになります。
-        </p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>水平線  「***」「---」「_ _ _」</p>
+    <p class="paragraph text-sm text-left">
+      ・ ３つ以上の - * _ だけを入力した行は水平線（罫線）になります。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>ファイル挿入  「![代替テキスト](URL)」</p>
-        <p class="paragraph text-sm text-left">
-        ・ ![代替テキスト](URL) でファイルが表示されます。
-        </p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>URL  「 [〇〇](URL) 」</p>
+    <p class="paragraph text-sm text-left">
+      ・ [表示テキスト](URL) でURLリンクになります。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>動画（GIF）</p>
-        <p class="paragraph text-sm text-left">
-        ・ Gyazoのマークダウン＞GIFで動画埋め込みが可能です。</p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>ファイル挿入  「![代替テキスト](URL)」</p>
+    <p class="paragraph text-sm text-left">
+      ・ ![代替テキスト](URL) でファイルが表示されます。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>画像</p>
-        <p class="paragraph text-sm text-left">
-        ・ Gyazoのマークダウンで画像埋め込みが可能です。
-        </p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>動画（GIF）</p>
+    <p class="paragraph text-sm text-left">
+      ・ Gyazoのマークダウン＞GIFで動画埋め込みが可能です。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>引用  「> 〇〇」</p>
-        <p class="paragraph text-sm text-left">
-        ・ 行頭に > を付けると引用になります。
-        </p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>画像</p>
+    <p class="paragraph text-sm text-left">
+      ・ Gyazoのマークダウンで画像埋め込みが可能です。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>二重引用  「>> 〇〇」</p>
-        <p class="paragraph text-sm text-left">
-        ・ 行頭に >> を付けると引用になります。
-        </p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>引用  「> 〇〇」</p>
+    <p class="paragraph text-sm text-left">
+      ・ 行頭に > を付けると引用になります。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>インラインコード  「` 〇〇 `」「```〇〇```」</p>
-        <p class="paragraph text-sm text-left">
-        ・ `または```で囲まれた文字は「インラインコード」になります。
-        </p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>二重引用  「>> 〇〇」</p>
+    <p class="paragraph text-sm text-left">
+      ・ 行頭に >> を付けると引用になります。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>コードブロック<br>
-        ```<br>
-        〇〇<br>
-        ```<br>
-        </p>
-        <p class="paragraph text-sm text-left">
-        ・```を改行して使用した場合は、でコードブロックになります。<br>
-        </p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>インラインコード  「` 〇〇 `」「```〇〇```」</p>
+    <p class="paragraph text-sm text-left">
+      ・ `または```で囲まれた文字は「インラインコード」になります。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>テキストカラー  「&lt;span style="color: red;"&gt; 赤文字 &lt;/span&gt;」</p>
-        <p class="paragraph text-sm text-left">
-        ・ 文字色を変えたい場合は、HTMLタグを記入すると変更できます。
-        </p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>コードブロック<br>
+      ```<br>
+      〇〇<br>
+      ```<br>
+    </p>
+    <p class="paragraph text-sm text-left">
+      ・```を改行して使用した場合は、でコードブロックになります。<br>
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>チェックリスト  「- [ ] 」「- [x]」</p>
-        <p class="paragraph text-sm text-left">
-        ・ 行頭に - [ ] - [x] を付けると、チェックリストになります。<br>
-        ・ Miniitaでは、チェックリストの行頭に黒点がつきます。ご了承ください。
-        </p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>テキストカラー  「&lt;span style="color: red;"&gt; 赤文字 &lt;/span&gt;」</p>
+    <p class="paragraph text-sm text-left">
+      ・ 文字色を変えたい場合は、HTMLタグを記入すると変更できます。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>箇条書きリスト  「- 〇〇」「* 〇〇」「+ 〇〇」</p>
-        <p class="paragraph text-sm text-left">
-        ・ 行頭に- 、* 、+のいずれか付けると、箇条書きリストになります。
-        </p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>チェックリスト  「- [ ] 」「- [x]」</p>
+    <p class="paragraph text-sm text-left">
+      ・ 行頭に - [ ] - [x] を付けると、チェックリストになります。<br>
+      ・ Miniitaでは、チェックリストの行頭に黒点がつきます。ご了承ください。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>番号付きリスト  「1. 〇〇A」「1. 〇〇B」</p>
-        <p class="paragraph text-sm text-left">
-        ・ 「数字.」を入れると番号付きリストになります。
-        </p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>箇条書きリスト  「- 〇〇」「* 〇〇」「+ 〇〇」</p>
+    <p class="paragraph text-sm text-left">
+      ・ 行頭に- 、* 、+のいずれか付けると、箇条書きリストになります。
+    </p>
 
-       <p class="font-bold mb-3 text-left"><i class="bi bi-tags-fill"></i>折りたたみ表示<br>
-        &lt;details&gt;<br>
-        &lt;summary&gt;タイトル&lt;/summary&gt;<br>
-        内容をここに記載する<br>
-        &lt;/details&gt;</p>
-        <p class="paragraph text-sm text-left">
-        ・ 文章を折りたたみできます。<br>
-        ・ ※アコーディオンのタイトルに、見出しやリンクを指定することはできません。</p>
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>番号付きリスト  「1. 〇〇A」「1. 〇〇B」</p>
+    <p class="paragraph text-sm text-left">
+      ・ 「数字.」を入れると番号付きリストになります。
+    </p>
 
-        <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>表<br>
-        | TH | TH |<br>
-        | ---- | ---- |<br>
-        | TD | TD |<br>
-        | TD | TD |</p>
-        <p class="paragraph text-sm text-left">
-        ・ 上記のように書くとテーブルで表示されます。</p>
+    <p class="font-bold mb-3 text-left"><i class="bi bi-tags-fill"></i>折りたたみ表示<br>
+      &lt;details&gt;<br>
+      &lt;summary&gt;タイトル&lt;/summary&gt;<br>
+      内容をここに記載する<br>
+      &lt;/details&gt;
+    </p>
+    <p class="paragraph text-sm text-left">
+      ・ 文章を折りたたみできます。<br>
+      ・ ※アコーディオンのタイトルに、見出しやリンクを指定することはできません。
+    </p>
+
+    <p class="font-bold mb-2 text-left"><i class="bi bi-tags-fill"></i>表<br>
+      | TH | TH |<br>
+      | ---- | ---- |<br>
+      | TD | TD |<br>
+      | TD | TD |
+    </p>
+    <p class="paragraph text-sm text-left">
+      ・ 上記のように書くとテーブルで表示されます。
+    </p>
+  </div>
 </dialog>
