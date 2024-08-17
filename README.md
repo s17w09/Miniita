@@ -118,26 +118,32 @@ Xシェアできる内容を下記に設定し、ユーザーの目に止まる�
 | ---- | ---- |
 | [![Image from Gyazo](https://i.gyazo.com/0c654800484b6cff857e9575ac91a901.gif)](https://gyazo.com/0c654800484b6cff857e9575ac91a901) | [![Image from Gyazo](https://i.gyazo.com/4e437c2da57f2fef9f24e05d74d1993a.gif)](https://gyazo.com/4e437c2da57f2fef9f24e05d74d1993a) |
 | 記事の投稿時、マークダウン記法で投稿でき、内容も即座にプレビュー画面で反映します。 | 記事を下書き保存できます。下書きに入れた記事は、マイページ上から再編集可能です。 |
+
 | マークダウン使用法、MiniitaBot | 検索機能 |
 | ---- | ---- |
 | [![Image from Gyazo](https://i.gyazo.com/68eba5d7981751432942741a2bd72f48.gif)](https://gyazo.com/68eba5d7981751432942741a2bd72f48) | [![Image from Gyazo](https://i.gyazo.com/037717ebb5472efcc73ff8ebd20af42e.gif)](https://gyazo.com/037717ebb5472efcc73ff8ebd20af42e) |
 | マークダウン記法の使い方を確認できます。MiniitaBotでは、投稿中の不安な点をサポートします。 | 本文、タイトル、投稿者名で検索をかけることができます。 |
+
 | ソート機能 | 複数のいいね機能 |
 | ---- | ---- |
 | [![Image from Gyazo](https://i.gyazo.com/4c3a71bb6c7d29ccc648e07c2d72d5db.gif)](https://gyazo.com/4c3a71bb6c7d29ccc648e07c2d72d5db) | [![Image from Gyazo](https://i.gyazo.com/3d0530d6f5847a14ea8ff38effcbe72f.gif)](https://gyazo.com/3d0530d6f5847a14ea8ff38effcbe72f) |
 | 新規順、古い順でソートをかけることが可能です。（デフォルトは新規順で表示） | 5つのいいねボタンを設置しており、其々の内容に合わせていいねボタンを選択できます。 |
+
 | コメント機能（投稿・編集・削除） | コメントへのいいね機能 |
 | ---- | ---- |
 | [![Image from Gyazo](https://i.gyazo.com/733b0d24b6d8066d308081f4844c9bde.gif)](https://gyazo.com/733b0d24b6d8066d308081f4844c9bde) | [![Image from Gyazo](https://i.gyazo.com/5bfdfdff8e31057e6ef2433252ef1a84.gif)](https://gyazo.com/5bfdfdff8e31057e6ef2433252ef1a84) |
 | 記事に対するコメントを投稿できます。投稿・編集・削除すべて非同期処理で実装しています。 | コメントへいいねを押すことができます。コメントへのいいねも非同期処理で実装しています。 |
+
 | プロフィール編集 | 投稿済、下書き記事の閲覧 |
 | ---- | ---- |
 | [![Image from Gyazo](https://i.gyazo.com/2c0e629e13188ceefd7ba5e37ed09c9b.gif)](https://gyazo.com/2c0e629e13188ceefd7ba5e37ed09c9b) | [![Image from Gyazo](https://i.gyazo.com/0698cfa63127d9ed6160f7c6a109501d.gif)](https://gyazo.com/0698cfa63127d9ed6160f7c6a109501d) |
 | メールアドレス、名前を変更することができます。 | 自分の投稿した記事、下書きした記事を確認できます。ここから詳細・編集ページに飛ぶことができます。 |
+
 | いいね済の記事の閲覧 | ユーザーバッジ画面 |
 | ---- | ---- |
 | [![Image from Gyazo](https://i.gyazo.com/fa890247407c5cdf5034bde7cb1ff23e.gif)](https://gyazo.com/fa890247407c5cdf5034bde7cb1ff23e) | [![Image from Gyazo](https://i.gyazo.com/e1d10bfaaf82575fa66b72f1ae3c83e0.gif)](https://gyazo.com/e1d10bfaaf82575fa66b72f1ae3c83e0) |
 | いいねした記事を一覧で確認できます。其々の記事詳細画面へ遷移することも可能です。 | 1,3,5,10,20,30記事投稿した段階で、ユーザーバッジが付与されます。（現在は0投稿のため、バッジは付与されていません） |
+
 | 継続サポート画面 | 通知機能 |
 | ---- | ---- |
 | [![Image from Gyazo](https://i.gyazo.com/d17d9e5818e91e94c8b60c9ae9a961f5.gif)](https://gyazo.com/d17d9e5818e91e94c8b60c9ae9a961f5) | [![Image from Gyazo](https://i.gyazo.com/43606bedd6acb3a9062e8e7638088db4.gif)](https://gyazo.com/43606bedd6acb3a9062e8e7638088db4) |
