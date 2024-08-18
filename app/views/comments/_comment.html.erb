@@ -1,7 +1,7 @@
 <tr id="comment-<%= comment.id %>">
   <td class="bg-stone-50 border">
     <div id="post_comment-<%= comment.id %>">
-      <h1 class="font-normal text-xl text-gray-600 ml-3"><%= simple_format(comment.body) %></h1>
+      <h1 class="font-normal text-xl text-gray-600 ml-3 mt-0"><%= simple_format(comment.body) %></h1>
     </div>
     <p class="text-gray-400 paragraph ml-5">コメント：<%= time_ago_in_words(comment.created_at).upcase %>前</p>
     <h3 class="font-normal text-sm text-gray-400 mt-0 ml-5">投稿者：<%= comment.user.name %></h3>
