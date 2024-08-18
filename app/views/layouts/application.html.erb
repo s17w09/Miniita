@@ -61,7 +61,7 @@
     <%= render 'layouts/flash_messages' %>
     <!--------------------------------->
     <%= yield %>
-    <% unless current_page?(root_path)|| current_page?(new_user_path)  || current_page?(login_path) %>
+    <% unless current_page?(root_path)|| current_page?(new_user_path)  || current_page?(login_path) || current_page?(new_password_reset_path) || current_page?(password_resets_path) %>
      <%= render 'shared/footer' %>
     <% end %>
   </body>

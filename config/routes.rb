@@ -40,8 +40,9 @@ Rails.application.routes.draw do
   get 'login' => 'usersessions#new', :as => :login
   post 'login' => 'usersessions#create'
   delete 'logout' => 'usersessions#destroy', :as => :logout
-  resources :password_resets, only: %i[create edit update]
+  resources :password_resets, only: %i[new create edit update]
 
   get '/policy', to: 'staticpages#privacy_policy', as: :privacy_policy
   get '/term', to: 'staticpages#term', as: :term
+  get '/explanation', to: 'staticpages#explanation', as: :explanation
 end

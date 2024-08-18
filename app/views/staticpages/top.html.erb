@@ -1,13 +1,13 @@
 <% content_for :title, page_title('トップ') %>
 <header id="header">
     <h1 class="main-heading fadeIn1 text-3xl font-bold">技術記事をもっと身近に</h1>
-    <h2 class="second-heading fadeIn2 text-9xl font-black text-gray-700">Miniita.</h2>
-    <h3 class="third-heading fadeIn3 text-gray-500 font-medium m-o">Miniitaは、技術記事を書きたいけど書いたことがない / 第三者から見られることに抵抗を感じている方向けのサイトです。<br>
+    <h2 class="second-heading fadeIn2 text-9xl font-black text-gray-700">Miniita<span class="text-blue-800 ml-2">.</span></h2>
+    <h3 class="third-heading fadeIn3 text-gray-500 font-medium mt-0">Miniitaは、技術記事を書きたいけど書いたことがない / 第三者から見られることに抵抗を感じている方向けのサイトです。<br>
     Miniitaならではの機能を活用して、日々のアウトプットにご利用ください。</h3>
 </header>
 <div id="container">
   <div class="w-5/6 mx-auto max-w-screen-xl">
-    <p class="text-left ml-7 text-gray-600 text-4xl font-bold">Miniita独自の機能</p>
+    <p class="text-left ml-7 text-gray-600 text-4xl font-bold">Miniitaだから出来ること</p>
     <div class="mx-auto max-w-screen-xl sm:mt-20 lg:mt-24">
       <dl class="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
 
@@ -65,25 +65,23 @@
       </dl>
     </div>
   </div>
-  <div id="container">
   <p class="mt-48 flex justify-center ml-7 text-gray-600 text-4xl font-bold">さあ、Miniitaを使ってみましょう</p>
-  </div>
-  <div class="w-5/6 mx-auto max-w-screen-xl mt-10 flex justify-between items-center">
-    <div class="flex space-x-6">
-      <%= link_to new_user_path, class: 'app-link flex flex-col items-center leading-6 text-slate-200' do %>
-        <i class="bi bi-file-earmark-font text-2xl text-gray-600 hover:text-gray-400"></i>
-        <p class="paragraph text-xs mt-1">新規登録</p>
-      <% end %>
-      <%= link_to articles_path, class: 'app-link flex flex-col items-center leading-6 text-slate-200' do %>
-        <i class="bi bi-book text-2xl app-link text-gray-600 hover:text-gray-400"></i>
-        <p class="paragraph text-xs mt-1">閲覧</p>
-      <% end %>
-    </div>
-    <div class="flex space-x-4 items-center">
-      <%= link_to login_path, class: 'app-link flex flex-col items-center leading-6 text-slate-200' do %>
-        <i class="bi bi-box-arrow-in-right text-2xl app-link text-gray-600 hover:text-gray-400"></i>
-        <p class="paragraph text-xs mt-1">ログイン</p>
-      <% end %>
-    </div>
-  </div>
+<div class="w-5/6 mx-auto max-w-screen-xl flex justify-center gap-10">
+  <%= link_to new_user_path, class: 'app-link text-slate-200 flex flex-col items-center' do %>
+    <i class="bi bi-file-earmark-font text-2xl text-gray-600 hover:text-gray-400"></i>
+    <p class="paragraph text-xs mt-1">新規登録</p>
+  <% end %>
+  <%= link_to login_path, class: 'app-link text-slate-200 flex flex-col items-center' do %>
+    <i class="bi bi-box-arrow-in-right text-2xl text-gray-600 hover:text-gray-400"></i>
+    <p class="paragraph text-xs mt-1">ログイン</p>
+  <% end %>
+  <%= link_to articles_path, class: 'app-link text-slate-200 flex flex-col items-center' do %>
+    <i class="bi bi-book text-2xl text-gray-600 hover:text-gray-400"></i>
+    <p class="paragraph text-xs mt-1">記事を閲覧</p>
+  <% end %>
+ <%= link_to explanation_path, class: 'app-link text-slate-200 flex flex-col items-center' do %>
+    <i class="bi bi-eye text-2xl text-gray-600 hover:text-gray-400"></i>
+    <p class="paragraph text-xs mt-1">詳しい使い方</p>
+  <% end %>
 </div>
+
