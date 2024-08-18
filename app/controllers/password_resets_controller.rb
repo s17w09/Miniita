@@ -7,6 +7,9 @@ class PasswordResetsController < ApplicationController
   skip_before_action :require_login
 
   # This is the reset password form.
+
+  def new; end
+  
   def edit
     @token = params[:id]
     @user = User.load_from_reset_password_token(params[:id])
