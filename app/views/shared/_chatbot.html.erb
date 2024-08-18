@@ -5,7 +5,6 @@
 <!-- モーダルの内容 -->
 <dialog id="my_modal_1" class="modal">
   <div class="modal-box mb-5 bg-stone-50 text-gray-600 w-11/12 md:w-1/2 mx-auto" style="width: 80% height: 50%;">
-    <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onclick="my_modal_1.close()">x</button>
     <h3 class="font-bold text-lg">Miniita Botで質問</h3>
     <p class="paragraph">選択項目が入力欄に反映されない場合は、リロード下さい。</p>
     <p class="py-4 paragraph">
@@ -34,6 +33,9 @@
       </div>
     </p>
   </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
 </dialog>
 <script>
   const button_post = document.getElementById('button_post');
