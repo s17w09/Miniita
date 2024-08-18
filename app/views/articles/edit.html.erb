@@ -14,19 +14,19 @@
                                         class: 'text-lg pr-5 pl-5 pt-5 pb-5 textarea textarea-bordered w-full mb-4 h-full bg-stone-50 text-gray-600 h-screen', style: 'overflow:auto;', value: @article.body %>
             </div>
             <div>
-              <%= form.label :markdown, 'マークダウン出力 (編集開始するとマークダウンが出力されます)',
-                             class: 'text-gray-600 font-bold text-xl mb-2 block' %>
+              <%= form.label :markdown, 'マークダウン出力 (編集するとマークダウンが出力されます)',
+                             class: 'text-gray-600 font-bold text-xl block' %>
               <div id="html" class="text-lg pr-5 pl-5 pt-5 pb-5 bg-stone-50 text-gray-600 textarea textarea-bordered h-screen w-full"
                    style="overflow:auto;"></div>
             </div>
           </div>
           <div class="flex justify-center gap-7 mt-10">
             <%= form.submit '投稿', name: 'published',
-                                  class: 'mb-10 app-link rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2' %>
+                                  class: 'mb-10 app-link rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-100 shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2' %>
             <% if @article.draft? %>
             <%= form_with model: @article do |form| %>
             <%= form.submit '下書き', name: 'draft',
-                                   class: 'mb-10 app-link rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2' %>
+                                   class: 'mb-10 app-link rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-100 shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2' %>
            <% end %>
           <% end %>
           </div>
