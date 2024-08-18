@@ -7,12 +7,10 @@
         <%= render 'articles/favorite', article: @article, favorite: @favorite %>
       <% end %>
     </div>
-    <div class="flex-grow p-4 border rounded-lg bg-stone-50 text-gray-100  max-w-full lg:pr-20 lg:pl-20 pt-10 pb-20">
-      <h1 class="text-3xl font-bold mt-5 text-center text-gray-600"><%= @article.title %></h1>
-      <p class="paragraph text-sm font-normal text-gray-400"><i class="bi bi-signpost"></i> 作成日：<%= l @article.created_at,
-                                                                                        format: :long %></p>
-      <p class="paragraph text-sm font-normal text-gray-400"><i class="bi bi-signpost"></i> 更新日：<%= l @article.updated_at,
-                                                                                        format: :long %></p>
+    <div class="flex-grow p-4 border rounded-lg bg-stone-50 text-gray-100 max-w-full lg:pr-20 lg:pl-20 pt-10 pb-20">
+      <h1 class="text-3xl font-bold mt-5 text-left text-gray-600"><%= @article.title %></h1>
+      <p class="paragraph text-sm font-normal text-gray-400"><i class="bi bi-signpost"></i> 作成日：<%= l @article.created_at, format: :long %></p>
+      <p class="paragraph text-sm font-normal text-gray-400"><i class="bi bi-signpost"></i> 更新日：<%= l @article.updated_at, format: :long %></p>
       <p class="paragraph text-sm font-normal text-gray-400"><i class="bi bi-signpost"></i> 投稿者：<%= @article.user.name %></p>
       <div class="mt-10 text-gray-600">
         <%= render_markdown(@article.body).html_safe %>
@@ -24,26 +22,22 @@
           <%= link_to '削除', article_path(@article), data: { turbo_method: :delete, turbo_confirm: '投稿を削除しますか？' },
                                                     class: 'app-link rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-100 shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2' %>
         <% end %>
-      </div>ƒ
-    </div>
-  </div>
-   <% if @article.published? %>
-  <div class="w-5/6 mx-auto max-w-screen-xl mt-28">
-    <div class="pb-10">
-      <h1 class="text-2xl ml-10 mt-10 mb-6 font-bold text-gray-600">コメント</h1>
-      <div class="flex flex-wrap gap-8">
-        <div class="flex-shrink-0 w-full md:w-1/2">
-          <%= render 'comments/form', comment: @comment, article: @article %>
-        </div>
-        <div class="flex-grow w-full md:w-1/2">
-          <table class="table w-full">
-            <tbody id="comments">
-              <%= render @article.comments, article: @article, comment: @comment, commentfavorite: @commentfavorite %>
-            </tbody>
-          </table>
-        </div>
       </div>
     </div>
   </div>
+
+  <% if @article.published? %>
+    <div class="w-5/6 mx-auto max-w-screen-xl mt-28">
+      <h1 class="text-3xl font-bold mt-5 text-left text-gray-600 ml-12">コメント</h1>
+      <div class="flex justify-between ">
+        <%= render 'comments/form', comment: @comment, article: @article %>
+        </div>
+        <table class="table w-1/2">
+          <tbody id="comments">
+            <%= render @article.comments, article: @article, comment: @comment, commentfavorite: @commentfavorite %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   <% end %>
 </div>
