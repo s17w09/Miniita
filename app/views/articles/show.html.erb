@@ -29,7 +29,7 @@
   <% if @article.published? %>
     <div class="w-5/6 mx-auto max-w-screen-xl mt-28">
       <h1 class="text-3xl font-bold mt-5 text-left text-gray-600 ml-12">コメント</h1>
-      <div class="flex justify-between ">
+      <div class="flex justify-between">
         <%= render 'comments/form', comment: @comment, article: @article %>
         </div>
         <table class="table w-1/2">

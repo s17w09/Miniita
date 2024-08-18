@@ -1,7 +1,7 @@
 <% content_for :title, page_title('継続サポート') %>
 <div class="w-5/6 mx-auto max-w-screen-xl mt-20 flex-grow">
 <h1 class="text-3xl font-bold text-gray-600 mb-10">継続サポート</h1>
-  <p class="ml-5 text-gray-600 font-bold"><i class="bi bi-tags-fill"></i> 総いいね数： <%= @article_favorite.count %> いいね</P>
+  <p class="ml-5 text-gray-600 font-bold"><i class="bi bi-tags-fill"></i> 総いいね数： <span class="text-3xl"><%= @article_favorite.count %></span> いいね</P>
   <div class="flex flex-col-5 ml-5">
     <p class="ml-5 text-gray-600">内訳：<div class="tooltip mt-4" data-tip="参考になった！"><i class="bi bi-hand-thumbs-up text-gray-600 mr-1"></i><%= @article_favorite.where(favorite_type: :like_first).count %></div></P>
     <p class="ml-5 text-gray-600"><div class="tooltip mt-4" data-tip="学びが深まった"><i class="bi bi-award text-gray-600 mr-1"></i><%= @article_favorite.where(favorite_type: :like_second).count %></div></P>
@@ -9,10 +9,10 @@
     <p class="ml-5 text-gray-600"><div class="tooltip mt-4" data-tip="独自の視点！"><i class="bi bi-brightness-alt-high text-gray-600 mr-1"></i><%= @article_favorite.where(favorite_type: :like_forth).count %></div></P>
     <p class="ml-5 text-gray-600"><div class="tooltip mt-4" data-tip="詳細をもっと知りたい"><i class="bi bi-bell text-gray-600 mr-1"></i><%= @article_favorite.where(favorite_type: :like_fifth).count %></div></P>
   </div>
-<p class="mt-10 ml-5 text-gray-600 font-bold"><i class="bi bi-tags-fill"></i> 総文字数（本文のみ）：<%= @article_body_count %> 文字</P>
+<p class="mt-10 ml-5 text-gray-600 font-bold"><i class="bi bi-tags-fill"></i> 総文字数（本文のみ）：<span class="text-3xl"><%= @article_body_count %></span> 文字</P>
 <p class="ml-5 text-gray-600 font-bold mt-10"><i class="bi bi-tags-fill"></i> チャットボットからの総評</P>
 <% if @article_published.count >= 5 %>
-<p class="ml-10 text-gray-600">あなたはこれまで、<%= @article_published.count %>記事投稿しました。おめでとうございます！MiniitaBotから総評をもらいましょう！下記から受け取りたい総評を選んでください。
+<p class="ml-10 text-gray-600">あなたはこれまで、<span class="text-3xl font-bold mr-2"><%= @article_published.count %></span>記事投稿しました。おめでとうございます！MiniitaBotから総評をもらいましょう！下記から受け取りたい総評を選んでください。
 <br>選択項目が質問入力欄に反映されない場合は、リロードをお願いいたします。</p>
 <%= render 'shared/review_chatbot' %>
 <% else %>
