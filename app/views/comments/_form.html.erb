@@ -1,10 +1,11 @@
-<div id="new_comment" class="w-1/2">
-          <%= form_with model: comment, url: article_comments_path(article) do |form| %>
-            <%= render 'shared/error_messages', object: form.object %>
-            <%= form.text_area :body, placeholder: 'コメントを入力してください',
-                                      class: 'rounded-none ml-12 mt-4 textarea bg-stone-50 text-gray-600 w-10/12 h-44 resize-none' %>
-            <div class="flex justify-center">
-              <%= form.submit '投稿',
-                              class: 'app-link mt-3 rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-100 shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800' %>
-            </div>
-          <% end %>
+<div id="new_comment">
+  <%= form_with model: comment, url: article_comments_path(article) do |form| %>
+    <%= render 'shared/error_messages', object: form.object %>
+    <%= form.text_area :body, placeholder: 'コメントを入力してください',
+                              class: 'rounded-none mt-4 textarea bg-stone-50 text-gray-600 w-full h-44 resize-none' %>
+      <div class="flex justify-center">
+      <%= form.submit '投稿',
+                      class: 'app-link mt-3 mb-10 rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-100 shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800' %>
+      </div>
+ <% end %>
+ </div>

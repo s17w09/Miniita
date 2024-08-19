@@ -1,7 +1,7 @@
 <% content_for :title, page_title('詳細') %>
 <div class="mb-20">
-  <div class="w-5/6 mx-auto max-w-screen-xl mt-20 flex-grow flex flex-col lg:flex-row">
-    <div class="flex flex-col gap-4 text-xl mr-7 mb-5 lg:mb-0 lg:align-start">
+  <div class="w-5/6 mx-auto max-w-screen-xl mt-20 flex-grow">
+    <div class="flex flex-col-6 gap-4 text-xl mb-5">
       <% if @article.published? %>
         <%= render 'shared/twitter' %>
         <%= render 'articles/favorite', article: @article, favorite: @favorite %>
@@ -25,19 +25,15 @@
       </div>
     </div>
   </div>
-
   <% if @article.published? %>
     <div class="w-5/6 mx-auto max-w-screen-xl mt-28">
-      <h1 class="text-3xl font-bold mt-5 text-left text-gray-600 ml-12">コメント</h1>
-      <div class="flex justify-between">
+      <h1 class="text-3xl font-bold mt-5 text-left text-gray-600">コメント</h1>
         <%= render 'comments/form', comment: @comment, article: @article %>
-        </div>
-        <table class="table w-1/2">
+        <table class="table">
           <tbody id="comments">
             <%= render @article.comments, article: @article, comment: @comment, commentfavorite: @commentfavorite %>
           </tbody>
         </table>
-      </div>
     </div>
   <% end %>
 </div>
