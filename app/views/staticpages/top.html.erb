@@ -1,87 +1,42 @@
 <% content_for :title, page_title('トップ') %>
 <header id="header">
     <h1 class="main-heading fadeIn1 text-3xl font-bold">技術記事をもっと身近に</h1>
-    <h2 class="second-heading fadeIn2 text-9xl font-black text-gray-700">Miniita<span class="text-blue-800 ml-2">.</span></h2>
+    <h2 class="second-heading fadeIn2 text-9xl font-black text-gray-700">Miniita<span class="fadeIn2 text-blue-800 ml-2">.</span></h2>
     <h3 class="third-heading fadeIn3 text-gray-500 font-medium mt-0">Miniitaは、技術記事を書きたいけど書いたことがない / 第三者から見られることに抵抗を感じている方向けのサイトです。<br>
     Miniitaならではの機能を活用して、日々のアウトプットにご利用ください。</h3>
 </header>
 <div id="container">
   <div class="w-5/6 mx-auto max-w-screen-xl">
-    <p class="text-left ml-7 text-gray-600 text-4xl font-bold">Miniitaだから出来ること</p>
-    <div class="mx-auto max-w-screen-xl sm:mt-20 lg:mt-24">
-      <dl class="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
-
-      <!-----------Miniita Bot----------->
-        <div class="relative pl-4">
-          <dt class="flex items-center text-base font-semibold leading-7 text-gray-800 text-left">
-              <svg class="h-6 w-6 text-white mr-3" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <i class="bi bi-android2"></i>
-              </svg>
-            MiniitaBotによる支援
-          </dt>
-          <dd class="mt-1 text-base leading-7 text-gray-600">「記事を投稿する」というはじめの一歩はとても勇気が入ります。Miniitaでは「MiniitaBot」を設置し、
-          テンプレートの出力依頼・誤字脱字の添削など記事を書いている最中の支援をしてくれます。</dd>
+    <p class="text-gray-600 text-4xl font-bold mt-40">Miniitaならではの機能</p>
+    <div class="mx-auto max-w-screen-xl text-gray-600 mt-20">
+        <div class="relative pl-4 font-base font-nomal mb-1">
+            ✔️ <span class="text-2xl font-black">執筆途中も安心</span>なサポート
         </div>
-       <!-----------Miniita Bot----------->
-
-      <!-----------いいねボタン----------->
-        <div class="relative pl-4">
-          <dt class="flex items-center text-base font-semibold leading-7 text-gray-900 text-left">
-              <svg class="h-6 w-6 text-white mr-3" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <i class="bi bi-hand-thumbs-up"></i>
-              </svg>
-            複数のいいねボタン
-          </dt>
-          <dd class="mt-1 text-base leading-7 text-gray-600">記事を書き終えたものの、第三者からの反応が気になる...。
-          MIniitaでは複数のいいねボタンを設置しています。ユーザーからの反応の種類を確認することができ、モチベーション維持にも貢献します。</dd>
+        <div class="relative pl-4 font-base font-nomal mb-1">
+            ✔️ 記事への<span class="text-2xl font-black">反応内容がわかる</span>
         </div>
-        <!-----------いいねボタン----------->
-
-      <!-----------マイバッジ----------->
-        <div class="relative pl-4">
-          <dt class="flex items-center text-base font-semibold leading-7 text-gray-900 text-left">
-              <svg class="h-6 w-6 text-white mr-3" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <i class="bi bi-gift"></i>
-              </svg>
-            マイバッジ機能
-          </dt>
-          <dd class="mt-1 text-base leading-7 text-gray-600">継続して記事を書き続けられるか不安。
-            そんなお声にお応えし、Miniitaでは一定の記事を書き終えるとバッジが付与されます。そのバッジ内容をXアカウントでシェアすることも可能です。<br></dd>
+        <div class="relative pl-4 font-base font-nomal mb-1">
+            ✔️ <span class="text-2xl font-black">継続して投稿</span>できる仕組み
         </div>
-        <!-----------マイバッジ----------->
-
-      <!-----------継続サポート----------->
-        <div class="relative pl-4">
-          <dt class="flex items-center text-base font-semibold leading-7 text-gray-900 text-left">
-              <svg class="h-6 w-6 text-white mr-3" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <i class="bi bi-book"></i>
-              </svg>
-            継続サポート機能
-          </dt>
-          <dd class="mt-1 text-base leading-7 text-gray-600">マイバッジだけでなく、MiniitaBotからの支援もあります。
-          記事を5記事以上書くと、MiniitaBotから記事内容の総評を受け取ることができます。</dd>
-        </div>
-        <!-----------継続サポート----------->
-      </dl>
     </div>
   </div>
-  <p class="mt-48 flex justify-center text-gray-600 text-4xl font-bold mb-20">さあ、Miniitaを使ってみましょう</p>
+  <p class="mt-80 flex justify-center text-gray-600 text-4xl font-bold mb-20">さあ、Miniitaを使ってみましょう</p>
 <div class="w-5/6 mx-auto max-w-screen-xl flex justify-center gap-10">
   <%= link_to new_user_path, class: 'app-link text-slate-200 flex flex-col items-center' do %>
-    <i class="bi bi-file-earmark-font text-2xl text-gray-600 hover:text-gray-400"></i>
-    <p class="paragraph text-xs mt-1">新規登録</p>
+    <span class="btnripple3"><i class="bi bi-file-earmark-font text-2xl text-gray-600 hover:text-gray-400 "></i>
+    <p class="text-gray-400 paragraph text-xs mt-1">新規登録</p></span>
   <% end %>
   <%= link_to login_path, class: 'app-link text-slate-200 flex flex-col items-center' do %>
-    <i class="bi bi-box-arrow-in-right text-2xl text-gray-600 hover:text-gray-400"></i>
-    <p class="paragraph text-xs mt-1">ログイン</p>
+    <span class="btnripple3"><i class="bi bi-box-arrow-in-right text-2xl text-gray-600 hover:text-gray-400"></i>
+    <p class="text-gray-400 paragraph text-xs mt-1">ログイン</p></span>
   <% end %>
   <%= link_to articles_path, class: 'app-link text-slate-200 flex flex-col items-center' do %>
-    <i class="bi bi-book text-2xl text-gray-600 hover:text-gray-400"></i>
-    <p class="paragraph text-xs mt-1">記事を閲覧</p>
+    <span class="btnripple3"><i class="bi bi-book text-2xl text-gray-600 hover:text-gray-400"></i>
+    <p class="text-gray-400 paragraph text-xs mt-1">記事を閲覧</p></span>
   <% end %>
  <%= link_to explanation_path, class: 'app-link text-slate-200 flex flex-col items-center' do %>
-    <i class="bi bi-eye text-2xl text-gray-600 hover:text-gray-400"></i>
-    <p class="paragraph text-xs mt-1">詳しい使い方</p>
+    <span class="btnripple3"><i class="bi bi-eye text-2xl text-gray-600 hover:text-gray-400"></i>
+    <p class="text-gray-400 paragraph text-xs mt-1">詳しい使い方</p></span>
   <% end %>
 </div>
 
