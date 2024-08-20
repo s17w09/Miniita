@@ -3,7 +3,7 @@
   <%= form_with model: @comment do |form| %>
     <%= form.text_area :body, placeholder: 'コメント', class: "mt-5 textarea textarea-bordered w-full mb-4 h-full bg-stone-50 text-gray-600" %>
     <div class="flex justify-center">
-    <%= form.submit "編集", class: "justify-center app-link rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-100 shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800" %>
+    <%= form.submit "再投稿", class: "justify-center app-link rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-100 shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800" %>
     </div>
     <% end %>
 <% end %>
