@@ -2,7 +2,7 @@
 # 「Miniita(ミニータ)」
 
 サービスURL: [Miniita](https://www.miniita.com/)
-[![Image from Gyazo](https://i.gyazo.com/ea77b637d52cfcae29f61abff9e8b1a8.png)](https://gyazo.com/ea77b637d52cfcae29f61abff9e8b1a8)
+[![Image from Gyazo](https://i.gyazo.com/f9acd6ce27eb2065aac3cfb78aee5c24.png)](https://gyazo.com/f9acd6ce27eb2065aac3cfb78aee5c24)
 
 ## ■サービス概要
 「Miniita（ミニータ）」は技術記事を書いたことがない / 投稿したいけどハードルが高く投稿できないという方向けに、技術記事を投稿しやすい環境を提供するアプリです。QiitaやZennで将来的に技術記事が書けるようになるために、Miniitaでは「①書くことへの抵抗感を下げる ②見られることへの抵抗感を下げる ③継続して投稿を続けられる」機会をユーザーに提供します。
@@ -131,7 +131,7 @@ Xシェアできる内容を下記に設定し、ユーザーの目に止まる�
 
 | コメント機能（投稿・編集・削除） | コメントへのいいね機能 |
 | ---- | ---- |
-| [![Image from Gyazo](https://i.gyazo.com/733b0d24b6d8066d308081f4844c9bde.gif)](https://gyazo.com/733b0d24b6d8066d308081f4844c9bde) | [![Image from Gyazo](https://i.gyazo.com/5bfdfdff8e31057e6ef2433252ef1a84.gif)](https://gyazo.com/5bfdfdff8e31057e6ef2433252ef1a84) |
+| [![Image from Gyazo](https://i.gyazo.com/347345494e63c2976ca550f59e808b1a.gif)](https://gyazo.com/347345494e63c2976ca550f59e808b1a) | [![Image from Gyazo](https://i.gyazo.com/55cf230876aba80ad9f1b6d6a59b7e0b.gif)](https://gyazo.com/55cf230876aba80ad9f1b6d6a59b7e0b) |
 | 記事に対するコメントを投稿できます。投稿・編集・削除すべて非同期処理で実装しています。 | コメントへいいねを押すことができます。コメントへのいいねも非同期処理で実装しています。 |
 
 | プロフィール編集 | 投稿済、下書き記事の閲覧 |

@@ -61,6 +61,7 @@ class ArticlesController < ApplicationController
         redirect_to article_path(@article), notice: '記事を下書きに入れました。'
       else
         redirect_to article_path(@article), notice: '投稿しました。'
+        @article.create_notification_badge(current_user, @article.id)
       end
     else
       flash[:error] = 'タイトルと本文を入力しないと、投稿できません'
