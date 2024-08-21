@@ -2,7 +2,7 @@
   <div class="w-5/6 mx-auto max-w-screen-xl flex-grow mb-10">
     <div class="mt-20">
       <%= search_form_for @q do |f| %>
-        <%= f.search_field :user_name_or_title_or_body_cont, class: 'text-black bg-stone-50 input input-bordered w-96 ' %>
+        <%= f.search_field :user_name_or_title_or_body_cont, class: 'text-black bg-stone-50 input input-bordered w-72 md:w-96 ' %>
         <%= f.submit '&#128269;'.html_safe, class: 'btn-default ml-5' %>
       <% end %>
       <div class="mt-1 ml-4">
