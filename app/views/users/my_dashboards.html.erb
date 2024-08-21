@@ -1,13 +1,13 @@
 <% content_for :title, page_title('継続サポート') %>
 <div class="w-5/6 mx-auto max-w-screen-xl mt-20 flex-grow">
 <h1 class="text-3xl font-bold text-gray-600 mb-10">継続サポート</h1>
-  <p class="md:ml-5 text-gray-600 font-bold"><i class="bi bi-tags-fill"></i> 総いいね数： <span class="text-3xl"><%= Favorite.count %></span> いいね</P>
+  <p class="md:ml-5 text-gray-600 font-bold"><i class="bi bi-tags-fill"></i> 総いいね数： <span class="text-3xl"><%= @article_favorite.count %></span> いいね</P>
   <div class="flex flex-col-5 md:ml-5">
-    <p class="ml-5 text-gray-600">内訳：<div class="tooltip mt-4" data-tip="参考になった！"><i class="bi bi-hand-thumbs-up text-gray-600 mr-1"></i><%= Favorite.where(favorite_type: :like_first).count %></div></P>
-    <p class="ml-5 text-gray-600"><div class="tooltip mt-4" data-tip="学びが深まった"><i class="bi bi-award text-gray-600 mr-1"></i><%= Favorite.where(favorite_type: :like_second).count %></div></P>
-    <p class="ml-5 text-gray-600"><div class="tooltip mt-4" data-tip="解説が丁寧"><i class="bi bi-arrow-through-heart text-gray-600 mr-1"></i><%= Favorite.where(favorite_type: :like_third).count %></div></P>
-    <p class="ml-5 text-gray-600"><div class="tooltip mt-4" data-tip="独自の視点！"><i class="bi bi-brightness-alt-high text-gray-600 mr-1"></i><%= Favorite.where(favorite_type: :like_forth).count %></div></P>
-    <p class="ml-5 text-gray-600"><div class="tooltip mt-4" data-tip="詳細をもっと知りたい"><i class="bi bi-bell text-gray-600 mr-1"></i><%= Favorite.where(favorite_type: :like_fifth).count %></div></P>
+    <p class="ml-5 text-gray-600">内訳：<div class="tooltip mt-4" data-tip="参考になった！"><i class="bi bi-hand-thumbs-up text-gray-600 mr-1"></i><%= @article_favorite.where(favorites: { favorite_type: :like_first }).count %></div></P>
+    <p class="ml-5 text-gray-600"><div class="tooltip mt-4" data-tip="学びが深まった"><i class="bi bi-award text-gray-600 mr-1"></i><%= @article_favorite.where(favorites: { favorite_type: :like_second }).count %></div></P>
+    <p class="ml-5 text-gray-600"><div class="tooltip mt-4" data-tip="解説が丁寧"><i class="bi bi-arrow-through-heart text-gray-600 mr-1"></i><%= @article_favorite.where(favorites: { favorite_type: :like_third }).count %></div></P>
+    <p class="ml-5 text-gray-600"><div class="tooltip mt-4" data-tip="独自の視点！"><i class="bi bi-brightness-alt-high text-gray-600 mr-1"></i><%= @article_favorite.where(favorites: { favorite_type: :like_forth }).count %></div></P>
+    <p class="ml-5 text-gray-600"><div class="tooltip mt-4" data-tip="詳細をもっと知りたい"><i class="bi bi-bell text-gray-600 mr-1"></i><%= @article_favorite.where(favorites: { favorite_type: :like_fifth }).count %></div></P>
   </div>
 <p class="mt-10 md:ml-5 text-gray-600 font-bold"><i class="bi bi-tags-fill"></i> 総文字数（本文のみ）：<span class="text-3xl"><%= @article_body_count %></span> 文字</P>
 <p class="md:ml-5 text-gray-600 font-bold mt-10"><i class="bi bi-tags-fill"></i> チャットボットからの総評</P>
