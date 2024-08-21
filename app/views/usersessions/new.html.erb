@@ -1,6 +1,6 @@
 <% content_for :title, page_title('ログイン') %>
-<div class="w-5/6 mx-auto max-w-screen-xl flex-grow mt-20">
-  <h2 class="text-3xl font-bold text-gray-600 mb-10 ml-10">ログイン</h2>
+<div class="w-5/6 mx-auto max-w-screen-xl flex-grow mt-20 md:w-4/6">
+  <h2 class="text-3xl font-bold text-gray-600 mb-10">ログイン</h2>
   <form class="space-y-6" action="#" method="POST">
     <div>
       <label for="email" class="ml-4 text-base font-medium text-gray-600">メールアドレス</label>
@@ -15,10 +15,10 @@
       </div>
     </div>
     <div>
-      <button type="submit" class="app-link mt-10 mb-10 flex w-full justify-center rounded-md bg-blue-900 text-gray-100 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-800">ログイン</button>
+      <button type="submit" class="app-link mt-10 flex w-full justify-center rounded-md bg-blue-900 text-gray-100 px-3 py-1.5 text-base font-semibold leading-6 shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-800">ログイン</button>
     </div>
   </form>
-  <div class="flex-1">
+  <div class="mt-7 text-right">
       <%= link_to 'パスワードをお忘れの方はこちら', new_password_reset_path %>
     </div>
   
@@ -29,9 +29,8 @@
 
   <div class="flex flex-col md:flex-row gap-10 text-gray-100">
     <div class="flex-1">
-      </i><%= link_to 'GitHubアカウントでログイン', auth_at_provider_path(provider: :github),
-                  class: 'app-link mt-10 mb-10 flex w-full justify-center rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-800' %></span>
-        <i class="fab fa-github mr-2"></i>
+      <%= link_to 'GitHubアカウントでログイン', auth_at_provider_path(provider: :github),
+                  class: 'app-link mt-10 flex w-full justify-center rounded-md bg-blue-900 px-3 py-1.5 text-base font-semibold leading-6 shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-800' %>
     </div>
   </div>
 </div>
