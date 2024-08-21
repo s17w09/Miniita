@@ -1,6 +1,6 @@
 <% content_for :title, page_title('新規登録') %>
-<div class="w-5/6 mx-auto max-w-screen-xl flex-grow mt-20">
-  <h1 class="text-2xl font-bold text-gray-600 mb-10">新規登録</h1>
+<div class="w-5/6 mx-auto max-w-screen-xl flex-grow mt-20 md:w-4/6">
+  <h1 class="text-3xl font-bold text-gray-600 mb-10">新規登録</h1>
   <%= form_with model: @user do |form| %>
     <%= render 'shared/error_messages', object: form.object %>
     <div>
@@ -32,6 +32,6 @@
       </div>
     </div>
     <%= form.submit '登録',
-                    class: 'app-link mt-10 mb-20 flex w-full justify-center rounded-md bg-blue-900 text-gray-100 px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-800' %>
+                    class: 'app-link mt-10 mb-20 flex w-full justify-center rounded-md bg-blue-900 text-gray-100 px-3 py-1.5 text-base font-semibold leading-6 shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-800' %>
   <% end %>
 </div>
