@@ -43,7 +43,7 @@ Rails.application.config.sorcery.configure do |config|
   # How long in seconds to keep the session alive.
   # Default: `3600`
   #
-  config.session_timeout = 10800
+  config.session_timeout = 10_800
 
   # Use the last action as the beginning of session timeout.
   # Default: `false`
