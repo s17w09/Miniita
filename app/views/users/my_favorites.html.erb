@@ -1,51 +1,84 @@
 <% content_for :title, page_title('いいねした記事') %>
 <div class="w-5/6 mx-auto max-w-screen-xl flex-grow mb-20 md:w-4/6">
   <div class="mt-20">
-    <h1 class="mb-10 text-3xl font-bold text-gray-600">いいねした記事</h1>
-    <p class="ml-3 text-xl font-bold text-gray-600 mb-1"><i class="bi bi-hand-thumbs-up"></i> 参考になった</p>
-    <% @like_first.each do |favorite| %>
-      <div class="p-4 border rounded-lg mb-3 bg-stone-50 float1">
-        <%= link_to article_path(favorite.article), class: 'app-link' do %>
-          <p class="pl-4 font-semibold text-xl mt-2 text-gray-600"><%= favorite.article.title %></p>
-        <% end %>
+    <h1 class="mb-3 text-3xl font-bold text-gray-600">いいねした記事</h1>
+    <p class="text-gray-600 mb-10">項目を開くと、これまで開いていた項目が閉じます。</p>
+    <div class="join join-vertical w-full">
+      <div class="collapse collapse-arrow join-item border-gray-400 border">
+        <input type="radio" name="my-accordion-4" checked="checked">
+        <div class="ml-3 text-xl font-bold text-gray-600 mb-1 collapse-title text-xl font-medium">
+          <i class="bi bi-hand-thumbs-up"></i> 参考になった： <%= @like_first.count %> 記事
+        </div>
+        <div class="collapse-content">
+          <% @like_first.each do |favorite| %>
+            <div class="p-4 border rounded-lg mb-3 bg-stone-50 float1">
+              <%= link_to article_path(favorite.article), class: 'app-link' do %>
+                <p class="pl-4 font-semibold text-xl mt-2 text-gray-600"><%= favorite.article.title %></p>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
-
-    <p class="ml-3 mt-10 text-xl font-bold text-gray-600 mb-1"><i class="bi bi-award"></i> 学びが深まった</p>
-    <% @like_second.each do |favorite| %>
-      <div class="p-4 border rounded-lg mb-3 bg-stone-50 float1">
-        <%= link_to article_path(favorite.article), class: 'app-link' do %>
-          <p class="pl-4 font-semibold text-xl mt-2 text-gray-600"><%= favorite.article.title %></p>
-        <% end %>
+      <div class="collapse collapse-arrow join-item border-gray-400 border">
+        <input type="radio" name="my-accordion-4">
+        <div class="ml-3 mt-10 text-xl font-bold text-gray-600 mb-1 collapse-title text-xl font-medium">
+          <i class="bi bi-award"></i> 学びが深まった： <%= @like_second.count %> 記事
+        </div>
+        <div class="collapse-content">
+          <% @like_second.each do |favorite| %>
+            <div class="p-4 border rounded-lg mb-3 bg-stone-50 float1">
+              <%= link_to article_path(favorite.article), class: 'app-link' do %>
+                <p class="pl-4 font-semibold text-xl mt-2 text-gray-600"><%= favorite.article.title %></p>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
-
-    <p class="ml-3 mt-10 text-xl font-bold text-gray-600 mb-1"><i class="bi bi-arrow-through-heart"></i> 解説が丁寧</p>
-    <% @like_third.each do |favorite| %>
-      <div class="p-4 border rounded-lg mb-3 bg-stone-50 float1">
-        <%= link_to article_path(favorite.article), class: 'app-link' do %>
-          <p class="pl-4 font-semibold text-xl mt-2 text-gray-600"><%= favorite.article.title %></p>
-        <% end %>
+      <div class="collapse collapse-arrow join-item border-gray-400 border">
+        <input type="radio" name="my-accordion-4">
+        <div class="ml-3 mt-10 text-xl font-bold text-gray-600 mb-1 collapse-title text-xl font-medium">
+          <i class="bi bi-arrow-through-heart"></i> 解説が丁寧： <%= @like_third.count %> 記事
+        </div>
+        <div class="collapse-content">
+          <% @like_third.each do |favorite| %>
+            <div class="p-4 border rounded-lg mb-3 bg-stone-50 float1">
+              <%= link_to article_path(favorite.article), class: 'app-link' do %>
+                <p class="pl-4 font-semibold text-xl mt-2 text-gray-600"><%= favorite.article.title %></p>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
-
-    <p class="ml-3 mt-10 text-xl font-bold text-gray-600 mb-1"><i class="bi bi-brightness-alt-high"></i> 独自の視点</p>
-    <% @like_forth.each do |favorite| %>
-      <div class="p-4 border rounded-lg mb-3 bg-stone-50 float1">
-        <%= link_to article_path(favorite.article), class: 'app-link' do %>
-          <p class="pl-4 font-semibold text-xl mt-2 text-gray-600"><%= favorite.article.title %></p>
-        <% end %>
+      <div class="collapse collapse-arrow join-item border-gray-400 border">
+        <input type="radio" name="my-accordion-4">
+        <div class="ml-3 mt-10 text-xl font-bold text-gray-600 mb-1 collapse-title text-xl font-medium">
+          <i class="bi bi-brightness-alt-high"></i> 独自の視点： <%= @like_forth.count %> 記事
+        </div>
+        <div class="collapse-content">
+          <% @like_forth.each do |favorite| %>
+            <div class="p-4 border rounded-lg mb-3 bg-stone-50 float1">
+              <%= link_to article_path(favorite.article), class: 'app-link' do %>
+                <p class="pl-4 font-semibold text-xl mt-2 text-gray-600"><%= favorite.article.title %></p>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
-
-    <p class="ml-3 mt-10 text-xl font-bold text-gray-600 mb-1"><i class="bi bi-bell"></i> 詳細をもっと知りたい</p>
-    <% @like_fifth.each do |favorite| %>
-      <div class="p-4 border rounded-lg mb-3 bg-stone-50 float1">
-        <%= link_to article_path(favorite.article), class: 'app-link' do %>
-          <p class="pl-4 font-semibold text-xl mt-2 text-gray-600"><%= favorite.article.title %></p>
-        <% end %>
+      <div class="collapse collapse-arrow join-item border-gray-400 border">
+        <input type="radio" name="my-accordion-4">
+        <div class="ml-3 mt-10 text-xl font-bold text-gray-600 mb-1 collapse-title text-xl font-medium">
+          <i class="bi bi-bell"></i> 詳細をもっと知りたい： <%= @like_fifth.count %> 記事
+        </div>
+        <div class="collapse-content">
+          <% @like_fifth.each do |favorite| %>
+            <div class="p-4 border rounded-lg mb-3 bg-stone-50 float1">
+              <%= link_to article_path(favorite.article), class: 'app-link' do %>
+                <p class="pl-4 font-semibold text-xl mt-2 text-gray-600"><%= favorite.article.title %></p>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
-
+    </div>
   </div>
 </div>

@@ -7,7 +7,7 @@
   <% end %>
 <% else %>
     <%= link_to login_path, class: 'app-link like-button-1' do %>
-      <i class="bi bi-arrow-through-heart text-gray-600"></i>
+      <i class="bi bi-hand-thumbs-up text-gray-600"></i>
       <p class="text-xs paragraph flex justify-center"><%= @article.favorites.where(favorite_type: 'like_first').count %></p>
     <% end %>
 <% end %>

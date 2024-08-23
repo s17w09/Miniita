@@ -9,8 +9,10 @@
     </div>
     <div class="flex-grow p-4 border rounded-lg bg-stone-50 text-gray-100 max-w-full lg:pr-20 lg:pl-20 pt-10 pb-20">
       <h1 class="text-3xl font-bold mt-5 text-left text-gray-600"><%= @article.title %></h1>
-      <p class="paragraph text-sm font-normal text-gray-400"><i class="bi bi-signpost"></i> 作成日：<%= l @article.created_at, format: :long %></p>
-      <p class="paragraph text-sm font-normal text-gray-400"><i class="bi bi-signpost"></i> 更新日：<%= l @article.updated_at, format: :long %></p>
+      <p class="paragraph text-sm font-normal text-gray-400"><i class="bi bi-signpost"></i> 作成日：<%= l @article.created_at,
+                                                                                                      format: :long %></p>
+      <p class="paragraph text-sm font-normal text-gray-400"><i class="bi bi-signpost"></i> 更新日：<%= l @article.updated_at,
+                                                                                                      format: :long %></p>
       <p class="paragraph text-sm font-normal text-gray-400"><i class="bi bi-signpost"></i> 投稿者：<%= @article.user.name %></p>
       <div class="mt-10 text-gray-600">
         <%= render_markdown(@article.body).html_safe %>
