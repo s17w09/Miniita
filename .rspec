@@ -1,0 +1,3 @@
+--require spec_helper #spec_helperの参照
+--format documentation #テスト結果を見やすいドキュメントにする
+--warnings #警告全表示（エラーではないが非推奨になった処理等教えてくれる）
