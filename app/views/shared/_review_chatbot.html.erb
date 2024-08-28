@@ -48,7 +48,7 @@
     // ローディングスピナーを表示
     loadingSpinner.classList.remove('hidden');
 
-    const url = "<%= my_dashboards_users_path('json') %>?user_input=" + userInput.value;
+    const url = "<%= my_dashboards_path('json') %>?user_input=" + userInput.value;
     const postOptions = {
       headers: {
         'Accept': 'application/json',
