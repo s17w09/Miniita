@@ -11,7 +11,7 @@
       <%= link_to 'あなたのコメント', notification.article, style: 'font-weight: bold;' %>にいいねしました。
        <p class="text-gray-400 paragraph"><%= time_ago_in_words(notification.created_at).upcase %>前</p>
     <% when 'badge' then %>
-      <%= link_to 'マイページ', my_badges_users_path, class: 'font-bold mr-2' %>上でバッジを付与されました！
+      <%= link_to 'マイページ', my_badges_path, class: 'font-bold mr-2' %>上でバッジを付与されました！
        <p class="text-gray-400 paragraph"><%= time_ago_in_words(notification.created_at).upcase %>前</p>
     <% when 'comment' then %>
       <%= link_to 'あなたの投稿', notification.article, class: 'font-bold mr-2' %>にコメントしました。
