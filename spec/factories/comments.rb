@@ -1,5 +1,7 @@
 FactoryBot.define do
   factory :comment do
-
-  end
+      body { "hogehoge" }
+      association :user
+      association :article
+    end
 end
