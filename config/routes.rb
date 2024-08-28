@@ -12,14 +12,12 @@ Rails.application.routes.draw do
   get 'oauth/callback', to: 'oauths#callback'
   get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
 
-  resources :users, only: %i[new create] do
-    collection do
-      get :my_articles
-      get :my_favorites
-      get :my_badges
-      get :my_dashboards
-    end
-  end
+  resources :users, only: %i[new create]
+  
+  resources :my_articles, only: %i[index]
+  resources :my_favorites, only: %i[index]
+  resources :my_badges, only: %i[index]
+  resources :my_dashboards, only: %i[index]
 
   resource :profile, only: %i[edit show update]
 

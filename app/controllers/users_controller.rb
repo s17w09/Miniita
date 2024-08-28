@@ -20,58 +20,7 @@ class UsersController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
-  def my_articles
-    @draft_articles = current_user.articles.draft.includes(:user).order(created_at: :desc)
-    @published_articles = current_user.articles.published.includes(:user).order(created_at: :desc)
-  end
-
-  def my_favorites
-    @like_first = current_user.favorites.where(favorite_type: :like_first).includes(:user).order(created_at: :desc)
-    @like_second = current_user.favorites.where(favorite_type: :like_second).includes(:user).order(created_at: :desc)
-    @like_third = current_user.favorites.where(favorite_type: :like_third).includes(:user).order(created_at: :desc)
-    @like_forth = current_user.favorites.where(favorite_type: :like_forth).includes(:user).order(created_at: :desc)
-    @like_fifth = current_user.favorites.where(favorite_type: :like_fifth).includes(:user).order(created_at: :desc)
-  end
-
-  def my_badges
-    @first_article = current_user.first_published
-    @third_article = current_user.third_published
-    @fifth_article = current_user.fifth_published
-    @tenth_article = current_user.tenth_published
-    @twentieth_article = current_user.twentieth_published
-    @thirtieth_article = current_user.thirtieth_published
-  end
-
-  def my_dashboards
-    @article_published = current_user.articles.published
-    @article_title = current_user.articles.published.pluck(:title)
-    @article_body_count = current_user.articles.published.sum { |article| article.body.length }
-    @article_favorite = current_user.articles.joins(:favorites)
-
-    @user_input = params[:user_input]
-    return if @user_input.blank?
-
-    client = OpenAI::Client.new
-
-    response = client.chat(
-      parameters: {
-        model: 'gpt-4o-mini', # 必要なモデルを指定
-        messages: [
-          { role: 'system',
-            content: 'あなたは優秀なWEBエンジニアです。ユーザー入力に応答してください。max_tokensを1000で設定しているので、tokenを1000以内で文章を収めてください。' },
-          { role: 'user', content: @user_input }
-        ],
-        temperature: 0.7,
-        max_tokens: 1000 # 平均でひらがな１文字１～２トークン、漢字１文字２～３トークンのため、日本語300文字程度と考え600に設定
-      }
-    )
-
-    @text = response.dig('choices', 0, 'message', 'content')
-    markdown_html = render_markdown(@text) # マークダウンをHTMLに変換
-    render json: { text: markdown_html }
-  end
-
+    
   private
 
   def user_params
