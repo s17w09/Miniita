@@ -116,6 +116,7 @@ GEM
       reline (>= 0.3.8)
     deep_merge (1.2.2)
     diff-lcs (1.5.1)
+    docile (1.4.1)
     dotenv (3.1.2)
     dotenv-rails (3.1.2)
       dotenv (= 3.1.2)
@@ -366,6 +367,12 @@ GEM
       websocket (~> 1.0)
     shoulda-matchers (6.4.0)
       activesupport (>= 5.2.0)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     smart_properties (1.17.0)
     snaky_hash (2.0.1)
       hashie
@@ -452,6 +459,7 @@ DEPENDENCIES
   ruby-openai
   selenium-webdriver
   shoulda-matchers
+  simplecov
   sorcery
   spring-commands-rspec
   sprockets-rails
