@@ -28,11 +28,20 @@ services:
       - node_modules:/myapp/node_modules
     environment:
       TZ: Asia/Tokyo
+      # system spec追加のため追記     
+      SELENIUM_DRIVER_URL: http://chrome:4444/wd/hub
+      # ここまで
     ports:
       - "3000:3000"
     depends_on:
       db:
         condition: service_healthy
+  # system spec追加のため追記      
+  chrome:
+    image: seleniarm/standalone-chromium:latest
+    ports:
+      - 4444:4444
+  # ここまで
 volumes:
   bundle_data:
   postgresql_data:
