@@ -39,6 +39,7 @@ services:
   # system spec追加のため追記      
   chrome:
     image: seleniarm/standalone-chromium:latest
+    shm_size: 256m
     ports:
       - 4444:4444
   # ここまで
