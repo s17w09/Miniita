@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
         @article.create_notification_badge(current_user, @article.id)
       end
     else
-      flash[:error] = 'タイトルと本文を入力しないと、投稿できません'
+      flash[:error] = 'タイトルと本文を入力しないと、投稿できません。'
       render :new, status: :unprocessable_entity
     end
   end
@@ -64,14 +64,14 @@ class ArticlesController < ApplicationController
         @article.create_notification_badge(current_user, @article.id)
       end
     else
-      flash[:error] = 'タイトルと本文を入力しないと、投稿できません'
+      flash[:error] = 'タイトルと本文を入力しないと、投稿できません。'
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @article.destroy!
-    redirect_to articles_path, notice: '削除しました'
+    redirect_to articles_path, notice: '削除しました。'
   end
 
   private
