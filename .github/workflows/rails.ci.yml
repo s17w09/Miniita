@@ -1,0 +1,55 @@
+
+name: Rails CI
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:5.7.44
+        env:
+          MYSQL_ROOT_PASSWORD: #passwordをここ記入 
+        ports:
+          - 3306:3306
+        options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.2.0' 
+
+    - name: Cache Ruby gems # Ruby gemsをキャッシュします。
+      uses: actions/cache@v3
+      with:
+        path: vendor/bundle # キャッシュするディレクトリを指定します。
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }} # キャッシュのキーを指定します。
+        restore-keys: |
+          ${{ runner.os }}-gems-  # 部分一致する最新のキャッシュを探します。
+      
+    - name: Install dependencies
+      run: |
+        sudo apt-get update -qq
+        gem install bundler
+        bundle install
+
+    - name: Setup database
+      run: |
+          cp config/database.ci.yml config/database.yml
+          bundle exec rails db:create RAILS_ENV=test
+          bundle exec rails db:migrate RAILS_ENV=test
+  
+    - name: Run RSpec
+      run: bundle exec rspec spec/models spec/requests  spec/system 
+
+    - name: Run RuboCop
+      run: bundle exec rubocop
+
+
