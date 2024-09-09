@@ -1,6 +1,6 @@
 <% content_for :title, page_title('詳細') %>
 <div class="mb-20">
-  <div class="w-5/6 mx-auto max-w-screen-xl mt-20 flex-grow">
+  <div class="w-11/12 mx-auto max-w-screen-xl mt-20 flex-grow lg:w-5/6">
     <div class="flex flex-col-6 gap-4 text-xl mb-5">
       <% if @article.published? %>
         <%= render 'shared/twitter' %>
@@ -28,7 +28,7 @@
     </div>
   </div>
   <% if @article.published? %>
-    <div class="w-5/6 mx-auto max-w-screen-xl mt-28">
+    <div class="w-11/12 mx-auto max-w-screen-xl mt-28 lg:w-5/6">
       <h1 class="text-3xl font-bold mt-5 text-left text-gray-600">コメント</h1>
         <%= render 'comments/form', comment: @comment, article: @article %>
         <table class="table">
