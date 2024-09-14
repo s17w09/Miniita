@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :commentfavorites, dependent: :destroy
-  has_many :authentications, dependent: :destroy
+  has_many :authentications, dependent: :destroy #外部認証用のテーブル
 
   # 通知を送ったユーザーへの通知
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
