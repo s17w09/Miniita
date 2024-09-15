@@ -40,6 +40,7 @@ class Article < ApplicationRecord
     %w[favorites user]
   end
 
+  # 記事のいいねの通知
   def create_notification_like!(current_user)
     # すでにいいねされているかの確認（これを確認しないといいねの度に通知が入る）
     temp = Notification.where(['visitor_id = ? and visited_id = ? and article_id = ? and action = ?', current_user.id,
