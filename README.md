@@ -58,11 +58,12 @@
 | API | OpenAI API |
 
 ## ■ 画面遷移図
-[![Image from Gyazo](https://i.gyazo.com/aa5edbf4ba6f0971b40534922f2a2e53.png)](https://gyazo.com/aa5edbf4ba6f0971b40534922f2a2e53)
-[詳細URL](https://dbdiagram.io/d/MIniita-Diagram-66a5f2268b4bb5230e89fe95)
+[![Image from Gyazo](https://i.gyazo.com/34c04c8da0b7ff0962f35b77788c4c46.png)](https://gyazo.com/34c04c8da0b7ff0962f35b77788c4c46)
+[詳細URL](https://www.figma.com/design/fMNLgmhX0WqSTmgvktCdX7/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0-1&node-type=canvas&t=u0NF4uaie17uZbXB-0)
 
 ## ■ ER図
-[![Image from Gyazo](https://i.gyazo.com/7bd85e65299881047e42a7ab8931c529.png)](https://gyazo.com/7bd85e65299881047e42a7ab8931c529)
+[![Image from Gyazo](https://i.gyazo.com/aa5edbf4ba6f0971b40534922f2a2e53.png)](https://gyazo.com/aa5edbf4ba6f0971b40534922f2a2e53)
+[詳細URL](https://dbdiagram.io/d/MIniita-Diagram-66a5f2268b4bb5230e89fe95)
 
 ## ■ このアプリに関する記事
 - [【個人開発】Qiitaで投稿を断念してしまった私が、3ヶ月越しに「初学者向けの技術記事アプリ」を作成しました！💐](https://qiita.com/s17w09/items/0abf0be66cdd973425cc)
