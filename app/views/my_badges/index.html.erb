@@ -6,32 +6,32 @@
     獲得したバッジはXでシェアすることが可能です。
   </p>
   <div class="grid grid-cols-1 lg:grid-cols-6 gap-5 mt-10 mb-20 justify-items-center">
-    <% if @first_article %>
+    <% if current_user.articles.published.count >= 1 %>
       <%= render 'my_badges/first_post' %>
     <% else %>
       <%= render 'my_badges/before_post' %>
     <% end %>
-    <% if @third_article %>
+    <% if current_user.articles.published.count >= 3 %>
       <%= render 'my_badges/third_post' %>
     <% else %>
       <%= render 'my_badges/before_post' %>
     <% end %>
-    <% if @fifth_article %>
+    <% if current_user.articles.published.count >= 5 %>
       <%= render 'my_badges/fifth_post' %>
     <% else %>
       <%= render 'my_badges/before_post' %>
     <% end %>
-    <% if @tenth_article %>
+    <% if current_user.articles.published.count >= 10 %>
       <%= render 'my_badges/10th_post' %>
     <% else %>
       <%= render 'my_badges/before_post' %>
     <% end %>
-    <% if @twentieth_article %>
+   <% if current_user.articles.published.count >= 20 %>
       <%= render 'my_badges/20th_post' %>
     <% else %>
       <%= render 'my_badges/before_post' %>
     <% end %>
-    <% if @thirtieth_article %>
+    <% if current_user.articles.published.count >= 30 %>
       <%= render 'my_badges/30th_post' %>
     <% else %>
       <%= render 'my_badges/before_post' %>
